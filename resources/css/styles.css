@@ -1,0 +1,182 @@
+/* =========================================
+   1. THEME VARIABLES (The Control Center)
+   ========================================= */
+:root {
+    /* --- BRAND COLORS (Modern Indigo) --- */
+    /* Primary: Used for buttons, links, highlights */
+    --clr-primary: #4f46e5;       /* Indigo 600 */
+    --clr-primary-hover: #4338ca; /* Indigo 700 (Darker for hover) */
+    --clr-primary-light: #e0e7ff; /* Very light indigo (Backgrounds) */
+
+    /* Secondary: Used for gradients or accents */
+    --clr-accent: #0ea5e9;        /* Sky Blue 500 */
+
+    /* --- NEUTRALS (Backgrounds & Text) --- */
+    --clr-bg-body: #f8fafc;       /* Slate 50 (Not harsh white, soft grey-white) */
+    --clr-bg-surface: #ffffff;    /* Pure white for cards */
+    --clr-text-main: #0f172a;     /* Slate 900 (Almost black, sharp text) */
+    --clr-text-muted: #64748b;    /* Slate 500 (For subtitles) */
+    --clr-border: #e2e8f0;        /* Light grey borders */
+
+    /* --- SHAPES & SHADOWS --- */
+    --radius-md: 8px;             /* Smooth, modern corners */
+    --radius-pill: 50px;          /* For rounded buttons */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+    /* --- ANIMATIONS --- */
+    --transition-fast: 0.2s ease-in-out;
+}
+
+/* =========================================
+   2. RESET & BASE
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--clr-bg-body);
+    color: var(--clr-text-main);
+    line-height: 1.6;
+    /* RTL Support for Hebrew */
+    direction: rtl; 
+    text-align: right; 
+    
+    /* Center content wrapper */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   3. TYPOGRAPHY
+   ========================================= */
+h1, h2, h3 {
+    color: var(--clr-text-main);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--clr-text-muted);
+}
+
+a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--clr-primary-hover);
+}
+
+/* =========================================
+   4. UI COMPONENTS (Use these everywhere)
+   ========================================= */
+
+/* --- BUTTONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-decoration: none; /* In case it's an <a> tag */
+}
+
+/* Primary Button (Filled) */
+.btn-primary {
+    background-color: var(--clr-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--clr-primary-hover);
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: var(--shadow-md);
+    color: white;
+}
+
+/* Outline Button (Transparent) */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--clr-primary-light);
+}
+
+/* --- CARDS (White containers) --- */
+.card {
+    background: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--clr-primary-light);
+}
+
+/* --- FORM INPUTS --- */
+.input-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--clr-text-main);
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 3px var(--clr-primary-light);
+}
+
+/* =========================================
+   5. UTILITIES (Helpers)
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.text-center { text-align: center; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.w-full { width: 100%; }
