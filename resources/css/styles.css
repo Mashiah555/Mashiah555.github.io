@@ -1,31 +1,75 @@
 /* =========================================
-   1. THEME VARIABLES (The Control Center)
+   1. THEME VARIABLES & DARK MODE
    ========================================= */
 :root {
-    /* --- BRAND COLORS (Modern Indigo) --- */
-    /* Primary: Used for buttons, links, highlights */
+    /* --- LIGHT MODE (Default) --- */
     --clr-primary: #4f46e5;       /* Indigo 600 */
-    --clr-primary-hover: #4338ca; /* Indigo 700 (Darker for hover) */
-    --clr-primary-light: #e0e7ff; /* Very light indigo (Backgrounds) */
+    --clr-primary-hover: #4338ca; 
+    --clr-primary-light: #e0e7ff; 
 
-    /* Secondary: Used for gradients or accents */
-    --clr-accent: #0ea5e9;        /* Sky Blue 500 */
+    --clr-bg-body: #f8fafc;       /* Light Slate */
+    --clr-bg-surface: #ffffff;    /* Pure White */
+    --clr-text-main: #0f172a;     /* Dark Slate */
+    --clr-text-muted: #64748b;    
+    --clr-border: #e2e8f0;       
 
-    /* --- NEUTRALS (Backgrounds & Text) --- */
-    --clr-bg-body: #f8fafc;       /* Slate 50 (Not harsh white, soft grey-white) */
-    --clr-bg-surface: #ffffff;    /* Pure white for cards */
-    --clr-text-main: #0f172a;     /* Slate 900 (Almost black, sharp text) */
-    --clr-text-muted: #64748b;    /* Slate 500 (For subtitles) */
-    --clr-border: #e2e8f0;        /* Light grey borders */
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
 
-    /* --- SHAPES & SHADOWS --- */
-    --radius-md: 8px;             /* Smooth, modern corners */
-    --radius-pill: 50px;          /* For rounded buttons */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    
-    /* --- ANIMATIONS --- */
-    --transition-fast: 0.2s ease-in-out;
+/* --- DARK MODE OVERRIDES --- */
+[data-theme="dark"] {
+    --clr-primary: #6366f1;       /* Lighter Indigo for dark backgrounds */
+    --clr-primary-hover: #818cf8; 
+    --clr-primary-light: #1e293b; /* Dark Indigo background */
+
+    --clr-bg-body: #0f172a;       /* Deep Slate (Dark Background) */
+    --clr-bg-surface: #1e293b;    /* Lighter Slate (Card Background) */
+    --clr-text-main: #f1f5f9;     /* White-ish text */
+    --clr-text-muted: #94a3b8;    
+    --clr-border: #334155;        /* Dark Grey Border */
+
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.5); /* Stronger shadow */
+}
+
+/* --- GLOBAL STYLES --- */
+body {
+    background-color: var(--clr-bg-body);
+    color: var(--clr-text-main);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth toggle */
+}
+
+/* Floating Settings Button */
+.settings-widget {
+    position: fixed;
+    bottom: 20px;
+    /* We use 'inset-inline-end' so it stays in the corner regardless of LTR/RTL */
+    inset-inline-end: 20px; 
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    background: var(--clr-bg-surface);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--clr-border);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--clr-primary-light);
+    transform: scale(1.1);
 }
 
 /* =========================================
