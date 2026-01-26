@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuval Mashiah</title>
-    <link rel="icon" href="sources/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="resources/css/styles.css">
   
     <!-- Instant redirect to the pages folder -->
-    <meta http-equiv="refresh" content="1; url=pages/login_page.html">
+    <meta http-equiv="refresh" content="1; url=pages/home_page.html">
     <script>
         // Fallback if meta refresh doesn't work immediately
         setTimeout(() => {
@@ -16,15 +16,9 @@
     </script>
     <style>
         body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: #FFF5F7; /* Temporary background Color */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            align-items: center;
+            height: 100vh;
         }
         
         .logo-container {
@@ -38,7 +32,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-md);
             animation: pulse 2s infinite ease-in-out;
         }
 
