@@ -1,40 +1,21 @@
-// Dictionary for translations
-const translations = {
-    he: {
-        greeting: "שלום, אני יובל משיח",
-        role: "מפתח Full Stack",
-        btn_portfolio: "לתיק העבודות",
-        toggle_lang: "EN",
-        toggle_theme: "🌙"
-    },
-    en: {
-        greeting: "Hi, I'm Yuval Mashiah",
-        role: "Full Stack Developer",
-        btn_portfolio: "View Portfolio",
-        toggle_lang: "HE",
-        toggle_theme: "☀️"
-    }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Load saved settings or defaults
+    // 1. Load saved settings
     const savedTheme = localStorage.getItem('theme') || 'light';
     const savedLang = localStorage.getItem('lang') || 'he';
 
-    // 2. Apply initial settings
+    // 2. Apply settings
     applyTheme(savedTheme);
     applyLanguage(savedLang);
 
-    // 3. Attach Event Listeners
+    // 3. Attach Listeners
     document.getElementById('btn-theme').addEventListener('click', toggleTheme);
     document.getElementById('btn-lang').addEventListener('click', toggleLanguage);
 });
 
+/* --- THEME LOGIC --- */
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
-    // Update icon
     const icon = theme === 'dark' ? '☀️' : '🌙';
     document.getElementById('btn-theme').textContent = icon;
 }
@@ -45,21 +26,23 @@ function toggleTheme() {
     applyTheme(newTheme);
 }
 
+/* --- LANGUAGE LOGIC --- */
 function applyLanguage(lang) {
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
     localStorage.setItem('lang', lang);
 
-    // Update text content for all elements with data-i18n attribute
+    // Update Text using the 'dictionary' variable from the other file
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            el.textContent = translations[lang][key];
+        // Check if the key exists in the dictionary to avoid errors
+        if (dictionary[lang] && dictionary[lang][key]) {
+            el.textContent = dictionary[lang][key];
         }
     });
 
-    // Update Language Button Text (Show the *other* language)
-    const btnText = lang === 'he' ? translations.he.toggle_lang : translations.en.toggle_lang;
+    // Update Language Button
+    const btnText = lang === 'he' ? dictionary.he.toggle_lang : dictionary.en.toggle_lang;
     document.getElementById('btn-lang').textContent = btnText;
 }
 
