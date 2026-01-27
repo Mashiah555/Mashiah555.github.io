@@ -1,31 +1,114 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuval Mashiah</title>
-    
-    <link rel="stylesheet" href="../resources/css/styles.css">
+    <title>Yuval Mashiah | Portfolio</title>
+
+    <link rel="stylesheet" href="../resources/assets/styles.css">
     <link rel="icon" href="../resources/images/logo.png" type="image/png">
 </head>
+
 <body>
 
-    <div class="container flex-center" style="min-height: 80vh;">
-        <div class="text-center">
-            <img src="../resources/images/logo.png" class="logo" style="width:150px; border-radius:50%">
-            
-            <h1 data-i18n="greeting">שלום, אני יובל</h1>
-            <p data-i18n="role" class="mb-4">מפתח Full Stack</p>
-            
-            <a href="#" class="btn btn-primary" data-i18n="btn_portfolio">לתיק העבודות</a>
+    <div class="container">
+        <div id="global-header"></div>
+
+        <div class="hero-container">
+            <div class="hero-profile">
+                <img src="../resources/images/profile.png" alt="Profile" class="profile-img">
+                <div class="profile-info">
+                    <h1 data-i18n="greeting">Yuval Mashiah</h1>
+                    <span class="location-text" data-i18n="hero_location">Israel</span>
+                </div>
+            </div>
+
+            <div class="hero-socials">
+                <a href="#" class="social-btn" title="LinkedIn">in</a>
+                <a href="#" class="social-btn" title="GitHub">gh</a>
+                <a href="mailto:email@example.com" class="social-btn" title="Email">@</a>
+            </div>
         </div>
+
+        <div class="hero-context">
+            <h2 class="hero-title" data-i18n="hero_role">Full-Stack Developer</h2>
+            <p class="hero-subtitle" data-i18n="hero_student">3rd Year Student...</p>
+
+            <a href="about_page.html" class="btn btn-outline" data-i18n="btn_seemore">See More</a>
+        </div>
+
+        <div id="skills" class="skills-section">
+
+            <h3 class="section-title" data-i18n="skills_lang">Languages</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=cs" class="skill-icon" alt="C#">
+                    <div class="skill-text">
+                        <strong>C#</strong>
+                        <p data-i18n="desc_csharp">Backend/Desktop</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=py" class="skill-icon" alt="Python">
+                    <div class="skill-text">
+                        <strong>Python</strong>
+                        <p data-i18n="desc_python">Automation</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=cpp" class="skill-icon" alt="C++">
+                    <div class="skill-text">
+                        <strong>C++</strong>
+                        <p data-i18n="desc_cpp">System</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" data-i18n="skills_frame">Frameworks</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=dotnet" class="skill-icon" alt=".NET">
+                    <div class="skill-text">
+                        <strong>.NET MAUI</strong>
+                        <p data-i18n="desc_maui">Mobile/Desktop</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=flutter" class="skill-icon" alt="Flutter">
+                    <div class="skill-text">
+                        <strong>Flutter</strong>
+                        <p data-i18n="desc_flutter">UI Toolkit</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" data-i18n="skills_plat">Platforms</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=azure" class="skill-icon" alt="Azure">
+                    <div class="skill-text">
+                        <strong>Azure</strong>
+                        <p data-i18n="desc_azure">Cloud</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <img src="https://skillicons.dev/icons?i=unity" class="skill-icon" alt="Unity">
+                    <div class="skill-text">
+                        <strong>Unity</strong>
+                        <p>Game Dev</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="global-footer"></div>
     </div>
 
-    <div class="settings-widget">
-        <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
-        <button id="btn-lang" class="icon-btn" title="Switch Language">🇺🇸 English</button>
-    </div>
-
-    <script src="../resources/js/app.js"></script>
+    <script src="../resources/assets/translations.js"></script>
+    <script src="../resources/assets/app.js"></script>
+    <script src="../resources/assets/layout.js"></script>
 </body>
+
 </html>
