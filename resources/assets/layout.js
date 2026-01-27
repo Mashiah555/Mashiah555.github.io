@@ -17,7 +17,7 @@ function renderHeader() {
             </div>
             <div class="nav-right">
                 <button id="btn-theme" class="icon-btn" title="Toggle Theme" onclick="toggleTheme()">🌙</button>
-                <button id="btn-lang" class="icon-btn" title="Switch Language" onclick="toggleLanguage()">🇺🇸 English</button>
+                <button id="btn-lang" class="icon-btn" title="Switch Language" onclick="toggleLanguage()">EN</button>
             </div>
         </nav>
     `;

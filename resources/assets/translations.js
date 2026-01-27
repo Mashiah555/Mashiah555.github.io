@@ -11,23 +11,53 @@ const dictionary = {
         
         // --- Hero Section ---
         hero_role: "מפתח Full Stack",
-        hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
+        hero_student: "סטודנט שנה ג' למדעי המחשב ב-JCT",
         hero_location: "ישראל",
-        btn_seemore: "מידע נוסף",
+        btn_seemore: "קרא עוד",
         
-        // --- Skills Section ---
-        skills_lang: "שפות תכנות",
-        skills_frame: "מערכות עבודה",
-        skills_plat: "פלטפורמות וכלים",
+        // --- Categories (Updated) ---
+        cat_languages: "שפות תכנות",
+        cat_frameworks: "Frameworks וכלים",
+        cat_platforms: "פלטפורמות ו-Data",
+        cat_practices: "מתודולוגיות ופרוטוקולים",
         
-        // --- Skill Descriptions (Examples) ---
-        desc_csharp: "פיתוח Backend ו-Desktop",
-        desc_python: "אוטומציה ו-AI",
-        desc_cpp: "ביצועים גבוהים",
+        // --- Descriptions (Shortened & Translated) ---
+        // Languages
+        desc_python: "Data Science וסקריפטים",
+        desc_csharp: "Windows ו-Web מודרני",
+        desc_cpp: "ביצועים גבוהים (System)",
+        desc_java: "Enterprise ואנדרואיד",
+        desc_dart: "פיתוח UI (Flutter)",
+        desc_js: "אינטראקטיביות Web",
+        desc_html: "מבנה תוכן Web",
+        
+        // Frameworks & Tools
+        desc_git: "ניהול גרסאות",
         desc_maui: "אפליקציות Cross-Platform",
-        desc_flutter: "פיתוח מובייל היברידי",
-        desc_azure: "שירותי ענן",
+        desc_fastapi: "API מהיר ב-Python",
+        desc_ollama: "הרצת LLM מקומית",
+        desc_langchain: "פיתוח מבוסס LLM",
+        desc_n8n: "אוטומציה של תהליכים",
         
+        // Platforms & Databases
+        desc_azure: "ענן ופתרונות עסקיים",
+        desc_docker: "ניהול קונטיינרים",
+        desc_gconsole: "ניהול משאבי ענן",
+        desc_firebase: "Backend לאפליקציות",
+        desc_mongo: "מסד נתונים NoSQL",
+        desc_sqlite: "DB קל ולוקאלי",
+        
+        // Practices & Protocols
+        desc_agile: "פיתוח גמיש ואיטרטיבי",
+        desc_a2a: "תקשורת בין אפליקציות",
+        desc_mvvm: "הפרדת UI מלוגיקה",
+        desc_mvp: "הפרדת תצוגה ממידע",
+        desc_mcp: "פרוטוקול תקשורת",
+        desc_mvc: "ארכיטקטורת ממשק",
+        desc_microservices: "שירותים עצמאיים",
+        desc_microfront: "רכיבי Frontend עצמאיים",
+        desc_event: "ניהול שינויים כאירועים",
+
         // --- Footer ---
         footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
     },
@@ -40,23 +70,53 @@ const dictionary = {
         
         // --- Hero Section ---
         hero_role: "Full-Stack Developer",
-        hero_student: "3rd Year BA Student in Computer Science at JCT",
+        hero_student: "3rd Year CS Student at JCT",
         hero_location: "Israel",
         btn_seemore: "See More",
         
-        // --- Skills Section ---
-        skills_lang: "Languages",
-        skills_frame: "Frameworks",
-        skills_plat: "Platforms & Tools",
+        // --- Categories (Updated) ---
+        cat_languages: "Languages",
+        cat_frameworks: "Frameworks & Tools",
+        cat_platforms: "Platforms & Databases",
+        cat_practices: "Practices & Protocols",
         
-        // --- Skill Descriptions ---
-        desc_csharp: "Backend & Desktop Dev",
-        desc_python: "Automation & AI",
+        // --- Descriptions (Shortened) ---
+        // Languages
+        desc_python: "Data Science & Web",
+        desc_csharp: "Modern Windows & Web",
         desc_cpp: "High Performance",
-        desc_maui: "Cross-Platform Apps",
-        desc_flutter: "Hybrid Mobile Dev",
-        desc_azure: "Cloud Services",
+        desc_java: "Enterprise & Android",
+        desc_dart: "UI Development",
+        desc_js: "Web Interactivity",
+        desc_html: "Web Structure",
         
+        // Frameworks & Tools
+        desc_git: "Version Control",
+        desc_maui: "Cross-Platform Native",
+        desc_fastapi: "High-Perf Python APIs",
+        desc_ollama: "Local LLM Runner",
+        desc_langchain: "LLM App Framework",
+        desc_n8n: "Workflow Automation",
+        
+        // Platforms & Databases
+        desc_azure: "Cloud Solutions",
+        desc_docker: "Containerization",
+        desc_gconsole: "Cloud Management",
+        desc_firebase: "App Backend",
+        desc_mongo: "NoSQL Database",
+        desc_sqlite: "Serverless SQL",
+        
+        // Practices & Protocols
+        desc_agile: "Iterative Dev",
+        desc_a2a: "App-to-App Comm",
+        desc_mvvm: "UI/Logic Separation",
+        desc_mvp: "Presenter Pattern",
+        desc_mcp: "Communication Protocol",
+        desc_mvc: "UI Architecture",
+        desc_microservices: "Independent Services",
+        desc_microfront: "Frontend Components",
+        desc_event: "Event-Driven State",
+
         // --- Footer ---
         footer_rights: "© 2026 Yuval Mashiah. All rights reserved."
     }
