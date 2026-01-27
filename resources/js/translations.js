@@ -10,18 +10,19 @@ const dictionary = {
         nav_projects: "פרויקטים",
         
         // --- Hero Section ---
+        greeting: "יובל משיח",
         hero_role: "מפתח Full Stack",
-        hero_student: "סטודנט שנה ג' למדעי המחשב ב-JCT",
+        hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
         hero_location: "ישראל",
-        btn_seemore: "קרא עוד",
+        btn_seemore: "מידע נוסף",
         
-        // --- Categories (Updated) ---
+        // --- Categories ---
         cat_languages: "שפות תכנות",
-        cat_frameworks: "Frameworks וכלים",
-        cat_platforms: "פלטפורמות ו-Data",
+        cat_frameworks: "מערכות עבודה וכלים",
+        cat_platforms: "פלטפורמות ובסיסי נתונים",
         cat_practices: "מתודולוגיות ופרוטוקולים",
         
-        // --- Descriptions (Shortened & Translated) ---
+        // --- Descriptions ---
         // Languages
         desc_python: "Data Science וסקריפטים",
         desc_csharp: "Windows ו-Web מודרני",
@@ -69,18 +70,19 @@ const dictionary = {
         nav_projects: "Projects",
         
         // --- Hero Section ---
+        greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
-        hero_student: "3rd Year CS Student at JCT",
+        hero_student: "3rd Year BA student in Computer Science at JCT",
         hero_location: "Israel",
         btn_seemore: "See More",
         
-        // --- Categories (Updated) ---
+        // --- Categories ---
         cat_languages: "Languages",
         cat_frameworks: "Frameworks & Tools",
         cat_platforms: "Platforms & Databases",
         cat_practices: "Practices & Protocols",
         
-        // --- Descriptions (Shortened) ---
+        // --- Descriptions ---
         // Languages
         desc_python: "Data Science & Web",
         desc_csharp: "Modern Windows & Web",
@@ -92,7 +94,7 @@ const dictionary = {
         
         // Frameworks & Tools
         desc_git: "Version Control",
-        desc_maui: "Cross-Platform Native",
+        desc_maui: "Cross-Platform Apps",
         desc_fastapi: "High-Perf Python APIs",
         desc_ollama: "Local LLM Runner",
         desc_langchain: "LLM App Framework",

@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     renderHeader();
     renderFooter();
-    // Re-run language translation after injecting HTML
-    const savedLang = localStorage.getItem('lang') || 'he';
-    applyLanguage(savedLang); 
+    
+    if (typeof initApp === 'function') {
+        initApp();
+    }
 });
 
+/* --- HEADER (Navbar) --- */
 function renderHeader() {
     const headerHTML = `
-        <nav class="navbar card">
+        <nav class="navbar">
             <div class="nav-left">
                 <a href="home_page.html" class="nav-link" data-i18n="nav_home">Home</a>
                 <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
@@ -16,23 +18,27 @@ function renderHeader() {
                 <a href="#" class="nav-link" data-i18n="nav_projects">Projects</a>
             </div>
             <div class="nav-right">
-                <button id="btn-theme" class="icon-btn" title="Toggle Theme" onclick="toggleTheme()">🌙</button>
-                <button id="btn-lang" class="icon-btn" title="Switch Language" onclick="toggleLanguage()">EN</button>
+                <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
+                <button id="btn-lang" class="icon-btn" title="Switch Language">🇺🇸 English</button>
             </div>
         </nav>
     `;
-    document.getElementById('global-header').innerHTML = headerHTML;
+    const headerContainer = document.getElementById('global-header');
+    if (headerContainer) headerContainer.innerHTML = headerHTML;
 }
 
+/* --- FOOTER --- */
 function renderFooter() {
     const footerHTML = `
         <footer class="footer text-center">
             <p data-i18n="footer_rights">© 2026 Yuval Mashiah. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#" target="_blank">LinkedIn</a> • 
-                <a href="#" target="_blank">GitHub</a>
+                <a href="${siteConfig.links.linkedin}" target="_blank">LinkedIn</a> • 
+                <a href="${siteConfig.links.github}" target="_blank">GitHub</a> • 
+                <a href="${siteConfig.links.email}">Email</a>
             </div>
         </footer>
     `;
-    document.getElementById('global-footer').innerHTML = footerHTML;
+    const footerContainer = document.getElementById('global-footer');
+    if (footerContainer) footerContainer.innerHTML = footerHTML;
 }

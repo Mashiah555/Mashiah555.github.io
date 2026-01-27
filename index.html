@@ -1,12 +1,13 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuval Mashiah</title>
     <link rel="icon" href="resources/images/logo.png" type="image/png">
-    <link rel="stylesheet" href="resources/assets/styles.css">
-  
+    <link rel="stylesheet" href="resources/css/styles.css">
+
     <!-- Instant redirect to the pages folder -->
     <meta http-equiv="refresh" content="1; url=pages/home_page.html">
     <script>
@@ -24,7 +25,7 @@
             justify-content: center;
             background-color: var(--clr-bg-body);
         }
-        
+
         .logo-container {
             text-align: center;
             animation: fadeIn 0.5s ease-in;
@@ -53,17 +54,36 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="logo-container">
         <img src="sources/images/logo.png" alt="Mashiah555 Logo" class="logo">
@@ -72,4 +92,5 @@
         </div>
     </div>
 </body>
+
 </html>
