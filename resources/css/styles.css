@@ -244,6 +244,136 @@ html[dir="rtl"] .nav-link::after {
 }
 
 /* =========================================
+   RESUME PAGE STYLES
+   ========================================= */
+
+/* --- Controls Bar (Toggle & Download) --- */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--clr-border);
+}
+
+/* View Toggle (Chips) */
+.view-toggle {
+    display: flex;
+    background: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    gap: 5px;
+}
+
+.chip {
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--clr-text-muted);
+    transition: var(--transition-fast);
+}
+
+.chip:hover { color: var(--clr-primary); }
+
+.chip.active {
+    background-color: var(--clr-primary-light);
+    color: var(--clr-primary);
+    font-weight: 600;
+}
+
+/* Download Dropdown */
+.download-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0; /* Aligns to right in LTR */
+    top: 100%;
+    margin-top: 5px;
+    background-color: var(--clr-bg-surface);
+    min-width: 160px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--clr-border);
+    z-index: 50;
+    overflow: hidden;
+}
+
+/* RTL Support for Dropdown alignment */
+html[dir="rtl"] .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+
+.download-dropdown:hover .dropdown-menu {
+    display: block; /* Show on hover */
+    animation: fadeIn 0.2s ease-in;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    color: var(--clr-text-main);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--clr-bg-body);
+    color: var(--clr-primary);
+}
+
+/* --- Tab Bar --- */
+.tab-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: var(--clr-text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.tab-btn:hover { color: var(--clr-primary); }
+
+.tab-btn.active {
+    color: var(--clr-primary);
+    border-bottom-color: var(--clr-primary);
+    font-weight: 700;
+}
+
+/* Placeholder for Tab Content */
+.tab-content {
+    display: none; /* Hide all by default */
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+    display: block; /* Show active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
    5. SKILLS STACK STYLING
    ========================================= */
 

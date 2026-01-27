@@ -13,9 +13,9 @@ function renderHeader() {
         <nav class="navbar">
             <div class="nav-left">
                 <a href="home_page.html" class="nav-link" data-i18n="nav_home">Home</a>
-                <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
                 <a href="about_page.html" class="nav-link" data-i18n="nav_about">About</a>
                 <a href="#" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
             </div>
             <div class="nav-right">
                 <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>

@@ -8,20 +8,20 @@ const dictionary = {
         nav_skills: "כישורים",
         nav_about: "אודות",
         nav_projects: "פרויקטים",
-        
+
         // --- Hero Section ---
         greeting: "יובל משיח",
         hero_role: "מפתח Full Stack",
         hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
         hero_location: "ישראל",
         btn_seemore: "מידע נוסף",
-        
+
         // --- Categories ---
         cat_languages: "שפות תכנות",
         cat_frameworks: "מערכות עבודה וכלים",
         cat_platforms: "פלטפורמות ובסיסי נתונים",
         cat_practices: "מתודולוגיות ופרוטוקולים",
-        
+
         // --- Descriptions ---
         // Languages
         desc_python: "Data Science וסקריפטים",
@@ -31,7 +31,7 @@ const dictionary = {
         desc_dart: "פיתוח UI (Flutter)",
         desc_js: "אינטראקטיביות Web",
         desc_html: "מבנה תוכן Web",
-        
+
         // Frameworks & Tools
         desc_git: "ניהול גרסאות",
         desc_maui: "אפליקציות Cross-Platform",
@@ -39,7 +39,7 @@ const dictionary = {
         desc_ollama: "הרצת LLM מקומית",
         desc_langchain: "פיתוח מבוסס LLM",
         desc_n8n: "אוטומציה של תהליכים",
-        
+
         // Platforms & Databases
         desc_azure: "ענן ופתרונות עסקיים",
         desc_docker: "ניהול קונטיינרים",
@@ -47,7 +47,7 @@ const dictionary = {
         desc_firebase: "Backend לאפליקציות",
         desc_mongo: "מסד נתונים NoSQL",
         desc_sqlite: "DB קל ולוקאלי",
-        
+
         // Practices & Protocols
         desc_agile: "פיתוח גמיש ואיטרטיבי",
         desc_a2a: "תקשורת בין אפליקציות",
@@ -59,6 +59,22 @@ const dictionary = {
         desc_microfront: "רכיבי Frontend עצמאיים",
         desc_event: "ניהול שינויים כאירועים",
 
+        // --- Resume Page ---
+        resume_location: "פתח תקווה, ישראל",
+        resume_bio: "אני מפתח Full-Stack בן 20, חייל בצה\"ל במסגרת מסלול העתודה.",
+
+        // Controls
+        view_visual: "ויזואלי",
+        view_simple: "פשוט",
+        btn_download: "הורד קו\"ח",
+        opt_he: "עברית (PDF)",
+        opt_en: "אנגלית (PDF)",
+
+        // Tabs
+        tab_exp: "ניסיון",
+        tab_skills: "כישורים",
+        tab_edu: "השכלה",
+
         // --- Footer ---
         footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
     },
@@ -68,20 +84,20 @@ const dictionary = {
         nav_skills: "Skills",
         nav_about: "About",
         nav_projects: "Projects",
-        
+
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
         hero_student: "3rd Year BA student in Computer Science at JCT",
         hero_location: "Israel",
         btn_seemore: "See More",
-        
+
         // --- Categories ---
         cat_languages: "Languages",
         cat_frameworks: "Frameworks & Tools",
         cat_platforms: "Platforms & Databases",
         cat_practices: "Practices & Protocols",
-        
+
         // --- Descriptions ---
         // Languages
         desc_python: "Data Science & Web",
@@ -91,7 +107,7 @@ const dictionary = {
         desc_dart: "UI Development",
         desc_js: "Web Interactivity",
         desc_html: "Web Structure",
-        
+
         // Frameworks & Tools
         desc_git: "Version Control",
         desc_maui: "Cross-Platform Apps",
@@ -99,7 +115,7 @@ const dictionary = {
         desc_ollama: "Local LLM Runner",
         desc_langchain: "LLM App Framework",
         desc_n8n: "Workflow Automation",
-        
+
         // Platforms & Databases
         desc_azure: "Cloud Solutions",
         desc_docker: "Containerization",
@@ -107,7 +123,7 @@ const dictionary = {
         desc_firebase: "App Backend",
         desc_mongo: "NoSQL Database",
         desc_sqlite: "Serverless SQL",
-        
+
         // Practices & Protocols
         desc_agile: "Iterative Dev",
         desc_a2a: "App-to-App Comm",
@@ -118,6 +134,22 @@ const dictionary = {
         desc_microservices: "Independent Services",
         desc_microfront: "Frontend Components",
         desc_event: "Event-Driven State",
+
+        // --- Resume Page ---
+        resume_location: "Petah Tikva, Israel",
+        resume_bio: "I am a 20-year-old Full-Stack Developer, an IDF soldier under the Atuda program.",
+
+        // Controls
+        view_visual: "Visual",
+        view_simple: "Simple",
+        btn_download: "Download CV",
+        opt_he: "Hebrew (PDF)",
+        opt_en: "English (PDF)",
+
+        // Tabs
+        tab_exp: "Experience",
+        tab_skills: "Skills",
+        tab_edu: "Education",
 
         // --- Footer ---
         footer_rights: "© 2026 Yuval Mashiah. All rights reserved."

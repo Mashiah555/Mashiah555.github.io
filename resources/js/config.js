@@ -11,5 +11,9 @@ const siteConfig = {
         logo_img: "../resources/images/logo.png",
         placeholder_icon: "../resources/images/placeholder.png",
         skill_icon_base: "https://skillicons.dev/icons?i="
+    },
+    documents: {
+        resume_he: "../resources/documents/יובל משיח - קורות חיים.pdf",
+        resume_en: "../resources/documents/Yuval Mashiah - Resume.pdf"
     }
 };

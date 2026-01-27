@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuval Mashiah | Resume</title>
+
+    <link rel="stylesheet" href="../resources/css/styles.css">
+    <link rel="icon" href="../resources/images/logo.png" type="image/png">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="global-header"></div>
+
+        <div class="hero-container">
+            <div class="hero-profile">
+                <img id="resume-profile-img" alt="Profile" class="profile-img">
+                <div class="profile-info">
+                    <h1 data-i18n="greeting">Yuval Mashiah</h1>
+                    <span class="location-text" data-i18n="resume_location">Petah Tikva, Israel</span>
+                </div>
+            </div>
+
+            <div class="hero-socials" id="resume-socials">
+            </div>
+        </div>
+
+        <div class="hero-context" style="margin-bottom: 30px;">
+            <p class="hero-subtitle" data-i18n="resume_bio" style="max-width: 600px; margin: 0 auto;">
+                I am a 20 years old...
+            </p>
+        </div>
+
+        <div class="controls-bar">
+            <div class="view-toggle">
+                <button class="chip active" onclick="switchView('visual')" data-i18n="view_visual">Visual</button>
+                <button class="chip" onclick="switchView('simple')" data-i18n="view_simple">Simple</button>
+            </div>
+
+            <div class="download-dropdown">
+                <button class="btn btn-primary" data-i18n="btn_download">Download CV ▼</button>
+                <div class="dropdown-menu">
+                    <a href="#" id="dl-he" class="dropdown-item" target="_blank" data-i18n="opt_he">Hebrew</a>
+                    <a href="#" id="dl-en" class="dropdown-item" target="_blank" data-i18n="opt_en">English</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-bar">
+            <button class="tab-btn active" onclick="openTab('experience')" data-i18n="tab_exp">Experience</button>
+            <button class="tab-btn" onclick="openTab('skills')" data-i18n="tab_skills">Skills</button>
+            <button class="tab-btn" onclick="openTab('education')" data-i18n="tab_edu">Education</button>
+        </div>
+
+        <div id="experience" class="tab-content active">
+            <h3 class="text-center" style="color:var(--clr-text-muted)">Experience Content Loading...</h3>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <h3 class="text-center" style="color:var(--clr-text-muted)">Skills Content Loading...</h3>
+        </div>
+
+        <div id="education" class="tab-content">
+            <h3 class="text-center" style="color:var(--clr-text-muted)">Education Content Loading...</h3>
+        </div>
+
+        <div id="global-footer"></div>
+    </div>
+
+    <script src="../resources/js/config.js"></script>
+    <script src="../resources/js/translations.js"></script>
+    <script src="../resources/js/app.js"></script>
+    <script src="../resources/js/layout.js"></script>
+
+    <script>
+        // Inject Assets that layout.js doesn't handle for this specific page
+        document.getElementById('resume-profile-img').src = siteConfig.assets.profile_img;
+
+        // Inject Socials manually since we aren't using renderHero()
+        const socialHTML = `
+            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">in</a>
+            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">gh</a>
+            <a href="${siteConfig.links.email}" class="social-btn">@</a>
+        `;
+        document.getElementById('resume-socials').innerHTML = socialHTML;
+
+        // Set Download Links
+        document.getElementById('dl-he').href = siteConfig.documents.resume_he;
+        document.getElementById('dl-en').href = siteConfig.documents.resume_en;
+
+        // Tab Switching Logic
+        function openTab(tabName) {
+            // 1. Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            // 2. Show selected
+            document.getElementById(tabName).classList.add('active');
+
+            // 3. Highlight button (Find button that calls this function)
+            // Simple way: iterate buttons and check text or index. 
+            // Better way: pass 'event' or use specific IDs for buttons. 
+            // For now, let's just use the onclick to set 'this' active if we attached via JS, 
+            // but since it's inline HTML, we can do this:
+            event.target.classList.add('active');
+        }
+
+        // View Switching Logic (Stub)
+        function switchView(view) {
+            document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            console.log("Switched to " + view);
+        }
+    </script>
+</body>
+
+</html>
