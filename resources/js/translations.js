@@ -6,7 +6,7 @@ const dictionary = {
         // --- Navigation ---
         nav_home: "בית",
         nav_skills: "כישורים",
-        nav_about: "אודות",
+        resume: "קורות חיים",
         nav_projects: "פרויקטים",
 
         // --- Hero Section ---
@@ -61,12 +61,12 @@ const dictionary = {
 
         // --- Resume Page ---
         resume_location: "פתח תקווה, ישראל",
-        resume_bio: "אני מפתח Full-Stack בן 20, חייל בצה\"ל במסגרת מסלול העתודה.",
+        resume_bio: "אני חייל צה\"ל בן 20, שמשרת תחת תכנית העתודה האקדמית כמפתח Full Stack.",
 
         // Controls
-        view_visual: "ויזואלי",
+        view_visual: "מעוצב",
         view_simple: "פשוט",
-        btn_download: "הורד קו\"ח",
+        btn_download: "הורדת קו\"ח",
         opt_he: "עברית (PDF)",
         opt_en: "אנגלית (PDF)",
 
@@ -82,7 +82,7 @@ const dictionary = {
         // --- Navigation ---
         nav_home: "Home",
         nav_skills: "Skills",
-        nav_about: "About",
+        nav_resume: "Resume",
         nav_projects: "Projects",
 
         // --- Hero Section ---
@@ -137,7 +137,7 @@ const dictionary = {
 
         // --- Resume Page ---
         resume_location: "Petah Tikva, Israel",
-        resume_bio: "I am a 20-year-old Full-Stack Developer, an IDF soldier under the Atuda program.",
+        resume_bio: "I am a 20-year-old IDF soldier, serving under the Academic Reserve Program as a Full Stack Developer.",
 
         // Controls
         view_visual: "Visual",

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     renderHeader();
     renderFooter();
-    
+
     if (typeof initApp === 'function') {
         initApp();
     }
@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- HEADER (Navbar) --- */
 function renderHeader() {
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+    const isActive = (p) => page === p ? 'active' : '';
+
     const headerHTML = `
         <nav class="navbar">
             <div class="nav-left">
@@ -33,9 +37,15 @@ function renderFooter() {
         <footer class="footer text-center">
             <p data-i18n="footer_rights">© 2026 Yuval Mashiah. All rights reserved.</p>
             <div class="footer-links">
-                <a href="${siteConfig.links.linkedin}" target="_blank">LinkedIn</a> • 
-                <a href="${siteConfig.links.github}" target="_blank">GitHub</a> • 
-                <a href="${siteConfig.links.email}">Email</a>
+                <a href="${siteConfig.links.linkedin}" target="_blank" class="footer-link">
+                    <img src="${siteConfig.assets.icon_linkedin}" alt="in"> LinkedIn
+                </a>
+                <a href="${siteConfig.links.github}" target="_blank" class="footer-link">
+                    <img src="${siteConfig.assets.icon_github}" alt="GH"> GitHub
+                </a>
+                <a href="${siteConfig.links.email}" class="footer-link">
+                    <img src="${siteConfig.assets.icon_gmail}" alt="@"> Email
+                </a>
             </div>
         </footer>
     `;

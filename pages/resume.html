@@ -79,11 +79,17 @@
         // Inject Assets that layout.js doesn't handle for this specific page
         document.getElementById('resume-profile-img').src = siteConfig.assets.profile_img;
 
-        // Inject Socials manually since we aren't using renderHero()
+        // Inject Socials manually with images
         const socialHTML = `
-            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">in</a>
-            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">gh</a>
-            <a href="${siteConfig.links.email}" class="social-btn">@</a>
+            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_linkedin}" alt="LinkedIn">
+            </a>
+            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_github}" alt="GitHub">
+            </a>
+            <a href="${siteConfig.links.email}" class="social-btn">
+                <img src="${siteConfig.assets.icon_gmail}" alt="Email">
+            </a>
         `;
         document.getElementById('resume-socials').innerHTML = socialHTML;
 
