@@ -445,7 +445,7 @@ html[dir="rtl"] .dropdown-menu {
     animation: fadeUp 0.5s ease-out forwards;
     transition: all 0.2s ease-in-out;
     box-shadow: var(--shadow-sm);
-    min-height: 80px; 
+    min-height: 70px; 
 }
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -460,15 +460,15 @@ html[dir="rtl"] .dropdown-menu {
 
 /* Stagger delays for the first 10 items */
 .skill-card:nth-child(1) { animation-delay: 0.1s; }
-.skill-card:nth-child(2) { animation-delay: 0.15s; }
-.skill-card:nth-child(3) { animation-delay: 0.25s; }
-.skill-card:nth-child(4) { animation-delay: 0.2s; }
-.skill-card:nth-child(5) { animation-delay: 0.3s; }
-.skill-card:nth-child(6) { animation-delay: 0.35s; }
-.skill-card:nth-child(7) { animation-delay: 0.4s; }
-.skill-card:nth-child(8) { animation-delay: 0.45s; }
-.skill-card:nth-child(9) { animation-delay: 0.5s; }
-.skill-card:nth-child(10) { animation-delay: 0.55s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+.skill-card:nth-child(7) { animation-delay: 0.7s; }
+.skill-card:nth-child(8) { animation-delay: 0.8s; }
+.skill-card:nth-child(9) { animation-delay: 0.9s; }
+.skill-card:nth-child(10) { animation-delay: 1.0s; }
 
 /* Icons inside cards */
 .skill-icon {
