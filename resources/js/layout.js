@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* --- HEADER (Navbar) --- */
 function renderHeader() {
     const path = window.location.pathname;
-    const page = path.split("/").pop();
+    const page = path.split("/").pop() || "home.html";
     const isActive = (p) => page === p ? 'active' : '';
 
     const headerHTML = `

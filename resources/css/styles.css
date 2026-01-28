@@ -167,7 +167,7 @@ html[dir="rtl"] .nav-link::after {
     margin-top: 40px;
     margin-bottom: 60px;
     flex-wrap: wrap; 
-    gap: 8rem;
+    gap: 4rem;
 }
 
 .hero-profile {
@@ -401,11 +401,14 @@ html[dir="rtl"] .dropdown-menu {
     display: flex;
     align-items: center;
     gap: 1rem;
+    animation: fadeUp 0.5s ease-out forwards;
     transition: all 0.2s ease-in-out;
     box-shadow: var(--shadow-sm);
-    
-    /* Ensure height is consistent */
     min-height: 80px; 
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 0.95; transform: translateY(0); }
 }
 
 .skill-card:hover {
@@ -413,6 +416,18 @@ html[dir="rtl"] .dropdown-menu {
     border-color: var(--clr-primary);
     box-shadow: var(--shadow-md);
 }
+
+/* Stagger delays for the first 10 items */
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.15s; }
+.skill-card:nth-child(3) { animation-delay: 0.25s; }
+.skill-card:nth-child(4) { animation-delay: 0.2s; }
+.skill-card:nth-child(5) { animation-delay: 0.3s; }
+.skill-card:nth-child(6) { animation-delay: 0.35s; }
+.skill-card:nth-child(7) { animation-delay: 0.4s; }
+.skill-card:nth-child(8) { animation-delay: 0.45s; }
+.skill-card:nth-child(9) { animation-delay: 0.5s; }
+.skill-card:nth-child(10) { animation-delay: 0.55s; }
 
 /* Icons inside cards */
 .skill-icon {
@@ -560,6 +575,7 @@ html[dir="rtl"] .dropdown-menu {
     }
 
     .hero-container {
+        gap: 2rem;
         flex-direction: column;
         text-align: center;
     }
