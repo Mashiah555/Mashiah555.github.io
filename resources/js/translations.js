@@ -31,6 +31,7 @@ const dictionary = {
         desc_dart: "פיתוח UI (Flutter)",
         desc_js: "אינטראקטיביות Web",
         desc_html: "מבנה תוכן Web",
+        desc_css: "עיצוב Web",
 
         // Frameworks & Tools
         desc_git: "ניהול גרסאות",
@@ -107,6 +108,7 @@ const dictionary = {
         desc_dart: "UI Development",
         desc_js: "Web Interactivity",
         desc_html: "Web Structure",
+        desc_css: "Web Styling",
 
         // Frameworks & Tools
         desc_git: "Version Control",
