@@ -387,7 +387,7 @@ html[dir="rtl"] .dropdown-menu {
 .skills-grid {
     display: grid;
     /* Responsive columns: At least 220px wide, fitting as many as possible */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     margin-bottom: 50px;
 }
@@ -450,7 +450,6 @@ html[dir="rtl"] .dropdown-menu {
     text-align: center;
     border-left: 4px solid var(--clr-primary); /* Nice accent bar */
 }
-
 .skill-card:not(:has(img)) .skill-text {
     align-items: center;
 }

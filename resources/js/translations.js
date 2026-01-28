@@ -32,7 +32,7 @@ const dictionary = {
         desc_js: "אינטראקטיביות Web",
         desc_html: "מבנה תוכן Web",
         desc_css: "עיצוב Web",
-        desc_shell: "אוטומציה ב-Bash ו-PowerShell",
+        desc_shell: "Bash ו-PowerShell",
 
         // Frameworks & Tools
         desc_git: "ניהול גרסאות",
@@ -112,7 +112,7 @@ const dictionary = {
         desc_js: "Web Interactivity",
         desc_html: "Web Structure",
         desc_css: "Web Styling",
-        desc_shell: "Bash & PowerShell Automation",
+        desc_shell: "Bash & PowerShell",
 
         // Frameworks & Tools
         desc_git: "Version Control",
