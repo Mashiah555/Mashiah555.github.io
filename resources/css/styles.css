@@ -249,6 +249,47 @@ html[dir="rtl"] .nav-link::after {
     font-weight: 400;
 }
 
+/* --- Hero Actions Group --- */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px; /* Space between buttons and skills trailer */
+}
+
+/* --- Compact Skill Card (The Trailer) --- */
+.home-skills-preview {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.skill-card.compact {
+    min-height: auto;       /* Remove fixed height */
+    padding: 0.8rem 1.2rem; /* Smaller padding */
+    gap: 10px;
+    background: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Smaller Icon for Compact Mode */
+.skill-card.compact .skill-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Smaller Text for Compact Mode */
+.skill-card.compact .skill-text strong {
+    font-size: 0.95rem;
+}
+.skill-card.compact .skill-text p {
+    font-size: 0.75rem;
+}
+
 /* =========================================
    RESUME PAGE STYLES
    ========================================= */
@@ -482,6 +523,17 @@ html[dir="rtl"] .dropdown-menu {
     border: none;
     font-size: 1rem;
     transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--clr-primary);
+    color: #ffffff;
+    border: 2px solid var(--clr-primary);
+}
+.btn-primary:hover {
+    background-color: var(--clr-primary-hover);
+    border-color: var(--clr-primary-hover);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Outline Button Style */

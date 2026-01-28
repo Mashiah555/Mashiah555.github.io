@@ -15,6 +15,7 @@ const dictionary = {
         hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
         hero_location: "ישראל",
         btn_seemore: "מידע נוסף",
+        btn_myskills: "לכל הכישורים שלי",
 
         // --- Categories ---
         cat_languages: "שפות תכנות",
@@ -95,6 +96,7 @@ const dictionary = {
         hero_student: "3rd Year BA student in Computer Science at JCT",
         hero_location: "Israel",
         btn_seemore: "See More",
+        btn_myskills: "Full Skill Set",
 
         // --- Categories ---
         cat_languages: "Languages",

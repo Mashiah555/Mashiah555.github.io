@@ -14,13 +14,36 @@ function initApp() {
 
     if (btnTheme) btnTheme.addEventListener('click', toggleTheme);
     if (btnLang) btnLang.addEventListener('click', toggleLanguage);
+
+    // Check if we are on the home page and have data
+    if (document.getElementById('home-skills-container') && typeof resumeData !== 'undefined') {
+        renderHomeSkills();
+    }
+}
+
+function renderHomeSkills() {
+    const lang = localStorage.getItem('lang') || 'he';
+    const container = document.getElementById('home-skills-container');
+    const skills = resumeData.topSkills;
+
+    const html = skills.map(skill => `
+        <div class="skill-card compact">
+            <img src="${siteConfig.assets.skill_icon_base}${skill.icon}" class="skill-icon" alt="${skill.name}">
+            <div class="skill-text">
+                <strong>${skill.name}</strong>
+                <p>${skill.desc[lang]}</p>
+            </div>
+        </div>
+    `).join('');
+
+    container.innerHTML = html;
 }
 
 /* --- THEME LOGIC --- */
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
+
     const btn = document.getElementById('btn-theme');
     if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
@@ -49,6 +72,10 @@ function applyLanguage(lang) {
     const btn = document.getElementById('btn-lang');
     if (btn) {
         btn.textContent = lang === 'he' ? dictionary.he.toggle_lang : dictionary.en.toggle_lang;
+    }
+    // Re-render home skills if they exist (to update the description text)
+    if (document.getElementById('home-skills-container')) {
+        renderHomeSkills();
     }
 }
 
