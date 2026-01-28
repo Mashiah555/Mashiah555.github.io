@@ -151,7 +151,7 @@ const dictionary = {
 
         // Controls
         view_visual: "Visual",
-        view_simple: "Simple",
+        view_simple: "Plain",
         btn_download: "Download CV",
         opt_he: "Hebrew (PDF)",
         opt_en: "English (PDF)",
