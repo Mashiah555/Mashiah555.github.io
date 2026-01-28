@@ -599,8 +599,8 @@ html[dir="rtl"] .dropdown-menu {
 .footer {
     margin-top: auto; /* Pushes footer to bottom */
     padding: 2rem 0;
-    border-top: 1px solid var(--clr-border);
-    background-color: var(--clr-bg-surface);
+    border-top: 2px solid var(--clr-border);
+    background-color: transparent;
     color: var(--clr-text-muted);
 }
 

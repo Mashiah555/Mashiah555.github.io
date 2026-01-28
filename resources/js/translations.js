@@ -5,9 +5,10 @@ const dictionary = {
     he: {
         // --- Navigation ---
         nav_home: "בית",
-        nav_skills: "כישורים",
-        resume: "קורות חיים",
+        nav_resume: "קורות חיים",
         nav_projects: "פרויקטים",
+        nav_skills: "כישורים",
+        toggle_lang: "EN",
 
         // --- Hero Section ---
         greeting: "יובל משיח",
@@ -86,9 +87,10 @@ const dictionary = {
     en: {
         // --- Navigation ---
         nav_home: "Home",
-        nav_skills: "Skills",
         nav_resume: "Resume",
         nav_projects: "Projects",
+        nav_skills: "Skills",
+        toggle_lang: "עב",
 
         // --- Hero Section ---
         greeting: "Yuval Mashiah",

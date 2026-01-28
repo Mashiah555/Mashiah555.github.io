@@ -17,11 +17,9 @@ function renderHeader() {
         <nav class="navbar">
             <div class="nav-left">
                 <a href="${siteConfig.links.page_home}" class="nav-link ${isActive(siteConfig.links.page_home)}" data-i18n="nav_home">Home</a>
-                
-                <a href="${siteConfig.links.page_resume}?tab=skills" class="nav-link" data-i18n="nav_skills">Skills</a>
-                
                 <a href="${siteConfig.links.page_resume}" class="nav-link ${isActive(siteConfig.links.page_resume)}" data-i18n="nav_resume">Resume</a>
                 <a href="${siteConfig.links.page_projects}" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="${siteConfig.links.page_resume}?tab=skills" class="nav-link" data-i18n="nav_skills">Skills</a>
             </div>
             <div class="nav-right">
                 <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
