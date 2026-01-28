@@ -112,6 +112,12 @@
                             <p data-i18n="desc_css"></p>
                         </div>
                     </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.simpleicons.org/gnubash" class="skill-icon" alt="Shell">
+                        <div class="skill-text"><strong>Shell Scripting</strong>
+                            <p data-i18n="desc_shell"></p>
+                        </div>
+                    </div>
                 </div>
 
                 <h3 class="section-title" data-i18n="cat_frameworks">Frameworks & Tools</h3>
@@ -141,19 +147,25 @@
                         </div>
                     </div>
                     <div class="skill-card">
-                        <img src="../resources/images/logo.png" class="skill-icon" alt="Ollama">
+                        <img src="https://cdn.simpleicons.org/huggingface" class="skill-icon" alt="Hugging Face">
+                        <div class="skill-text"><strong>Hugging Face</strong>
+                            <p data-i18n="desc_huggingface"></p>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.simpleicons.org/ollama" class="skill-icon" alt="Ollama">
                         <div class="skill-text"><strong>Ollama</strong>
                             <p data-i18n="desc_ollama"></p>
                         </div>
                     </div>
                     <div class="skill-card">
-                        <img src="../resources/images/logo.png" class="skill-icon" alt="LangChain">
+                        <img src="https://cdn.simpleicons.org/langchain" class="skill-icon" alt="LangChain">
                         <div class="skill-text"><strong>LangChain</strong>
                             <p data-i18n="desc_langchain"></p>
                         </div>
                     </div>
                     <div class="skill-card">
-                        <img src="../resources/images/logo.png" class="skill-icon" alt="n8n">
+                        <img src="https://cdn.simpleicons.org/n8n" class="skill-icon" alt="n8n">
                         <div class="skill-text"><strong>n8n</strong>
                             <p data-i18n="desc_n8n"></p>
                         </div>
@@ -286,7 +298,7 @@
 
         // Inject Placeholders for missing icons
         document.querySelectorAll('.use-placeholder').forEach(img => {
-            img.src = siteConfig.assets.placeholder_icon;
+            img.src = siteConfig.assets.default_icon;
         });
 
         // Tab Logic

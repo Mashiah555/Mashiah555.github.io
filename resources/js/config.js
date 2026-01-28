@@ -14,7 +14,7 @@ const siteConfig = {
     assets: {
         profile_img: "../resources/images/profile.png",
         logo_img: "../resources/images/logo.png",
-        placeholder_icon: "../resources/images/placeholder.png",
+        default_icon: "../resources/images/default.png",
 
         skill_icon_base: "https://skillicons.dev/icons?i=",
         icon_linkedin: "https://skillicons.dev/icons?i=linkedin",

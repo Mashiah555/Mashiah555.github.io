@@ -32,12 +32,14 @@ const dictionary = {
         desc_js: "אינטראקטיביות Web",
         desc_html: "מבנה תוכן Web",
         desc_css: "עיצוב Web",
+        desc_shell: "אוטומציה ב-Bash ו-PowerShell",
 
         // Frameworks & Tools
         desc_git: "ניהול גרסאות",
         desc_maui: "אפליקציות Cross-Platform",
         desc_fastapi: "API מהיר ב-Python",
         desc_flutter: "פיתוח אפליקציות UI",
+        desc_huggingface: "מודלים ומאגרי ML",
         desc_ollama: "הרצת LLM מקומית",
         desc_langchain: "פיתוח מבוסס LLM",
         desc_n8n: "אוטומציה של תהליכים",
@@ -110,12 +112,14 @@ const dictionary = {
         desc_js: "Web Interactivity",
         desc_html: "Web Structure",
         desc_css: "Web Styling",
+        desc_shell: "Bash & PowerShell Automation",
 
         // Frameworks & Tools
         desc_git: "Version Control",
         desc_maui: "Cross-Platform Apps",
         desc_fastapi: "High-Perf Python APIs",
         desc_flutter: "UI App Development",
+        desc_huggingface: "ML Models & Datasets",
         desc_ollama: "Local LLM Runner",
         desc_langchain: "LLM App Framework",
         desc_n8n: "Workflow Automation",
