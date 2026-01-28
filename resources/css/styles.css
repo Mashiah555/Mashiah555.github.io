@@ -167,7 +167,7 @@ html[dir="rtl"] .nav-link::after {
     margin-top: 40px;
     margin-bottom: 60px;
     flex-wrap: wrap; 
-    gap: 4rem;
+    gap: 6rem;
 }
 
 .hero-profile {
@@ -203,16 +203,16 @@ html[dir="rtl"] .nav-link::after {
 
 /* Circular Social Buttons */
 .social-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--clr-bg-surface);
-    border: 1px solid var(--clr-border);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    color: var(--clr-text-muted);
+    color: transparent;
     box-shadow: var(--shadow-sm);
     transition: var(--transition-fast);
 }
@@ -225,8 +225,6 @@ html[dir="rtl"] .nav-link::after {
 
 .social-btn:hover {
     transform: translateY(-3px);
-    color: var(--clr-primary);
-    border-color: var(--clr-primary);
     box-shadow: var(--shadow-md);
 }
 

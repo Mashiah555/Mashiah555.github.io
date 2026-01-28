@@ -16,14 +16,14 @@ function renderHeader() {
     const headerHTML = `
         <nav class="navbar">
             <div class="nav-left">
-                <a href="home_page.html" class="nav-link" data-i18n="nav_home">Home</a>
-                <a href="about_page.html" class="nav-link" data-i18n="nav_about">About</a>
-                <a href="#" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="home.html" class="nav-link" data-i18n="nav_home">Home</a>
+                <a href="resume.html" class="nav-link" data-i18n="nav_resume">Resume</a>
+                <a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects</a>
                 <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
             </div>
             <div class="nav-right">
                 <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
-                <button id="btn-lang" class="icon-btn" title="Switch Language">🇺🇸 English</button>
+                <button id="btn-lang" class="icon-btn" title="Switch Language">EN</button>
             </div>
         </nav>
     `;

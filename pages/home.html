@@ -17,17 +17,14 @@
 
         <div class="hero-container">
             <div class="hero-profile">
-                <img src="../resources/images/profile.png" alt="Profile" class="profile-img">
+                <img id="profile-img" alt="Profile" class="profile-img">
                 <div class="profile-info">
                     <h1 data-i18n="greeting">Yuval Mashiah</h1>
                     <span class="location-text" data-i18n="hero_location">Israel</span>
                 </div>
             </div>
 
-            <div class="hero-socials">
-                <a href="#" class="social-btn" title="LinkedIn">in</a>
-                <a href="#" class="social-btn" title="GitHub">gh</a>
-                <a href="mailto:myyuval555@gmail.com.com" class="social-btn" title="Email">@</a>
+            <div class="hero-socials" id="resume-socials">
             </div>
         </div>
 
@@ -35,7 +32,7 @@
             <h2 class="hero-title" data-i18n="hero_role">Full-Stack Developer</h2>
             <p class="hero-subtitle" data-i18n="hero_student">3rd Year Student...</p>
 
-            <a href="about_page.html" class="btn btn-outline" data-i18n="btn_seemore">See More</a>
+            <a href="resume.html" class="btn btn-outline" data-i18n="btn_seemore">See More</a>
         </div>
 
         <div id="skills" class="skills-section">
@@ -224,6 +221,25 @@
     <script src="../resources/js/translations.js"></script>
     <script src="../resources/js/app.js"></script>
     <script src="../resources/js/layout.js"></script>
+
+    <script>
+        // Inject Assets that layout.js doesn't handle for this specific page
+        document.getElementById('profile-img').src = siteConfig.assets.profile_img;
+
+        // Inject Socials manually with images
+        const socialHTML = `
+            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_linkedin}" alt="LinkedIn">
+            </a>
+            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_github}" alt="GitHub">
+            </a>
+            <a href="${siteConfig.links.email}" class="social-btn">
+                <img src="${siteConfig.assets.icon_gmail}" alt="Email">
+            </a>
+        `;
+        document.getElementById('resume-socials').innerHTML = socialHTML;
+    </script>
 </body>
 
 </html>

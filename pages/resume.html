@@ -17,7 +17,7 @@
 
         <div class="hero-container">
             <div class="hero-profile">
-                <img id="resume-profile-img" alt="Profile" class="profile-img">
+                <img id="profile-img" alt="Profile" class="profile-img">
                 <div class="profile-info">
                     <h1 data-i18n="greeting">Yuval Mashiah</h1>
                     <span class="location-text" data-i18n="resume_location">Petah Tikva, Israel</span>
@@ -77,7 +77,7 @@
 
     <script>
         // Inject Assets that layout.js doesn't handle for this specific page
-        document.getElementById('resume-profile-img').src = siteConfig.assets.profile_img;
+        document.getElementById('profile-img').src = siteConfig.assets.profile_img;
 
         // Inject Socials manually with images
         const socialHTML = `
