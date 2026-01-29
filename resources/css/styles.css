@@ -186,7 +186,7 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 55px;
     margin-bottom: 28px;
     flex-wrap: wrap;
     gap: 4rem;
@@ -277,7 +277,7 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 70px;
+    margin-bottom: 85px;
     /* Space between buttons and resume section */
 }
 
@@ -305,7 +305,7 @@ html[dir="rtl"] .nav-link::after {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     animation: fadeUp 0.5s ease-out forwards;
-    transition: all 0.2s ease-in-out;
+    /*transition: all 0.2s ease-in-out;*/
     opacity: 0.85;
     justify-content: center;
     align-items: center;
@@ -525,7 +525,7 @@ html[dir="rtl"] .dropdown-menu {
     align-items: center;
     gap: 1rem;
     animation: fadeUp 0.5s ease-out forwards;
-    transition: all 0.2s ease-in-out;
+    /*transition: all 0.2s ease-in-out;*/
     box-shadow: var(--shadow-sm);
     min-height: 70px;
 }

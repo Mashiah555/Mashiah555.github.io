@@ -2,7 +2,7 @@ const resumeData = {
     // --- HOME PAGE PREVIEW ---
     topSkills: [
         { id: "csharp", name: "C#", icon: "cs" },
-        { id: "maui", name: ".NET MAUI", icon: "dotnet" },
+        { id: "maui", name: "DOT NET", icon: "dotnet" },
         { id: "python", name: "Python", icon: "py" }
     ],
 
