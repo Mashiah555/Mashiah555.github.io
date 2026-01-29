@@ -263,6 +263,7 @@ html[dir="rtl"] .nav-link::after {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-content: center;
     gap: 15px;
     margin-top: 5px;
     margin-bottom: 30px;
@@ -282,8 +283,8 @@ html[dir="rtl"] .nav-link::after {
     justify-content: center;
     align-items: center;
     text-align: center;
-    max-width: 200px;
-    min-width: 170px;
+    max-width: 180px;
+    min-width: 150px;
 }
 
 /* Smaller Icon for Compact Mode */

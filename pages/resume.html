@@ -47,8 +47,6 @@
     <script>
         // Inject Assets that layout.js doesn't handle for this specific page
         document.getElementById('profile-img').src = siteConfig.assets.profile_img;
-        document.getElementById('dl-he').href = siteConfig.documents.resume_he;
-        document.getElementById('dl-en').href = siteConfig.documents.resume_en;
 
         // Inject Socials manually with images
         const socialHTML = `
@@ -63,44 +61,6 @@
             </a>
         `;
         document.getElementById('socials').innerHTML = socialHTML;
-
-        // Inject Placeholders for missing icons
-        document.querySelectorAll('.use-placeholder').forEach(img => {
-            img.src = siteConfig.assets.default_icon;
-        });
-
-        // Tab Logic
-        function openTab(tabName) {
-            // 1. Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-
-            // Show Content
-            const content = document.getElementById(tabName);
-            if (content) content.classList.add('active');
-
-            // Highlight Button (Find button by onclick attribute value)
-            const btn = document.querySelector(`button[onclick="openTab('${tabName}')"]`);
-            if (btn) btn.classList.add('active');
-        }
-
-        // Check URL on Load
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tab = urlParams.get('tab');
-
-            if (tab) {
-                openTab(tab);
-            } else {
-                openTab('experience'); // Default tab
-            }
-        });
-
-        // View Switching Logic (Stub)
-        function switchView(view) {
-            document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-        }
     </script>
 </body>
 
