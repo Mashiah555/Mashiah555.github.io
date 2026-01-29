@@ -4,16 +4,22 @@
 :root {
     /* --- LIGHT MODE (Default) --- */
     /* Primary: Indigo (Professional, Tech-oriented) */
-    --clr-primary: #4f46e5;       
-    --clr-primary-hover: #4338ca; 
-    --clr-primary-light: #e0e7ff; /* Used for backgrounds/accents */
+    --clr-primary: #4f46e5;
+    --clr-primary-hover: #4338ca;
+    --clr-primary-light: #e0e7ff;
+    /* Used for backgrounds/accents */
 
     /* Neutrals */
-    --clr-bg-body: #f8fafc;       /* Slate 50 (Soft Grey-White) */
-    --clr-bg-surface: #ffffff;    /* Pure White */
-    --clr-text-main: #0f172a;     /* Slate 900 (Dark) */
-    --clr-text-muted: #64748b;    /* Slate 500 (Grey) */
-    --clr-border: #e2e8f0;        /* Light Border */
+    --clr-bg-body: #f8fafc;
+    /* Slate 50 (Soft Grey-White) */
+    --clr-bg-surface: #ffffff;
+    /* Pure White */
+    --clr-text-main: #0f172a;
+    /* Slate 900 (Dark) */
+    --clr-text-muted: #64748b;
+    /* Slate 500 (Grey) */
+    --clr-border: #e2e8f0;
+    /* Light Border */
 
     /* Shadows & Shapes */
     --radius-md: 12px;
@@ -28,15 +34,21 @@
 
 /* --- DARK MODE OVERRIDES --- */
 [data-theme="dark"] {
-    --clr-primary: #818cf8;       /* Lighter Indigo for dark backgrounds */
-    --clr-primary-hover: #a5b4fc; 
-    --clr-primary-light: #1e293b; /* Dark Indigo background */
+    --clr-primary: #818cf8;
+    /* Lighter Indigo for dark backgrounds */
+    --clr-primary-hover: #a5b4fc;
+    --clr-primary-light: #1e293b;
+    /* Dark Indigo background */
 
-    --clr-bg-body: #0f172a;       /* Deep Slate (Dark Background) */
-    --clr-bg-surface: #1e293b;    /* Lighter Slate (Card Background) */
-    --clr-text-main: #f1f5f9;     /* White-ish text */
-    --clr-text-muted: #94a3b8;    
-    --clr-border: #334155;        /* Dark Grey Border */
+    --clr-bg-body: #0f172a;
+    /* Deep Slate (Dark Background) */
+    --clr-bg-surface: #1e293b;
+    /* Lighter Slate (Card Background) */
+    --clr-text-main: #f1f5f9;
+    /* White-ish text */
+    --clr-text-muted: #94a3b8;
+    --clr-border: #334155;
+    /* Dark Grey Border */
 
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.5);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
@@ -57,7 +69,7 @@ body {
     color: var(--clr-text-main);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
-    
+
     /* Sticky footer setup */
     min-height: 100vh;
     display: flex;
@@ -65,7 +77,10 @@ body {
 }
 
 /* Typography Defaults */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--clr-text-main);
     font-weight: 700;
     line-height: 1.2;
@@ -77,7 +92,9 @@ a {
     transition: var(--transition-fast);
 }
 
-ul { list-style: none; }
+ul {
+    list-style: none;
+}
 
 /* Layout Container */
 .container {
@@ -97,10 +114,11 @@ ul { list-style: none; }
     padding: 1rem 2rem;
     margin-bottom: 40px;
     background: var(--clr-bg-surface);
-    border-radius: 0 0 var(--radius-md) var(--radius-md); /* Rounded bottom corners */
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    /* Rounded bottom corners */
     border-bottom: 1px solid var(--clr-border);
     box-shadow: var(--shadow-sm);
-    
+
     /* Sticky Header */
     position: sticky;
     top: 0;
@@ -120,7 +138,8 @@ ul { list-style: none; }
     padding: 5px 0;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--clr-primary);
 }
 
@@ -131,13 +150,16 @@ ul { list-style: none; }
     width: 0;
     height: 2px;
     bottom: 0;
-    left: 0; /* Starts left in LTR */
+    left: 0;
+    /* Starts left in LTR */
     right: auto;
     background-color: var(--clr-primary);
     transition: width 0.3s;
 }
+
 .nav-link.active::after {
-    width: 100%; /* Keep underline visible */
+    width: 100%;
+    /* Keep underline visible */
 }
 
 /* RTL adjustment for underline handled by browser automatically with flex/text-align, 
@@ -164,9 +186,9 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 28px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 4rem;
 }
 
@@ -220,7 +242,8 @@ html[dir="rtl"] .nav-link::after {
 .social-btn img {
     width: 100%;
     height: 100%;
-    border-radius: 8px; /* Slight rounding for square icons */
+    border-radius: 8px;
+    /* Slight rounding for square icons */
 }
 
 .social-btn:hover {
@@ -254,10 +277,11 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 50px; /* Space between buttons and skills trailer */
+    margin-bottom: 70px;
+    /* Space between buttons and resume section */
 }
 
-/* --- Compact Skill Card (The Trailer) --- */
+/* --- Compact Skill Card (The Preview) --- */
 .home-skills-preview {
     display: flex;
     flex-wrap: wrap;
@@ -273,8 +297,8 @@ html[dir="rtl"] .nav-link::after {
 }
 
 .skill-card.compact {
-    min-height: auto; 
-    padding: 0.6rem 1rem; 
+    min-height: auto;
+    padding: 0.6rem 1rem;
     gap: 10px;
     background: var(--clr-bg-surface);
     border: 1px solid var(--clr-border);
@@ -282,6 +306,7 @@ html[dir="rtl"] .nav-link::after {
     box-shadow: var(--shadow-sm);
     animation: fadeUp 0.5s ease-out forwards;
     transition: all 0.2s ease-in-out;
+    opacity: 0.85;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -299,6 +324,7 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     align-items: center;
 }
+
 .skill-card.compact .skill-text strong {
     font-size: 0.9rem;
     margin-bottom: 0;
@@ -339,7 +365,9 @@ html[dir="rtl"] .nav-link::after {
     transition: var(--transition-fast);
 }
 
-.chip:hover { color: var(--clr-primary); }
+.chip:hover {
+    color: var(--clr-primary);
+}
 
 .chip.active {
     background-color: var(--clr-primary-light);
@@ -354,9 +382,11 @@ html[dir="rtl"] .nav-link::after {
 }
 
 .dropdown-menu {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     position: absolute;
-    right: 0; /* Aligns to right in LTR */
+    right: 0;
+    /* Aligns to right in LTR */
     top: 100%;
     margin-top: 5px;
     background-color: var(--clr-bg-surface);
@@ -375,7 +405,8 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 .download-dropdown:hover .dropdown-menu {
-    display: block; /* Show on hover */
+    display: block;
+    /* Show on hover */
     animation: fadeIn 0.2s ease-in;
 }
 
@@ -399,7 +430,8 @@ html[dir="rtl"] .dropdown-menu {
     align-items: center;
     background-color: var(--clr-bg-surface);
     border: 1px solid var(--clr-border);
-    border-radius: var(--radius-pill); /* Pill shape for container */
+    border-radius: var(--radius-pill);
+    /* Pill shape for container */
     width: 95%;
     padding: 6px;
     gap: 5px;
@@ -421,32 +453,41 @@ html[dir="rtl"] .dropdown-menu {
     transition: var(--transition-fast);
 }
 
-.tab-btn:hover { 
-    color: var(--clr-primary); 
+.tab-btn:hover {
+    color: var(--clr-primary);
     background-color: var(--clr-bg-body);
 }
 
 .tab-btn.active {
     background-color: var(--clr-primary-light);
     color: var(--clr-primary);
-    border-bottom: none; 
+    border-bottom: none;
     box-shadow: var(--shadow-sm);
     font-weight: 700;
 }
 
 /* Placeholder for Tab Content */
 .tab-content {
-    display: none; /* Hide all by default */
+    display: none;
+    /* Hide all by default */
     animation: fadeIn 0.3s ease-in;
 }
 
 .tab-content.active {
-    display: block; /* Show active */
+    display: block;
+    /* Show active */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =========================================
@@ -464,9 +505,12 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 .section-title {
-    margin-top: 3rem;       /* distinct separation from previous block */
-    margin-bottom: 2rem;    /* increased space so hovering cards don't cover text */
-    padding: 0 2rem;        /* Align title with the grid's side margins */
+    margin-top: 3rem;
+    /* distinct separation from previous block */
+    margin-bottom: 2rem;
+    /* increased space so hovering cards don't cover text */
+    padding: 0 2rem;
+    /* Align title with the grid's side margins */
     position: relative;
     z-index: 1;
 }
@@ -483,11 +527,19 @@ html[dir="rtl"] .dropdown-menu {
     animation: fadeUp 0.5s ease-out forwards;
     transition: all 0.2s ease-in-out;
     box-shadow: var(--shadow-sm);
-    min-height: 70px; 
+    min-height: 70px;
 }
+
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 0.95; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
 }
 
 .skill-card:hover {
@@ -497,23 +549,53 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 /* Stagger delays for the first 10 items */
-.skill-card:nth-child(1) { animation-delay: 0.1s; }
-.skill-card:nth-child(2) { animation-delay: 0.2s; }
-.skill-card:nth-child(3) { animation-delay: 0.3s; }
-.skill-card:nth-child(4) { animation-delay: 0.4s; }
-.skill-card:nth-child(5) { animation-delay: 0.5s; }
-.skill-card:nth-child(6) { animation-delay: 0.6s; }
-.skill-card:nth-child(7) { animation-delay: 0.7s; }
-.skill-card:nth-child(8) { animation-delay: 0.8s; }
-.skill-card:nth-child(9) { animation-delay: 0.9s; }
-.skill-card:nth-child(10) { animation-delay: 1.0s; }
+.skill-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.skill-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.skill-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.skill-card:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.skill-card:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.skill-card:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.skill-card:nth-child(10) {
+    animation-delay: 1.0s;
+}
 
 /* Icons inside cards */
 .skill-icon {
     width: 48px;
     height: 48px;
     object-fit: contain;
-    flex-shrink: 0; /* Prevents squishing */
+    flex-shrink: 0;
+    /* Prevents squishing */
 }
 
 /* Text Container */
@@ -542,14 +624,71 @@ html[dir="rtl"] .dropdown-menu {
 .skill-card:not(:has(img)) {
     justify-content: center;
     text-align: center;
-    border-left: 4px solid var(--clr-primary); /* Nice accent bar */
+    border-left: 4px solid var(--clr-primary);
+    /* Nice accent bar */
 }
+
 .skill-card:not(:has(img)) .skill-text {
     align-items: center;
 }
 
 /* =========================================
-   6. GLOBAL COMPONENTS
+   6. Experience & Education Timelines STYLING
+   ========================================= */
+/* Timeline / Resume Card Styles */
+.timeline-card {
+    background: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.timeline-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--clr-primary);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timeline-header h3 {
+    font-size: 1.2rem;
+    color: var(--clr-text-main);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--clr-primary);
+    font-weight: 600;
+    background: var(--clr-primary-light);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+}
+
+.timeline-company {
+    font-size: 1rem;
+    color: var(--clr-text-muted);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.timeline-desc {
+    color: var(--clr-text-main);
+    white-space: pre-line;
+    /* Allows multi-line text if needed */
+}
+
+/* =========================================
+   7. GLOBAL COMPONENTS
    ========================================= */
 /* Buttons */
 .btn {
@@ -568,6 +707,7 @@ html[dir="rtl"] .dropdown-menu {
     color: #ffffff;
     border: 2px solid var(--clr-primary);
 }
+
 .btn-primary:hover {
     background-color: var(--clr-primary-hover);
     border-color: var(--clr-primary-hover);
@@ -608,10 +748,11 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 /* =========================================
-   7. FOOTER
+   8. FOOTER
    ========================================= */
 .footer {
-    margin-top: auto; /* Pushes footer to bottom */
+    margin-top: auto;
+    /* Pushes footer to bottom */
     padding: 2rem 0;
     border-top: 2px solid var(--clr-border);
     background-color: transparent;
@@ -641,15 +782,18 @@ html[dir="rtl"] .dropdown-menu {
     color: var(--clr-text-muted);
     font-weight: 500;
 }
+
 .footer-link img {
     width: 20px;
     height: 20px;
 }
 
 /* =========================================
-   8. UTILITIES & HELPERS
+   9. UTILITIES & HELPERS
    ========================================= */
-.text-center { text-align: center; }
+.text-center {
+    text-align: center;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -657,7 +801,7 @@ html[dir="rtl"] .dropdown-menu {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .nav-left {
         width: 100%;
         justify-content: center;

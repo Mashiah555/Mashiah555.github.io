@@ -7,7 +7,6 @@ const siteConfig = {
 
         // Navigation Paths
         page_home: "home.html",
-        page_resume: "resume.html",
         page_projects: "projects.html"
     },
     // asset paths

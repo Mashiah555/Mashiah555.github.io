@@ -15,12 +15,20 @@ function initApp() {
     if (btnTheme) btnTheme.addEventListener('click', toggleTheme);
     if (btnLang) btnLang.addEventListener('click', toggleLanguage);
 
-    // Check if we are on the home page and have data
-    if (document.getElementById('home-skills-container') && typeof resumeData !== 'undefined') {
-        renderHomeSkills();
+    // --- DYNAMIC RENDERING CALLS ---
+    if (typeof resumeData !== 'undefined') {
+        // 1. Home Preview (Trailer)
+        if (document.getElementById('home-skills-container')) {
+            renderHomeSkills();
+        }
+        // 2. Full Resume Tabs
+        if (document.getElementById('skills-content')) renderFullSkills();
+        if (document.getElementById('experience-content')) renderExperience();
+        if (document.getElementById('education-content')) renderEducation();
     }
 }
 
+/* --- RENDER HOME PREVIEW (Trailer) --- */
 function renderHomeSkills() {
     const lang = localStorage.getItem('lang') || 'he';
     const container = document.getElementById('home-skills-container');
@@ -34,6 +42,92 @@ function renderHomeSkills() {
             <div class="skill-text">
                 <strong>${skill.name}</strong>
             </div>
+        </div>
+    `).join('');
+
+    container.innerHTML = html;
+}
+
+/* --- RENDER FULL SKILLS TAB --- */
+function renderFullSkills() {
+    const container = document.getElementById('skills-content');
+    if (!container) return;
+
+    const lang = localStorage.getItem('lang') || 'he';
+
+    const html = resumeData.skillsCategories.map(cat => {
+        // Get category title from dictionary
+        const title = dictionary[lang][cat.id] || cat.id;
+
+        // Generate Cards
+        const cardsHtml = cat.items.map(item => {
+            // Determine Icon Source (Standard vs Custom vs None)
+            let imgHtml = '';
+            if (item.icon) {
+                imgHtml = `<img src="${siteConfig.assets.skill_icon_base}${item.icon}" class="skill-icon" alt="${item.name}">`;
+            } else if (item.iconSrc) {
+                imgHtml = `<img src="${item.iconSrc}" class="skill-icon" alt="${item.name}">`;
+            }
+
+            // Get Description
+            const desc = dictionary[lang][item.descKey] || "";
+
+            return `
+                <div class="skill-card">
+                    ${imgHtml}
+                    <div class="skill-text">
+                        <strong>${item.name}</strong>
+                        <p data-i18n="${item.descKey}">${desc}</p>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <h3 class="section-title" data-i18n="${cat.id}">${title}</h3>
+            <div class="skills-grid">
+                ${cardsHtml}
+            </div>
+        `;
+    }).join('');
+
+    container.innerHTML = html;
+}
+
+/* --- RENDER EXPERIENCE TAB --- */
+function renderExperience() {
+    const container = document.getElementById('experience-content');
+    if (!container) return;
+    const lang = localStorage.getItem('lang') || 'he';
+
+    const html = resumeData.experience.map(job => `
+        <div class="timeline-card">
+            <div class="timeline-header">
+                <h3>${job.role[lang]}</h3>
+                <span class="timeline-date">${job.dates[lang]}</span>
+            </div>
+            <h4 class="timeline-company">${job.company[lang]}</h4>
+            <p class="timeline-desc">${job.description[lang]}</p>
+        </div>
+    `).join('');
+
+    container.innerHTML = html;
+}
+
+/* --- RENDER EDUCATION TAB --- */
+function renderEducation() {
+    const container = document.getElementById('education-content');
+    if (!container) return;
+    const lang = localStorage.getItem('lang') || 'he';
+
+    const html = resumeData.education.map(edu => `
+        <div class="timeline-card">
+            <div class="timeline-header">
+                <h3>${edu.degree[lang]}</h3>
+                <span class="timeline-date">${edu.dates[lang]}</span>
+            </div>
+            <h4 class="timeline-company">${edu.school[lang]}</h4>
+            <p class="timeline-desc">${edu.description[lang]}</p>
         </div>
     `).join('');
 
@@ -79,6 +173,16 @@ function applyLanguage(lang) {
         renderHomeSkills();
     }
 }
+const originalApplyLanguage = applyLanguage;
+applyLanguage = function (lang) {
+    originalApplyLanguage(lang); // Call original logic
+
+    // Re-render dynamic sections with new language
+    if (document.getElementById('home-skills-container')) renderHomeSkills();
+    if (document.getElementById('skills-content')) renderFullSkills();
+    if (document.getElementById('experience-content')) renderExperience();
+    if (document.getElementById('education-content')) renderEducation();
+};
 
 function toggleLanguage() {
     const current = document.documentElement.getAttribute('lang');

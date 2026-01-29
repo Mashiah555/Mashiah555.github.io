@@ -1,46 +1,91 @@
 const resumeData = {
-    // 1. Top Technologies for Home Page Trailer
+    // --- HOME PAGE PREVIEW ---
     topSkills: [
+        { id: "csharp", name: "C#", icon: "cs" },
+        { id: "maui", name: ".NET MAUI", icon: "dotnet" },
+        { id: "python", name: "Python", icon: "py" }
+    ],
+
+    // --- FULL SKILLS LIST (Categories) ---
+    skillsCategories: [
         {
-            id: "csharp",
-            name: "C#",
-            icon: "cs", // code for skillicons.dev
-            desc: { he: "פיתוח Windows", en: "Windows Dev" }
+            id: "cat_languages", // Translation key for title
+            items: [
+                { name: "Python", icon: "py", descKey: "desc_python" },
+                { name: "C#", icon: "cs", descKey: "desc_csharp" },
+                { name: "C++", icon: "cpp", descKey: "desc_cpp" },
+                { name: "Java", icon: "java", descKey: "desc_java" },
+                { name: "Dart", icon: "dart", descKey: "desc_dart" },
+                { name: "JavaScript", icon: "js", descKey: "desc_js" },
+                { name: "HTML", icon: "html", descKey: "desc_html" },
+                { name: "CSS", icon: "css", descKey: "desc_css" },
+                { name: "Shell Scripting", iconSrc: "https://cdn.simpleicons.org/gnubash", descKey: "desc_shell" } // Custom source example
+            ]
         },
         {
-            id: "maui",
-            name: ".NET MAUI",
-            icon: "dotnet",
-            desc: { he: "מובייל Cross-Platform", en: "Cross-Platform Mobile" }
+            id: "cat_frameworks",
+            items: [
+                { name: "Git", icon: "git", descKey: "desc_git" },
+                { name: ".NET MAUI", icon: "dotnet", descKey: "desc_maui" },
+                { name: "FastAPI", icon: "fastapi", descKey: "desc_fastapi" },
+                { name: "Flutter", icon: "flutter", descKey: "desc_flutter" },
+                { name: "Hugging Face", iconSrc: "https://cdn.simpleicons.org/huggingface", descKey: "desc_huggingface" },
+                { name: "Ollama", iconSrc: "https://cdn.simpleicons.org/ollama", descKey: "desc_ollama" },
+                { name: "LangChain", iconSrc: "https://cdn.simpleicons.org/langchain", descKey: "desc_langchain" },
+                { name: "n8n", iconSrc: "https://cdn.simpleicons.org/n8n", descKey: "desc_n8n" }
+            ]
         },
         {
-            id: "python",
-            name: "Python",
-            icon: "py",
-            desc: { he: "אוטומציה ו-Data", en: "Automation & Data" }
+            id: "cat_platforms",
+            items: [
+                { name: "Azure", icon: "azure", descKey: "desc_azure" },
+                { name: "Docker", icon: "docker", descKey: "desc_docker" },
+                { name: "Google Cloud", icon: "gcp", descKey: "desc_gconsole" },
+                { name: "Firebase", icon: "firebase", descKey: "desc_firebase" },
+                { name: "MongoDB", icon: "mongodb", descKey: "desc_mongo" },
+                { name: "SQLite", icon: "sqlite", descKey: "desc_sqlite" }
+            ]
+        },
+        {
+            id: "cat_practices",
+            items: [
+                // Items without icons (Text Only)
+                { name: "Agile", descKey: "desc_agile" },
+                { name: "A2A", descKey: "desc_a2a" },
+                { name: "MVVM", descKey: "desc_mvvm" },
+                { name: "MVP", descKey: "desc_mvp" },
+                { name: "MCP", descKey: "desc_mcp" },
+                { name: "MVC", descKey: "desc_mvc" },
+                { name: "Microservices", descKey: "desc_microservices" },
+                { name: "Microfrontends", descKey: "desc_microfront" },
+                { name: "Event Sourcing", descKey: "desc_event" }
+            ]
         }
     ],
 
-    // 2. Full Experience Data (moved from config/HTML)
+    // --- EXPERIENCE ---
     experience: [
         {
             role: { he: "מפתח Full Stack", en: "Full Stack Developer" },
-            company: { he: "צה״ל", en: "IDF" },
+            company: { he: "צה״ל (עתודה אקדמית)", en: "IDF (Academic Reserve)" },
             dates: { he: "2023 - היום", en: "2023 - Present" },
             description: {
-                he: "פיתוח מערכות מבצעיות...",
-                en: "Developing operational systems..."
+                he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
+                en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
             }
         }
-        // Add more jobs here...
     ],
 
-    // 3. Education Data
+    // --- EDUCATION ---
     education: [
         {
-            degree: { he: "מדעי המחשב", en: "Computer Science" },
-            school: { he: "המרכז האקדמי לב", en: "JCT" },
-            dates: { he: "2021 - 2024", en: "2021 - 2024" }
+            degree: { he: "B.Sc. במדעי המחשב", en: "B.Sc. Computer Science" },
+            school: { he: "המרכז האקדמי לב (JCT)", en: "Jerusalem College of Technology (JCT)" },
+            dates: { he: "2021 - 2024", en: "2021 - 2024" },
+            description: {
+                he: "התמחות במערכות מידע ובינה מלאכותית. מצטיין דיקן.",
+                en: "Specialization in Information Systems and AI. Dean's List."
+            }
         }
     ]
 };

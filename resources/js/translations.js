@@ -98,7 +98,7 @@ const dictionary = {
         hero_student: "3rd Year BA student in Computer Science at JCT",
         hero_location: "Israel",
         btn_projects: "My Projects",
-        btn_skills: "View All",
+        btn_skills: "Full Skill Set",
 
         // --- Categories ---
         cat_languages: "Languages",

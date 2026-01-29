@@ -4,93 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuval Mashiah</title>
-    <link rel="icon" href="resources/images/logo.png" type="image/png">
+    <title>Yuval Mashiah | Portfolio</title>
+
     <link rel="stylesheet" href="resources/css/styles.css">
-
-    <!-- Instant redirect to the pages folder -->
-    <meta http-equiv="refresh" content="1; url=pages/home.html">
-    <script>
-        // Fallback if meta refresh doesn't work immediately
-        setTimeout(() => {
-            window.location.href = "pages/home.html";
-        }, 1000);
-    </script>
-    <style>
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--clr-bg-body);
-        }
-
-        .logo-container {
-            text-align: center;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-md);
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        .loading-text {
-            font-size: 18px;
-            color: var(--clr-text-muted);
-            font-weight: 500;
-        }
-
-        a {
-            color: #FF69B4;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                opacity: 0.8;
-            }
-
-            50% {
-                transform: scale(1.05);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(0.95);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link rel="icon" href="resources/images/logo.png" type="image/png">
 </head>
 
 <body>
-    <div class="logo-container">
-        <img src="sources/images/logo.png" alt="Mashiah555 Logo" class="logo">
-        <div class="loading-text">
-            Redirecting to <a href="pages/home.html">Mashiah555 Portfolio...</a>
+
+    <div class="container">
+        <div id="global-header"></div>
+
+        <div class="hero-container">
+            <div class="hero-profile">
+                <img id="profile-img" alt="Profile" class="profile-img">
+                <div class="profile-info">
+                    <h1 data-i18n="greeting">Yuval Mashiah</h1>
+                    <span class="location-text" data-i18n="hero_location">Israel</span>
+                </div>
+            </div>
+
+            <div class="hero-socials" id="socials">
+            </div>
         </div>
+
+        <div class="hero-context">
+            <h2 class="hero-title" data-i18n="hero_role">Full-Stack Developer</h2>
+            <p class="hero-subtitle" data-i18n="hero_student">3rd Year Student...</p>
+
+            <div id="home-skills-container" class="home-skills-preview">
+            </div>
+
+            <div class="hero-actions">
+                <a href="projects.html" class="btn btn-primary" data-i18n="btn_projects">My Projects</a>
+                <a href="?tab=skills" class="btn btn-outline" data-i18n="btn_skills">Full Skill Set</a>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div class="controls-bar">
+            <div class="view-toggle">
+                <button class="chip active" onclick="switchView('visual')" data-i18n="view_visual">Visual</button>
+                <button class="chip" onclick="switchView('simple')" data-i18n="view_simple">Simple</button>
+            </div>
+
+            <div class="download-dropdown">
+                <button class="btn btn-primary" data-i18n="btn_download">Download CV ▼</button>
+                <div class="dropdown-menu">
+                    <a href="#" id="dl-he" class="dropdown-item" target="_blank" data-i18n="opt_he">Hebrew</a>
+                    <a href="#" id="dl-en" class="dropdown-item" target="_blank" data-i18n="opt_en">English</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-bar">
+            <button class="tab-btn active" onclick="openTab('experience')" data-i18n="tab_exp">Experience</button>
+            <button class="tab-btn" onclick="openTab('skills')" data-i18n="tab_skills">Skills</button>
+            <button class="tab-btn" onclick="openTab('education')" data-i18n="tab_edu">Education</button>
+        </div>
+
+        <div id="experience" class="tab-content active">
+            <div id="experience-content" class="timeline-container">
+            </div>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <div id="skills-content" class="skills-section">
+            </div>
+        </div>
+
+        <div id="education" class="tab-content">
+            <div id="education-content" class="timeline-container">
+            </div>
+        </div>
+
+        <div id="global-footer"></div>
     </div>
+
+    <script src="resources/js/config.js"></script>
+    <script src="resources/js/data.js"></script>
+    <script src="resources/js/translations.js"></script>
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/layout.js"></script>
+
+    <script>
+        // Inject Assets that layout.js doesn't handle for this specific page
+        document.getElementById('profile-img').src = siteConfig.assets.profile_img;
+        document.getElementById('dl-he').href = siteConfig.documents.resume_he;
+        document.getElementById('dl-en').href = siteConfig.documents.resume_en;
+
+        // Inject Socials manually with images
+        const socialHTML = `
+            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_linkedin}" alt="LinkedIn">
+            </a>
+            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">
+                <img src="${siteConfig.assets.icon_github}" alt="GitHub">
+            </a>
+            <a href="${siteConfig.links.email}" class="social-btn">
+                <img src="${siteConfig.assets.icon_gmail}" alt="Email">
+            </a>
+        `;
+        document.getElementById('socials').innerHTML = socialHTML;
+
+        // Inject Placeholders for missing icons
+        document.querySelectorAll('.use-placeholder').forEach(img => {
+            img.src = siteConfig.assets.default_icon;
+        });
+
+        // Tab Logic
+        function openTab(tabName) {
+            // 1. Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            // Show Content
+            const content = document.getElementById(tabName);
+            if (content) content.classList.add('active');
+
+            // Highlight Button (Find button by onclick attribute value)
+            const btn = document.querySelector(`button[onclick="openTab('${tabName}')"]`);
+            if (btn) btn.classList.add('active');
+        }
+
+        // Check URL on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tab = urlParams.get('tab');
+
+            if (tab) {
+                openTab(tab);
+            } else {
+                openTab('experience'); // Default tab
+            }
+        });
+
+        // View Switching Logic (Stub)
+        function switchView(view) {
+            document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>
