@@ -262,6 +262,7 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 15px;
     margin-top: 5px;
     margin-bottom: 30px;
