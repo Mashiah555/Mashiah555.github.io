@@ -10,16 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
 /* --- HEADER (Navbar) --- */
 function renderHeader() {
     const path = window.location.pathname;
-    const page = path.split("/").pop() || "home.html";
-    const isActive = (p) => page === p ? 'active' : '';
+    const page = path.split("/").pop() || "index.html";
+
+    const isActive = (linkHref) => {
+        // Handle "index.html" vs root "/" vs query params
+        if (linkHref === "index.html" && (page === "index.html" || page === "")) return 'active';
+        if (linkHref.startsWith("?") && (page === "index.html" || page === "")) return ''; // Don't highlight Home for tabs
+        if (page === linkHref) return 'active';
+        return '';
+    };
 
     const headerHTML = `
         <nav class="navbar">
             <div class="nav-left">
                 <a href="${siteConfig.links.page_home}" class="nav-link ${isActive(siteConfig.links.page_home)}" data-i18n="nav_home">Home</a>
-                <a href="${siteConfig.links.page_home}?tab=experience" class="nav-link ${isActive(siteConfig.links.page_home)}" data-i18n="nav_resume">Resume</a>
-                <a href="${siteConfig.links.page_projects}" class="nav-link" data-i18n="nav_projects">Projects</a>
-                <a href="${siteConfig.links.page_home}?tab=skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+                <a href="${siteConfig.links.page_resume}" class="nav-link ${isActive(siteConfig.links.page_home)}" data-i18n="nav_resume">Resume</a>
+                <a href="${siteConfig.links.page_projects}" class="nav-link ${isActive(siteConfig.links.page_projects)}" data-i18n="nav_projects">Projects</a>
+                <a href="${siteConfig.links.page_skills}" class="nav-link" data-i18n="nav_skills">Skills</a>
             </div>
             <div class="nav-right">
                 <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
