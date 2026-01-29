@@ -259,34 +259,28 @@ html[dir="rtl"] .nav-link::after {
 
 /* --- Compact Skill Card (The Trailer) --- */
 .home-skills-preview {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Mobile: 2 per row */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
     margin-top: 10px;
     margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 800px;
+    max-width: 550px;
 }
 
 .skill-card.compact {
     min-height: auto; 
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1rem; 
     gap: 10px;
     background: var(--clr-bg-surface);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
+    animation: fadeUp 0.5s ease-out forwards;
+    transition: all 0.2s ease-in-out;
     justify-content: center;
     align-items: center;
     text-align: center;
-    cursor: pointer; /* Suggests interactivity */
-    transition: var(--transition-fast);
-}
-
-.skill-card.compact:hover {
-    border-color: var(--clr-primary);
-    transform: translateY(-2px);
 }
 
 /* Smaller Icon for Compact Mode */
@@ -296,20 +290,12 @@ html[dir="rtl"] .nav-link::after {
 }
 
 .skill-card.compact .skill-text {
-    /* Ensure text aligns nicely without the paragraph below it */
     display: flex;
     align-items: center;
 }
 .skill-card.compact .skill-text strong {
     font-size: 0.9rem;
     margin-bottom: 0;
-}
-
-/* Special style for the "View All" card */
-.skill-card.compact.view-all {
-    background-color: var(--clr-bg-body);
-    border-style: dashed;
-    color: var(--clr-primary);
 }
 
 /* =========================================
@@ -681,9 +667,5 @@ html[dir="rtl"] .dropdown-menu {
     .hero-profile {
         flex-direction: column;
         text-align: center;
-    }
-
-    .home-skills-preview {
-        grid-template-columns: repeat(4, 1fr);
     }
 }

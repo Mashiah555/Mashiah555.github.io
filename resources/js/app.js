@@ -25,9 +25,10 @@ function renderHomeSkills() {
     const lang = localStorage.getItem('lang') || 'he';
     const container = document.getElementById('home-skills-container');
     if (!container || typeof resumeData === 'undefined') return;
+
     const skills = resumeData.topSkills;
 
-    let html = skills.map(skill => `
+    const html = skills.map(skill => `
         <div class="skill-card compact">
             <img src="${siteConfig.assets.skill_icon_base}${skill.icon}" class="skill-icon" alt="${skill.name}">
             <div class="skill-text">
@@ -35,17 +36,6 @@ function renderHomeSkills() {
             </div>
         </div>
     `).join('');
-
-    // Add the "View All" / "Full Skill Set" Card
-    const viewAllText = dictionary[lang] ? dictionary[lang].skill_view_all : "View All";
-    html += `
-        <a href="${siteConfig.links.page_resume}?tab=skills" class="skill-card compact view-all" style="text-decoration: none;">
-            <span style="font-size: 1.2rem;">🚀</span>
-            <div class="skill-text">
-                <strong>${viewAllText}</strong>
-            </div>
-        </a>
-    `;
 
     container.innerHTML = html;
 }

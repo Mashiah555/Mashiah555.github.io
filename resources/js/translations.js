@@ -15,9 +15,8 @@ const dictionary = {
         hero_role: "מפתח Full Stack",
         hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
         hero_location: "ישראל",
-        btn_seemore: "מידע נוסף",
         btn_projects: "הפרויקטים שלי",
-        skill_view_all: "לכל הכישורים",
+        btn_skills: "לכל הכישורים",
 
         // --- Categories ---
         cat_languages: "שפות תכנות",
@@ -98,9 +97,8 @@ const dictionary = {
         hero_role: "Full-Stack Developer",
         hero_student: "3rd Year BA student in Computer Science at JCT",
         hero_location: "Israel",
-        btn_seemore: "See More",
         btn_projects: "My Projects",
-        skill_view_all: "View All",
+        btn_skills: "View All",
 
         // --- Categories ---
         cat_languages: "Languages",
