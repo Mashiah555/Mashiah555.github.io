@@ -265,6 +265,7 @@ html[dir="rtl"] .nav-link::after {
     gap: 15px;
     margin-top: 5px;
     margin-bottom: 30px;
+    max-width: 750px;
 }
 
 .skill-card.compact {
@@ -280,8 +281,8 @@ html[dir="rtl"] .nav-link::after {
     justify-content: center;
     align-items: center;
     text-align: center;
-    max-width: 550px;
-    min-width: 500px;
+    max-width: 200px;
+    min-width: 170px;
 }
 
 /* Smaller Icon for Compact Mode */
