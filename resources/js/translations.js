@@ -84,6 +84,7 @@ const dictionary = {
         // --- Footer ---
         footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
     },
+
     en: {
         // --- Navigation ---
         nav_home: "Home",
@@ -95,7 +96,7 @@ const dictionary = {
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
-        hero_student: "20 years old BA student in Computer Science",
+        hero_student: "20 years old B.Sc. student in Computer Science",
         hero_location: "Israel",
         btn_projects: "My Projects",
         btn_skills: "Full Skill Set",

@@ -101,18 +101,24 @@ function renderExperience() {
     const lang = localStorage.getItem('lang') || 'he';
 
     const html = resumeData.experience.map(job => {
-        // Fallback icon if none provided
+        // Fallback values if none provided
         const iconSrc = job.iconSrc || siteConfig.assets.default_icon;
+        const link = job.link || "#";
 
         return `
         <div class="job-item">
-            <div class="timeline-icon">
+            <a href="${link}" target="_blank" class="timeline-icon">
                 <img src="${iconSrc}" alt="Logo">
-            </div>
+            </a>
+            
             <div class="job-card">
-                <h3>${job.role[lang]}</h3>
-                <span class="timeline-company">${job.company[lang]}</span>
-                <span class="timeline-date">${job.dates[lang]}</span>
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3 class="job-role">${job.role[lang]}</h3>
+                        <a href="${link}" target="_blank" class="job-company">${job.company[lang]}</a>
+                    </div>
+                    <span class="timeline-date">${job.dates[lang]}</span>
+                </div>
                 <p>${job.description[lang]}</p>
             </div>
         </div>
@@ -128,18 +134,24 @@ function renderEducation() {
     const lang = localStorage.getItem('lang') || 'he';
 
     const html = resumeData.education.map(edu => {
-        // Fallback icon if none provided
+        // Fallback values if none provided
         const iconSrc = edu.iconSrc || siteConfig.assets.default_icon;
+        const link = edu.link || "#";
 
         return `
         <div class="job-item">
-            <div class="timeline-icon">
+            <a href="${link}" target="_blank" class="timeline-icon">
                 <img src="${iconSrc}" alt="Logo">
-            </div>
+            </a>
+
             <div class="job-card">
-                <h3>${edu.degree[lang]}</h3>
-                <span class="timeline-company">${edu.school[lang]}</span>
-                <span class="timeline-date">${edu.dates[lang]}</span>
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3 class="job-role">${edu.degree[lang]}</h3>
+                        <a href="${link}" target="_blank" class="job-company">${edu.school[lang]}</a>
+                    </div>
+                    <span class="timeline-date">${edu.dates[lang]}</span>
+                </div>
                 <p>${edu.description[lang]}</p>
             </div>
         </div>

@@ -66,20 +66,22 @@ const resumeData = {
     // --- EXPERIENCE ---
     experience: [
         {
-            iconSrc: "resources/images/default.png",
-            company: { he: "צה״ל (עתודה אקדמית)", en: "IDF (Academic Reserve)" },
-            role: { he: "מפתח Full Stack", en: "Full Stack Developer" },
-            dates: { he: "2023 - היום", en: "2023 - Present" },
+            company: { he: "C-ATA (סיעתא)", en: "C-ATA" },
+            role: { he: "מרכיב מוצר", en: "Product Assembler" },
+            dates: { he: "2023 - 2024", en: "2023 - 2024" },
+            iconSrc: "resources/images/cata.png",
+            link: "https://c-ata.com/",
             description: {
                 he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
                 en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
             }
         },
         {
-            iconSrc: "resources/images/default.png",
-            company: { he: "C-ATA (סיעתא)", en: "C-ATA" },
-            role: { he: "מרכיב מוצר", en: "Product Assembler" },
-            dates: { he: "2023 - 2024", en: "2023 - 2024" },
+            company: { he: "גולדבוקס", en: "Goldbooks" },
+            role: { he: "אריזת וחלוקת ספרי לימוד", en: "Study Books Packaging and Distribution" },
+            dates: { he: "2022", en: "2022" },
+            iconSrc: "resources/images/goldbooks.png",
+            link: "https://www.goldbooks.co.il/",
             description: {
                 he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
                 en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
@@ -90,10 +92,22 @@ const resumeData = {
     // --- EDUCATION ---
     education: [
         {
-            iconSrc: "resources/images/default.png",
-            degree: { he: "B.Sc. במדעי המחשב", en: "B.Sc. Computer Science" },
+            degree: { he: "תואר ראשון במדעי המחשב", en: "B.Sc. Computer Science" },
             school: { he: "המרכז האקדמי לב (JCT)", en: "Jerusalem College of Technology (JCT)" },
-            dates: { he: "2021 - 2024", en: "2021 - 2024" },
+            dates: { he: "2023 - היום", en: "2023 - Today" },
+            iconSrc: "resources/images/jct.jpg",
+            link: "http://www.jct.ac.il/",
+            description: {
+                he: "התמחות במערכות מידע ובינה מלאכותית. מצטיין דיקן.",
+                en: "Specialization in Information Systems and AI. Dean's List."
+            }
+        },
+        {
+            degree: { he: "לימודי חטיבת ביניים ותיכון", en: "Middle & High School Studies" },
+            school: { he: "ישיבת בני עקיבא גבעת שמואל", en: "Bnei Akiva Givat Shmuel High School Yeshiva" },
+            dates: { he: "2017 - 2023", en: "2017 - 2023" },
+            iconSrc: "resources/images/highschool.png",
+            link: "https://yba.org.il/institutes/%D7%99%D7%A9%D7%99%D7%91%D7%AA-%D7%91%D7%A0%D7%99-%D7%A2%D7%A7%D7%99%D7%91%D7%90-%D7%92%D7%91%D7%A2%D7%AA-%D7%A9%D7%9E%D7%95%D7%90%D7%9C/",
             description: {
                 he: "התמחות במערכות מידע ובינה מלאכותית. מצטיין דיקן.",
                 en: "Specialization in Information Systems and AI. Dean's List."
