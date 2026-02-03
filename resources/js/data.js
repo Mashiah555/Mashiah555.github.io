@@ -66,9 +66,20 @@ const resumeData = {
     // --- EXPERIENCE ---
     experience: [
         {
-            role: { he: "מפתח Full Stack", en: "Full Stack Developer" },
+            iconSrc: "resources/images/default.png",
             company: { he: "צה״ל (עתודה אקדמית)", en: "IDF (Academic Reserve)" },
+            role: { he: "מפתח Full Stack", en: "Full Stack Developer" },
             dates: { he: "2023 - היום", en: "2023 - Present" },
+            description: {
+                he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
+                en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
+            }
+        },
+        {
+            iconSrc: "resources/images/default.png",
+            company: { he: "C-ATA (סיעתא)", en: "C-ATA" },
+            role: { he: "מרכיב מוצר", en: "Product Assembler" },
+            dates: { he: "2023 - 2024", en: "2023 - 2024" },
             description: {
                 he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
                 en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
@@ -79,6 +90,7 @@ const resumeData = {
     // --- EDUCATION ---
     education: [
         {
+            iconSrc: "resources/images/default.png",
             degree: { he: "B.Sc. במדעי המחשב", en: "B.Sc. Computer Science" },
             school: { he: "המרכז האקדמי לב (JCT)", en: "Jerusalem College of Technology (JCT)" },
             dates: { he: "2021 - 2024", en: "2021 - 2024" },

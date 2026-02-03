@@ -100,16 +100,23 @@ function renderExperience() {
     if (!container) return;
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.experience.map(job => `
-        <div class="timeline-card">
-            <div class="timeline-header">
-                <h3>${job.role[lang]}</h3>
-                <span class="timeline-date">${job.dates[lang]}</span>
+    const html = resumeData.experience.map(job => {
+        // Fallback icon if none provided
+        const iconSrc = job.iconSrc || siteConfig.assets.default_icon;
+
+        return `
+        <div class="job-item">
+            <div class="timeline-icon">
+                <img src="${iconSrc}" alt="Logo">
             </div>
-            <h4 class="timeline-company">${job.company[lang]}</h4>
-            <p class="timeline-desc">${job.description[lang]}</p>
+            <div class="job-card">
+                <h3>${job.role[lang]}</h3>
+                <span class="timeline-company">${job.company[lang]}</span>
+                <span class="timeline-date">${job.dates[lang]}</span>
+                <p>${job.description[lang]}</p>
+            </div>
         </div>
-    `).join('');
+    `}).join('');
 
     container.innerHTML = html;
 }
@@ -120,16 +127,23 @@ function renderEducation() {
     if (!container) return;
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.education.map(edu => `
-        <div class="timeline-card">
-            <div class="timeline-header">
-                <h3>${edu.degree[lang]}</h3>
-                <span class="timeline-date">${edu.dates[lang]}</span>
+    const html = resumeData.education.map(edu => {
+        // Fallback icon if none provided
+        const iconSrc = edu.iconSrc || siteConfig.assets.default_icon;
+
+        return `
+        <div class="job-item">
+            <div class="timeline-icon">
+                <img src="${iconSrc}" alt="Logo">
             </div>
-            <h4 class="timeline-company">${edu.school[lang]}</h4>
-            <p class="timeline-desc">${edu.description[lang]}</p>
+            <div class="job-card">
+                <h3>${edu.degree[lang]}</h3>
+                <span class="timeline-company">${edu.school[lang]}</span>
+                <span class="timeline-date">${edu.dates[lang]}</span>
+                <p>${edu.description[lang]}</p>
+            </div>
         </div>
-    `).join('');
+    `}).join('');
 
     container.innerHTML = html;
 }
