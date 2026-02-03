@@ -13,7 +13,7 @@ const dictionary = {
         // --- Hero Section ---
         greeting: "יובל משיח",
         hero_role: "מפתח Full Stack",
-        hero_student: "סטודנט שנה ג' למדעי המחשב במרכז האקדמי לב",
+        hero_student: "סטודנט בן 20 למדעי המחשב",
         hero_location: "ישראל",
         btn_projects: "הפרויקטים שלי",
         btn_skills: "לכל הכישורים",
@@ -95,7 +95,7 @@ const dictionary = {
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
-        hero_student: "3rd Year BA student in Computer Science at JCT",
+        hero_student: "20 years old BA student in Computer Science",
         hero_location: "Israel",
         btn_projects: "My Projects",
         btn_skills: "Full Skill Set",
