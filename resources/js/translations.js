@@ -12,7 +12,7 @@ const dictionary = {
 
         // --- Hero Section ---
         greeting: "יובל משיח",
-        hero_role: "מפתח Full Stack",
+        hero_role: "מפתח Full-Stack",
         hero_student: "סטודנט בן 20 למדעי המחשב",
         hero_location: "ישראל",
         btn_projects: "הפרויקטים שלי",
@@ -26,44 +26,44 @@ const dictionary = {
 
         // --- Descriptions ---
         // Languages
-        desc_python: "Data Science וסקריפטים",
-        desc_csharp: "Windows ו-Web מודרני",
-        desc_cpp: "ביצועים גבוהים (System)",
-        desc_java: "Enterprise ואנדרואיד",
-        desc_dart: "פיתוח UI (Flutter)",
+        desc_python: "נתונים ואוטומציה",
+        desc_csharp: "לוגיקת Backend מודרנית",
+        desc_cpp: "מערכות ביצועים גבוהים",
+        desc_java: "תוכנות ארגוניות",
+        desc_dart: "פיתוח ממשקי משתמש",
         desc_js: "אינטראקטיביות Web",
-        desc_html: "מבנה תוכן Web",
+        desc_html: "מבני תוכן Web",
         desc_css: "עיצוב Web",
         desc_shell: "Bash ו-PowerShell",
 
         // Frameworks & Tools
         desc_git: "ניהול גרסאות",
-        desc_maui: "אפליקציות Cross-Platform",
-        desc_fastapi: "API מהיר ב-Python",
-        desc_flutter: "פיתוח אפליקציות UI",
-        desc_huggingface: "מודלים ומאגרי ML",
+        desc_maui: "אפליקציות Multi-Platform",
+        desc_fastapi: "תשתית ביצועים גבוהים",
+        desc_flutter: "פיתוח ממשקים למובייל",
+        desc_huggingface: "מערכות נתונים ומודלי AI",
         desc_ollama: "הרצת LLM מקומית",
         desc_langchain: "פיתוח מבוסס LLM",
         desc_n8n: "אוטומציה של תהליכים",
 
         // Platforms & Databases
-        desc_azure: "ענן ופתרונות עסקיים",
+        desc_azure: "פתרונות ענן",
         desc_docker: "ניהול קונטיינרים",
         desc_gconsole: "ניהול משאבי ענן",
-        desc_firebase: "Backend לאפליקציות",
+        desc_firebase: "Backend ענן",
         desc_mongo: "מסד נתונים NoSQL",
-        desc_sqlite: "DB קל ולוקאלי",
+        desc_sqlite: "מסד נתונים מקומי",
 
         // Practices & Protocols
-        desc_agile: "פיתוח גמיש ואיטרטיבי",
+        desc_agile: "פיתוח איטרטיבי",
         desc_a2a: "תקשורת בין אפליקציות",
-        desc_mvvm: "הפרדת UI מלוגיקה",
-        desc_mvp: "הפרדת תצוגה ממידע",
+        desc_mvvm: "ממשק משתמש מונחה נתונים",
+        desc_mvp: "הפרדת לוגיקה מתצוגה",
         desc_mcp: "פרוטוקול תקשורת",
         desc_mvc: "ארכיטקטורת ממשק",
         desc_microservices: "שירותים עצמאיים",
         desc_microfront: "רכיבי Frontend עצמאיים",
-        desc_event: "ניהול שינויים כאירועים",
+        desc_event: "ניהול מצבים מונחי אירועים",
 
         // --- Resume Page ---
         resume_location: "פתח תקווה, ישראל",
@@ -109,10 +109,10 @@ const dictionary = {
 
         // --- Descriptions ---
         // Languages
-        desc_python: "Data Science & Web",
-        desc_csharp: "Modern Windows & Web",
-        desc_cpp: "High Performance",
-        desc_java: "Enterprise & Android",
+        desc_python: "Data & Automation",
+        desc_csharp: "Modern Backend Logic",
+        desc_cpp: "High Performance Systems",
+        desc_java: "Enterprise Programs",
         desc_dart: "UI Development",
         desc_js: "Web Interactivity",
         desc_html: "Web Structure",
@@ -121,10 +121,10 @@ const dictionary = {
 
         // Frameworks & Tools
         desc_git: "Version Control",
-        desc_maui: "Cross-Platform Apps",
-        desc_fastapi: "High-Perf Python APIs",
-        desc_flutter: "UI App Development",
-        desc_huggingface: "ML Models & Datasets",
+        desc_maui: "Multi-Platform Apps",
+        desc_fastapi: "High-Performance Framework",
+        desc_flutter: "Mobile UI Development",
+        desc_huggingface: "AI Models & Datasets",
         desc_ollama: "Local LLM Runner",
         desc_langchain: "LLM App Framework",
         desc_n8n: "Workflow Automation",
@@ -133,19 +133,19 @@ const dictionary = {
         desc_azure: "Cloud Solutions",
         desc_docker: "Containerization",
         desc_gconsole: "Cloud Management",
-        desc_firebase: "App Backend",
+        desc_firebase: "Cloud Backend",
         desc_mongo: "NoSQL Database",
         desc_sqlite: "Serverless SQL",
 
         // Practices & Protocols
-        desc_agile: "Iterative Dev",
-        desc_a2a: "App-to-App Comm",
-        desc_mvvm: "UI/Logic Separation",
-        desc_mvp: "Presenter Pattern",
+        desc_agile: "Iterative Development",
+        desc_a2a: "App-to-App Integration",
+        desc_mvvm: "Data-Driven UI Pattern",
+        desc_mvp: "Logic-View Separation",
         desc_mcp: "Communication Protocol",
-        desc_mvc: "UI Architecture",
+        desc_mvc: "UI Architecture Pattern",
         desc_microservices: "Independent Services",
-        desc_microfront: "Frontend Components",
+        desc_microfront: "Independent Frontend Components",
         desc_event: "Event-Driven State",
 
         // --- Resume Page ---

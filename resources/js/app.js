@@ -18,9 +18,7 @@ function initApp() {
     // --- DYNAMIC RENDERING CALLS ---
     if (typeof resumeData !== 'undefined') {
         // 1. Home Preview (Trailer)
-        if (document.getElementById('home-skills-container')) {
-            renderHomeSkills();
-        }
+        if (document.getElementById('home-skills-container')) renderHomeSkills();
         // 2. Full Resume Tabs
         if (document.getElementById('skills-content')) renderFullSkills();
         if (document.getElementById('experience-content')) renderExperience();
@@ -28,7 +26,36 @@ function initApp() {
     }
 }
 
-/* --- RENDER HOME PREVIEW (Trailer) --- */
+/* --- VIEW MODE SWITCHING (Visual vs Simple) --- */
+function switchView(mode) {
+    // 1. Toggle Buttons
+    const btnVisual = document.getElementById('btn-view-visual');
+    const btnSimple = document.getElementById('btn-view-simple');
+
+    if (btnVisual && btnSimple) {
+        btnVisual.classList.remove('active');
+        btnSimple.classList.remove('active');
+        if (mode === 'visual') btnVisual.classList.add('active');
+        if (mode === 'simple') btnSimple.classList.add('active');
+    }
+
+    // 2. Toggle Content
+    const viewVisual = document.getElementById('view-visual');
+    const viewSimple = document.getElementById('view-simple');
+
+    if (viewVisual && viewSimple) {
+        if (mode === 'visual') {
+            viewVisual.style.display = 'block';
+            viewSimple.style.display = 'none';
+        } else {
+            viewVisual.style.display = 'none';
+            viewSimple.style.display = 'block';
+            loadPdf(); // Load correct PDF language
+        }
+    }
+}
+
+/* --- RENDER HOME PREVIEW SKILLS --- */
 function renderHomeSkills() {
     const lang = localStorage.getItem('lang') || 'he';
     const container = document.getElementById('home-skills-container');
@@ -194,24 +221,40 @@ function applyLanguage(lang) {
     if (btn) {
         btn.textContent = lang === 'he' ? dictionary.he.toggle_lang : dictionary.en.toggle_lang;
     }
-    // Re-render home skills if they exist (to update the description text)
-    if (document.getElementById('home-skills-container')) {
-        renderHomeSkills();
-    }
 }
 const originalApplyLanguage = applyLanguage;
 applyLanguage = function (lang) {
     originalApplyLanguage(lang); // Call original logic
 
-    // Re-render dynamic sections with new language
+    // Re-render dynamic sections with new language mode
     if (document.getElementById('home-skills-container')) renderHomeSkills();
     if (document.getElementById('skills-content')) renderFullSkills();
     if (document.getElementById('experience-content')) renderExperience();
     if (document.getElementById('education-content')) renderEducation();
+
+    // UPDATE PDF (if visible)
+    if (document.getElementById('view-simple') && document.getElementById('view-simple').style.display !== 'none') {
+        loadPdf();
+    }
 };
 
 function toggleLanguage() {
     const current = document.documentElement.getAttribute('lang');
     const newLang = current === 'he' ? 'en' : 'he';
     applyLanguage(newLang);
+}
+
+// Helper: Loads the PDF into the iframe based on current language
+function loadPdf() {
+    const frame = document.getElementById('resume-pdf-frame');
+    if (!frame) return;
+
+    const lang = localStorage.getItem('lang') || 'he';
+    const pdfUrl = lang === 'he' ? siteConfig.documents.resume_he : siteConfig.documents.resume_en;
+
+    // Only set src if it's different to prevent reloading on every click
+    // or if it's empty
+    if (frame.getAttribute('src') !== pdfUrl) {
+        frame.src = pdfUrl;
+    }
 }

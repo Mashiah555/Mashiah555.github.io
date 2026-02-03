@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuval Mashiah | Portfolio</title>
+    <title>Yuval Mashiah</title>
 
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="icon" href="resources/images/logo.png" type="image/png">
@@ -44,8 +44,10 @@
         <!-- Resume Section -->
         <div class="controls-bar">
             <div class="view-toggle">
-                <button class="chip active" onclick="switchView('visual')" data-i18n="view_visual">Visual</button>
-                <button class="chip" onclick="switchView('simple')" data-i18n="view_simple">Simple</button>
+                <button id="btn-view-visual" class="chip active" onclick="switchView('visual')"
+                    data-i18n="view_visual">Visual</button>
+                <button id="btn-view-simple" class="chip" onclick="switchView('simple')"
+                    data-i18n="view_simple">Simple</button>
             </div>
 
             <div class="download-dropdown">
@@ -57,24 +59,32 @@
             </div>
         </div>
 
-        <div class="tab-bar">
-            <button class="tab-btn active" onclick="openTab('experience')" data-i18n="tab_exp">Experience</button>
-            <button class="tab-btn" onclick="openTab('skills')" data-i18n="tab_skills">Skills</button>
-            <button class="tab-btn" onclick="openTab('education')" data-i18n="tab_edu">Education</button>
-        </div>
+        <div id="view-visual">
+            <div class="tab-bar">
+                <button class="tab-btn active" onclick="openTab('experience')" data-i18n="tab_exp">Experience</button>
+                <button class="tab-btn" onclick="openTab('skills')" data-i18n="tab_skills">Skills</button>
+                <button class="tab-btn" onclick="openTab('education')" data-i18n="tab_edu">Education</button>
+            </div>
 
-        <div id="experience" class="tab-content active">
-            <div id="experience-content" class="timeline-container">
+            <div id="experience" class="tab-content active">
+                <div id="experience-content" class="timeline-container">
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <div id="skills-content" class="skills-section">
+                </div>
+            </div>
+
+            <div id="education" class="tab-content">
+                <div id="education-content" class="timeline-container">
+                </div>
             </div>
         </div>
 
-        <div id="skills" class="tab-content">
-            <div id="skills-content" class="skills-section">
-            </div>
-        </div>
-
-        <div id="education" class="tab-content">
-            <div id="education-content" class="timeline-container">
+        <div id="view-simple" style="display: none;">
+            <div class="pdf-container">
+                <iframe id="resume-pdf-frame" src="" title="Resume PDF"></iframe>
             </div>
         </div>
 
@@ -112,7 +122,7 @@
             img.src = siteConfig.assets.default_icon;
         });
 
-        // Tab Logic
+        // Tab Logic (Visual Mode)
         function openTab(tabName) {
             // 1. Hide all tabs
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -138,12 +148,6 @@
                 openTab('experience'); // Default tab
             }
         });
-
-        // View Switching Logic (Stub)
-        function switchView(view) {
-            document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-        }
     </script>
 </body>
 
