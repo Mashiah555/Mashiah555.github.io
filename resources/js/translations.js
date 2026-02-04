@@ -14,7 +14,7 @@ const dictionary = {
         greeting: "יובל משיח",
         hero_role: "מפתח Full-Stack",
         hero_student: "סטודנט בן 20 למדעי המחשב",
-        hero_location: "ישראל",
+        hero_location: "פתח תקווה, ישראל",
         btn_projects: "הפרויקטים שלי",
         btn_skills: "לכל הכישורים",
 
@@ -66,12 +66,10 @@ const dictionary = {
         desc_event: "ניהול מצבים מונחי אירועים",
 
         // --- Resume Page ---
-        resume_location: "פתח תקווה, ישראל",
-        resume_bio: "אני חייל צה\"ל בן 20, שמשרת תחת תכנית העתודה האקדמית כמפתח Full Stack.",
-
         // Controls
         view_visual: "מעוצב",
-        view_simple: "פשוט",
+        view_plain: "פשוט",
+        view_preview: "תצוגה מקדימה",
         btn_download: "הורדת קו\"ח",
         opt_he: "עברית (PDF)",
         opt_en: "אנגלית (PDF)",
@@ -97,7 +95,7 @@ const dictionary = {
         greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
         hero_student: "20 years old B.Sc. student in Computer Science",
-        hero_location: "Israel",
+        hero_location: "Petah Tikva, Israel",
         btn_projects: "My Projects",
         btn_skills: "Full Skill Set",
 
@@ -148,13 +146,11 @@ const dictionary = {
         desc_microfront: "Independent Frontend Components",
         desc_event: "Event-Driven State",
 
-        // --- Resume Page ---
-        resume_location: "Petah Tikva, Israel",
-        resume_bio: "I am a 20-year-old IDF soldier, serving under the Academic Reserve Program as a Full Stack Developer.",
-
+        // --- Resume Section ---
         // Controls
         view_visual: "Visual",
-        view_simple: "Plain",
+        view_plain: "Plain",
+        view_preview: "Preview",
         btn_download: "Download CV",
         opt_he: "Hebrew (PDF)",
         opt_en: "English (PDF)",

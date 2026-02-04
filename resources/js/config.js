@@ -6,10 +6,10 @@ const siteConfig = {
         email: "mailto:myyuval555@gmail.com",
 
         // Navigation Paths
-        page_home: "index.html",
-        page_resume: "?tab=experience",
+        page_home: "./",
+        page_resume: "./?tab=experience#resume-section",
         page_projects: "projects.html",
-        page_skills: "?tab=skills"
+        page_skills: "./?tab=skills#resume-section"
     },
     // asset paths
     assets: {

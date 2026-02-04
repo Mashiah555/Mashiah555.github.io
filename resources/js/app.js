@@ -17,41 +17,151 @@ function initApp() {
 
     // --- DYNAMIC RENDERING CALLS ---
     if (typeof resumeData !== 'undefined') {
-        // 1. Home Preview (Trailer)
+        // 1. Home Preview Skills
         if (document.getElementById('home-skills-container')) renderHomeSkills();
         // 2. Full Resume Tabs
         if (document.getElementById('skills-content')) renderFullSkills();
         if (document.getElementById('experience-content')) renderExperience();
         if (document.getElementById('education-content')) renderEducation();
+        if (document.getElementById('plain-content')) renderPlain();
     }
+
+    initNavbarBehavior();
 }
 
-/* --- VIEW MODE SWITCHING (Visual vs Simple) --- */
-function switchView(mode) {
-    // 1. Toggle Buttons
-    const btnVisual = document.getElementById('btn-view-visual');
-    const btnSimple = document.getElementById('btn-view-simple');
+function initNavbarBehavior() {
+    const resumeSection = document.getElementById('resume-section');
+    const navHome = document.getElementById('nav-home');
+    const navResume = document.getElementById('nav-resume');
+    const navSkills = document.getElementById('nav-skills');
 
-    if (btnVisual && btnSimple) {
-        btnVisual.classList.remove('active');
-        btnSimple.classList.remove('active');
-        if (mode === 'visual') btnVisual.classList.add('active');
-        if (mode === 'simple') btnSimple.classList.add('active');
+    // Select the navbar for the smart hide/show logic
+    const navbar = document.querySelector('.navbar');
+
+    /* --- SMART NAVBAR SCROLL LOGIC --- */
+    let lastScrollY = window.scrollY;
+
+    const handleSmartNavbar = () => {
+        if (!navbar) return;
+        const currentScrollY = window.scrollY;
+
+        // Ignore negative scrolling (rubber banding effect on mobile)
+        if (currentScrollY < 0) return;
+
+        // Determine Direction
+        // If scrolling DOWN and we are past the top (offset > 80px)
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            navbar.classList.add('navbar--hidden');
+        } else {
+            // If scrolling UP
+            navbar.classList.remove('navbar--hidden');
+        }
+        lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleSmartNavbar);
+
+    if (!resumeSection) return;
+
+    /* --- 1. CLICK HANDLERS (Keep existing) --- */
+    const scrollToResume = () => {
+        const headerOffset = 80;
+        const elementPosition = resumeSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    };
+
+    if (navHome) {
+        navHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.pushState(null, null, './');
+        });
     }
 
-    // 2. Toggle Content
-    const viewVisual = document.getElementById('view-visual');
-    const viewSimple = document.getElementById('view-simple');
+    if (navResume) {
+        navResume.addEventListener('click', (e) => {
+            e.preventDefault();
+            openTab('experience');
+            scrollToResume();
+            history.pushState(null, null, '?tab=experience');
+        });
+    }
 
-    if (viewVisual && viewSimple) {
-        if (mode === 'visual') {
-            viewVisual.style.display = 'block';
-            viewSimple.style.display = 'none';
+    if (navSkills) {
+        navSkills.addEventListener('click', (e) => {
+            e.preventDefault();
+            openTab('skills');
+            scrollToResume();
+            history.pushState(null, null, '?tab=skills');
+        });
+    }
+
+    /* --- 2. SCROLL SPY (Keep existing) --- */
+    const updateActiveNav = () => {
+        const scrollY = window.scrollY;
+        const triggerPoint = resumeSection.offsetTop - 150;
+
+        if (navHome) navHome.classList.remove('active');
+        if (navResume) navResume.classList.remove('active');
+        if (navSkills) navSkills.classList.remove('active');
+
+        if (scrollY < triggerPoint) {
+            if (navHome) navHome.classList.add('active');
         } else {
-            viewVisual.style.display = 'none';
-            viewSimple.style.display = 'block';
-            loadPdf(); // Load correct PDF language
+            const isSkillsOpen = document.querySelector('.tab-btn[onclick="openTab(\'skills\')"]')
+                ?.classList.contains('active');
+
+            if (isSkillsOpen) {
+                if (navSkills) navSkills.classList.add('active');
+            } else {
+                if (navResume) navResume.classList.add('active');
+            }
         }
+    };
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+
+    /* --- 3. TAB CLICK LISTENER --- */
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.classList.contains('tab-btn')) {
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 50);
+        }
+    });
+}
+
+/* --- VIEW MODE SWITCHING (Visual/Plain/Preview) --- */
+function switchView(mode) {
+    // Reset Buttons
+    ['visual', 'plain', 'preview'].forEach(v => {
+        const btn = document.getElementById(`btn-view-${v}`);
+        if (btn) btn.classList.remove('active');
+    });
+
+    // Activate Clicked Button
+    const activeBtn = document.getElementById(`btn-view-${mode}`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Toggle Content Areas
+    const viewVisual = document.getElementById('view-visual');
+    const viewPlain = document.getElementById('view-plain');
+    const viewPreview = document.getElementById('view-preview');
+
+    if (viewVisual) viewVisual.style.display = 'none';
+    if (viewPlain) viewPlain.style.display = 'none';
+    if (viewPreview) viewPreview.style.display = 'none';
+
+    if (mode === 'visual' && viewVisual) {
+        viewVisual.style.display = 'block';
+    } else if (mode === 'plain' && viewPlain) {
+        viewPlain.style.display = 'block';
+        renderPlain();
+    } else if (mode === 'preview' && viewPreview) {
+        viewPreview.style.display = 'block';
+        loadPdf();
     }
 }
 
@@ -187,6 +297,86 @@ function renderEducation() {
     container.innerHTML = html;
 }
 
+/* --- RENDER PLAIN Mode --- */
+function renderPlain() {
+    const container = document.getElementById('plain-content');
+    if (!container) return;
+    const lang = localStorage.getItem('lang') || 'he';
+
+    // Helper to get text safely
+    const t = (key) => (dictionary[lang] && dictionary[lang][key]) ? dictionary[lang][key] : key;
+
+    // GENERATE PLAIN HTML
+    let html = `
+        <div class="plain-header">
+            <h1>${t('greeting')}</h1>
+            <p>${t('hero_role')} • ${t('hero_location')}</p>
+            <div class="plain-links">
+                <a href="${siteConfig.links.email}">${siteConfig.links.email.replace('mailto:', '')}</a> | 
+                <a href="${siteConfig.links.linkedin}" target="_blank">LinkedIn</a> | 
+                <a href="${siteConfig.links.github}" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <hr class="plain-divider">
+
+        <div class="plain-section">
+            <h2>${t('tab_exp').toUpperCase()}</h2>
+            ${resumeData.experience.map(job => {
+        const link = job.link || "#";
+        return `
+                <div class="plain-item">
+                    <div class="plain-item-header">
+                        <strong>${job.role[lang]}</strong>
+                        <span>${job.dates[lang]}</span>
+                    </div>
+                    <a href="${link}" target="_blank" class="plain-company">${job.company[lang]}</a>
+                    <p>${job.description[lang]}</p>
+                </div>
+            `;
+    }).join('')}
+        </div>
+
+        <div class="plain-section">
+            <h2>${t('tab_edu').toUpperCase()}</h2>
+            ${resumeData.education.map(edu => {
+        const link = edu.link || "#";
+        return `
+                <div class="plain-item">
+                    <div class="plain-item-header">
+                        <strong>${edu.degree[lang]}</strong>
+                        <span>${edu.dates[lang]}</span>
+                    </div>
+                    <a href="${link}" target="_blank" class="plain-company">${edu.school[lang]}</a>
+                    <p>${edu.description[lang]}</p>
+                </div>
+            `;
+    }).join('')}
+        </div>
+
+        <div class="plain-section">
+            <h2>${t('tab_skills').toUpperCase()}</h2>
+            <div class="plain-skills-list">
+                ${resumeData.skillsCategories.map(cat => {
+        // Get translated category name
+        const catName = dictionary[lang][cat.id] || cat.id;
+        // Get list of skills in this category
+        const skillList = cat.items.map(item => item.name).join('  •  ');
+
+        return `
+                        <div class="plain-skill-row">
+                            <span class="plain-skill-cat">${catName}:</span>
+                            <span class="plain-skill-items">${skillList}</span>
+                        </div>
+                    `;
+    }).join('')}
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
 /* --- THEME LOGIC --- */
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -231,9 +421,9 @@ applyLanguage = function (lang) {
     if (document.getElementById('skills-content')) renderFullSkills();
     if (document.getElementById('experience-content')) renderExperience();
     if (document.getElementById('education-content')) renderEducation();
-
+    if (document.getElementById('plain-content')) renderPlain();
     // UPDATE PDF (if visible)
-    if (document.getElementById('view-simple') && document.getElementById('view-simple').style.display !== 'none') {
+    if (document.getElementById('view-preview') && document.getElementById('view-preview').style.display !== 'none') {
         loadPdf();
     }
 };
@@ -245,16 +435,45 @@ function toggleLanguage() {
 }
 
 // Helper: Loads the PDF into the iframe based on current language
-function loadPdf() {
+async function loadPdf() {
     const frame = document.getElementById('resume-pdf-frame');
     if (!frame) return;
 
     const lang = localStorage.getItem('lang') || 'he';
     const pdfUrl = lang === 'he' ? siteConfig.documents.resume_he : siteConfig.documents.resume_en;
 
-    // Only set src if it's different to prevent reloading on every click
-    // or if it's empty
-    if (frame.getAttribute('src') !== pdfUrl) {
+    // Avoid reloading if already loaded
+    if (frame.getAttribute('data-loaded-url') === pdfUrl) return;
+
+    /* --- DETECTION LOGIC --- */
+
+    // 1. Browser Capability Check
+    // If the browser explicitly says it doesn't support PDF viewing (e.g., some mobile browsers), 
+    // switch to Plain view immediately.
+    if (navigator.pdfViewerEnabled === false) {
+        console.warn("Browser does not support built-in PDF viewing. Switching to Plain view.");
+        switchView('plain');
+        return;
+    }
+
+    try {
+        // 2. Network Availability Check
+        // Try to fetch just the headers (HEAD) to see if the file exists.
+        // If this fails (404) or throws a network error (CORS/Offline)- catch it.
+        const response = await fetch(pdfUrl, { method: 'HEAD' });
+
+        if (!response.ok) {
+            throw new Error(`PDF file missing or inaccessible (Status: ${response.status})`);
+        }
+
+        // 3. Success: Load the PDF
         frame.src = pdfUrl;
+        frame.setAttribute('data-loaded-url', pdfUrl); // Mark as loaded
+
+    } catch (error) {
+        console.error("PDF Load Failed:", error);
+
+        // FORCE SWITCH TO PLAIN VIEW (automatically updates the buttons and hides the broken preview)
+        switchView('plain');
     }
 }

@@ -42,12 +42,14 @@
         </div>
 
         <!-- Resume Section -->
-        <div class="controls-bar">
+        <div id="resume-section" class="controls-bar">
             <div class="view-toggle">
                 <button id="btn-view-visual" class="chip active" onclick="switchView('visual')"
                     data-i18n="view_visual">Visual</button>
-                <button id="btn-view-simple" class="chip" onclick="switchView('simple')"
-                    data-i18n="view_simple">Simple</button>
+                <button id="btn-view-plain" class="chip" onclick="switchView('plain')"
+                    data-i18n="view_plain">Plain</button>
+                <button id="btn-view-preview" class="chip" onclick="switchView('preview')"
+                    data-i18n="view_preview">Preview</button>
             </div>
 
             <div class="download-dropdown">
@@ -82,7 +84,12 @@
             </div>
         </div>
 
-        <div id="view-simple" style="display: none;">
+        <div id="view-plain" style="display: none;">
+            <div id="plain-content" class="plain-container">
+            </div>
+        </div>
+
+        <div id="view-preview" style="display: none;">
             <div class="pdf-container">
                 <iframe id="resume-pdf-frame" src="" title="Resume PDF"></iframe>
             </div>

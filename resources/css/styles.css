@@ -80,6 +80,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 100px;
 }
 
 /* Typography Defaults */
@@ -118,14 +119,28 @@ ul {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 0;
     background: var(--clr-bg-surface);
     border-radius: 0 0 var(--radius-md) var(--radius-md);
     border-bottom: 1px solid var(--clr-border);
     box-shadow: var(--shadow-sm);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    /* Matches container max-width */
+    width: calc(100% - 40px);
+    /* Matches container padding (20px each side) */
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar--hidden {
+    transform: translateY(-100%);
+    /* Moves it up out of view */
+    box-shadow: none;
 }
 
 .nav-left {
@@ -783,6 +798,15 @@ html[dir="ltr"] .job-card {
     padding-left: 45px;
 }
 
+html[dir="ltr"] .plain-skill-cat {
+    margin-left: 0;
+}
+
+html[dir="ltr"] .plain-item-header {
+    margin-right: 3rem;
+    margin-left: 0;
+}
+
 /* --- RTL (Hebrew) --- */
 html[dir="rtl"] .timeline-container {
     padding-right: calc(var(--tl-icon-size) / 2);
@@ -805,6 +829,15 @@ html[dir="rtl"] .job-card {
             transparent 99%,
             var(--clr-bg-surface) 100%);
     padding-right: 45px;
+}
+
+html[dir="rtl"] .plain-skill-cat {
+    margin-right: 0;
+}
+
+html[dir="rtl"] .plain-item-header {
+    margin-right: 0;
+    margin-left: 3rem;
 }
 
 /* Stagger animation for timeline items */
@@ -879,13 +912,13 @@ html[dir="rtl"] .job-card {
 }
 
 /* =========================================
-   8. PDF VIEWER (Simple Mode)
+   8. PDF VIEWER (Preview Mode)
    ========================================= */
 .pdf-container {
     width: 100%;
-    height: 800px;
+    height: 1000px;
     /* Fixed height for the PDF viewer */
-    max-height: 80vh;
+    max-height: 150vh;
     background-color: var(--clr-bg-surface);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-md);
@@ -908,7 +941,122 @@ html[dir="rtl"] .job-card {
 }
 
 /* =========================================
-   9. FOOTER
+   9. SIMPLE RESUME VIEW (Plain Mode)
+   ========================================= */
+.plain-container {
+    background-color: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    box-shadow: var(--shadow-sm);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--clr-text-main);
+}
+
+.plain-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plain-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plain-links a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.plain-links a:hover {
+    text-decoration: underline;
+}
+
+.plain-divider {
+    border: 0;
+    border-top: 1px solid var(--clr-border);
+    margin: 2rem 0;
+}
+
+.plain-section {
+    margin-bottom: 2.5rem;
+}
+
+.plain-section h2 {
+    font-size: 1.1rem;
+    color: var(--clr-text-muted);
+    border-bottom: 2px solid var(--clr-border);
+    padding-bottom: 5px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.plain-item {
+    margin-bottom: 2.25rem;
+}
+
+.plain-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+}
+
+.plain-item-header strong {
+    font-size: 1.1rem;
+    color: var(--clr-text-main);
+}
+
+.plain-company {
+    display: inline-block;
+    color: var(--clr-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    /* No underline by default */
+    cursor: pointer;
+}
+
+.plain-company:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.plain-item p {
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+}
+
+.plain-skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.plain-skill-row {
+    line-height: 1.5;
+}
+
+.plain-skill-cat {
+    font-weight: 700;
+    color: var(--clr-text-main);
+    margin-right: 8px;
+    /* Space after colon in LTR */
+    margin-left: 8px;
+    /* Space after colon in RTL */
+}
+
+.plain-skill-items {
+    color: var(--clr-text-muted);
+}
+
+/* =========================================
+   10. FOOTER
    ========================================= */
 .footer {
     margin-top: auto;
@@ -948,7 +1096,7 @@ html[dir="rtl"] .job-card {
 }
 
 /* =========================================
-   10. UTILITIES & HELPERS
+   11. UTILITIES & HELPERS
    ========================================= */
 .text-center {
     text-align: center;
@@ -979,7 +1127,7 @@ html[dir="rtl"] .job-card {
 }
 
 /* =========================================
-   11. CUSTOM SCROLLBAR
+   12. CUSTOM SCROLLBAR
    ========================================= */
 
 /* Firefox */
