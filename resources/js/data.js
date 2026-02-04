@@ -113,5 +113,69 @@ const resumeData = {
                 en: "Specialization in Information Systems and AI. Dean's List."
             }
         }
+    ],
+
+    // --- PROJECTS ---
+    projects: [
+        {
+            id: "lobby_stream",
+            title: "Lobby Stream",
+            description: {
+                he: "מסכים דינמיים לבנייני מגורים וציבור עם תוכן מותאם אישית.",
+                en: "Dynamic content display for residential and public buildings with custom integrations."
+            },
+            stack: [".NET", "C#", "Firebase"],
+            links: {
+                github: "hjk",
+                demo: "projects/lobby_stream.html",
+                site: "https://lobby-stream.web.app/"
+            },
+            image: "resources/images/default.png"
+        },
+        {
+            id: "queue_manager",
+            title: "Queue Manager",
+            description: {
+                he: "מערכת לשיפור שירות הלקוחות בבתי עסק, פותחה ב-Windows Forms.",
+                en: "Customer service optimization tool for businesses, built with Windows Forms."
+            },
+            stack: ["C#", "WinForms", "SQL"],
+            links: {
+                github: "https://github.com/Mashiah555/Queue-Manager",
+                demo: "projects/queue_manager.html",
+                site: ""
+            },
+            image: "resources/images/default.png"
+        },
+        {
+            id: "defence_union",
+            title: "Defence Union",
+            description: {
+                he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
+                en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
+            },
+            stack: ["C#", "WPF", "SQL"],
+            links: {
+                github: "",
+                demo: "",
+                site: ""
+            },
+            image: "resources/images/default.png"
+        },
+        {
+            id: "walkie_doggie",
+            title: "Walkie Doggie",
+            description: {
+                he: "אפליקציית מובייל למעקב וטיפול בחיות מחמד משפחתיות.",
+                en: "Mobile application to simplify family pet care tracking."
+            },
+            stack: [".NET MAUI", "C#", "Mobile"],
+            links: {
+                github: "https://github.com/Mashiah555/Walkie-Doggie",
+                demo: "",
+                site: ""
+            },
+            image: "resources/images/default.png"
+        }
     ]
 };

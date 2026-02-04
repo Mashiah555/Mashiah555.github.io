@@ -29,6 +29,7 @@ function initApp() {
     initNavbarBehavior();
 }
 
+/* --- NAVBAR BEHAVIOR --- */
 function initNavbarBehavior() {
     const resumeSection = document.getElementById('resume-section');
     const navHome = document.getElementById('nav-home');
@@ -398,7 +399,7 @@ function applyLanguage(lang) {
     document.documentElement.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
     localStorage.setItem('lang', lang);
 
-    // Update Text
+    // 1. Update Text Content
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dictionary[lang] && dictionary[lang][key]) {
@@ -406,27 +407,34 @@ function applyLanguage(lang) {
         }
     });
 
-    // Update Button Text
-    const btn = document.getElementById('btn-lang');
-    if (btn) {
-        btn.textContent = lang === 'he' ? dictionary.he.toggle_lang : dictionary.en.toggle_lang;
+    // 2. Update Tooltips (Titles) for Navbar Buttons
+    const btnTheme = document.getElementById('btn-theme');
+    const btnLang = document.getElementById('btn-lang');
+    if (btnTheme && dictionary[lang].tooltip_theme) {
+        btnTheme.title = dictionary[lang].tooltip_theme;
     }
-}
-const originalApplyLanguage = applyLanguage;
-applyLanguage = function (lang) {
-    originalApplyLanguage(lang); // Call original logic
+    if (btnLang && dictionary[lang].tooltip_lang) {
+        btnLang.title = dictionary[lang].tooltip_lang;
+    }
 
-    // Re-render dynamic sections with new language mode
-    if (document.getElementById('home-skills-container')) renderHomeSkills();
-    if (document.getElementById('skills-content')) renderFullSkills();
-    if (document.getElementById('experience-content')) renderExperience();
-    if (document.getElementById('education-content')) renderEducation();
-    if (document.getElementById('plain-content')) renderPlain();
-    // UPDATE PDF (if visible)
-    if (document.getElementById('view-preview') && document.getElementById('view-preview').style.display !== 'none') {
+    // 3. Update Button Text
+    if (btnLang) {
+        btnLang.textContent = lang === 'he' ? dictionary.he.toggle_lang : dictionary.en.toggle_lang;
+    }
+
+    // 4. Re-render dynamic sections
+    if (typeof renderHomeSkills === 'function' && document.getElementById('home-skills-container')) renderHomeSkills();
+    if (typeof renderFullSkills === 'function' && document.getElementById('skills-content')) renderFullSkills();
+    if (typeof renderExperience === 'function' && document.getElementById('experience-content')) renderExperience();
+    if (typeof renderEducation === 'function' && document.getElementById('education-content')) renderEducation();
+    if (typeof renderPlain === 'function' && document.getElementById('plain-content')) renderPlain();
+
+    // 5. Update PDF if visible
+    const previewView = document.getElementById('view-preview');
+    if (previewView && previewView.style.display !== 'none' && typeof loadPdf === 'function') {
         loadPdf();
     }
-};
+}
 
 function toggleLanguage() {
     const current = document.documentElement.getAttribute('lang');

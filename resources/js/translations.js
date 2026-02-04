@@ -9,6 +9,8 @@ const dictionary = {
         nav_projects: "פרויקטים",
         nav_skills: "כישורים",
         toggle_lang: "EN",
+        tooltip_theme: "שינוי ערכת נושא",
+        tooltip_lang: "שינוי השפה לאנגלית \n Switch language to English",
 
         // --- Hero Section ---
         greeting: "יובל משיח",
@@ -65,7 +67,7 @@ const dictionary = {
         desc_microfront: "רכיבי Frontend עצמאיים",
         desc_event: "ניהול מצבים מונחי אירועים",
 
-        // --- Resume Page ---
+        // --- Resume Section ---
         // Controls
         view_visual: "מעוצב",
         view_plain: "פשוט",
@@ -79,6 +81,13 @@ const dictionary = {
         tab_skills: "כישורים",
         tab_edu: "השכלה",
 
+        // --- Projects Page ---
+        projects_title: "הפרויקטים שלי",
+        projects_subtitle: "אוסף של עבודות ופיתוחים נבחרים",
+        btn_site: "לאתר הפרויקט",
+        btn_demo: "מידע נוסף",
+        btn_repo: "קוד המקור",
+
         // --- Footer ---
         footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
     },
@@ -90,6 +99,8 @@ const dictionary = {
         nav_projects: "Projects",
         nav_skills: "Skills",
         toggle_lang: "עב",
+        tooltip_theme: "Toggle Theme",
+        tooltip_lang: "Switch language to Hebrew \n שינוי השפה לעברית",
 
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
@@ -159,6 +170,13 @@ const dictionary = {
         tab_exp: "Experience",
         tab_skills: "Skills",
         tab_edu: "Education",
+
+        // --- Projects Page ---
+        projects_title: "My Projects",
+        projects_subtitle: "A collection of selected works",
+        btn_site: "Project Site",
+        btn_demo: "Project Demo",
+        btn_repo: "Source Code",
 
         // --- Footer ---
         footer_rights: "© 2026 Yuval Mashiah. All rights reserved."
