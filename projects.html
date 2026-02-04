@@ -166,6 +166,9 @@
 
             const lang = localStorage.getItem('lang') || 'he';
 
+            // Get translated GitHub button text
+            const githubText = (dictionary[lang] && dictionary[lang].btn_github) ? dictionary[lang].btn_github : "GitHub";
+
             const html = resumeData.projects.map(project => {
                 // 1. Image handling
                 const imgDisplay = project.image
@@ -192,7 +195,7 @@
 
                 // GitHub Button
                 if (project.links.github && project.links.github.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">GitHub</a>`;
+                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${githubText}</a>`;
                 }
 
                 // 4. Description (Localized) & Title (Static)

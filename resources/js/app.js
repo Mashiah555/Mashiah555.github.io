@@ -35,36 +35,27 @@ function initNavbarBehavior() {
     const navHome = document.getElementById('nav-home');
     const navResume = document.getElementById('nav-resume');
     const navSkills = document.getElementById('nav-skills');
-
-    // Select the navbar for the smart hide/show logic
     const navbar = document.querySelector('.navbar');
 
-    /* --- SMART NAVBAR SCROLL LOGIC --- */
+    /* Smart Navbar Logic */
     let lastScrollY = window.scrollY;
-
     const handleSmartNavbar = () => {
         if (!navbar) return;
         const currentScrollY = window.scrollY;
-
-        // Ignore negative scrolling (rubber banding effect on mobile)
         if (currentScrollY < 0) return;
 
-        // Determine Direction
-        // If scrolling DOWN and we are past the top (offset > 80px)
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
             navbar.classList.add('navbar--hidden');
         } else {
-            // If scrolling UP
             navbar.classList.remove('navbar--hidden');
         }
         lastScrollY = currentScrollY;
     };
-
     window.addEventListener('scroll', handleSmartNavbar);
 
     if (!resumeSection) return;
 
-    /* --- 1. CLICK HANDLERS (Keep existing) --- */
+    /* Helper: Scroll to Resume Section */
     const scrollToResume = () => {
         const headerOffset = 80;
         const elementPosition = resumeSection.getBoundingClientRect().top;
@@ -72,6 +63,9 @@ function initNavbarBehavior() {
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     };
 
+    /* 1. CLICK HANDLERS */
+
+    // Home
     if (navHome) {
         navHome.addEventListener('click', (e) => {
             e.preventDefault();
@@ -80,58 +74,67 @@ function initNavbarBehavior() {
         });
     }
 
+    // Resume -> Switches to "Plain" View
     if (navResume) {
         navResume.addEventListener('click', (e) => {
             e.preventDefault();
-            openTab('experience');
+            switchView('plain'); // Switch to Plain view
             scrollToResume();
-            history.pushState(null, null, '?tab=experience');
+            history.pushState(null, null, '?tab=resume');
         });
     }
 
+    // Skills -> Switches to "Visual" View AND "Skills" Tab
     if (navSkills) {
         navSkills.addEventListener('click', (e) => {
             e.preventDefault();
-            openTab('skills');
+            switchView('visual'); // Ensure Visual mode is active
+            openTab('skills');    // Select Skills tab
             scrollToResume();
             history.pushState(null, null, '?tab=skills');
         });
     }
 
-    /* --- 2. SCROLL SPY (Keep existing) --- */
+    /* 2. SCROLL SPY */
     const updateActiveNav = () => {
         const scrollY = window.scrollY;
         const triggerPoint = resumeSection.offsetTop - 150;
 
+        // Reset all
         if (navHome) navHome.classList.remove('active');
         if (navResume) navResume.classList.remove('active');
         if (navSkills) navSkills.classList.remove('active');
 
+        // Logic
         if (scrollY < triggerPoint) {
+            // We are at Home
             if (navHome) navHome.classList.add('active');
         } else {
-            const isSkillsOpen = document.querySelector('.tab-btn[onclick="openTab(\'skills\')"]')
-                ?.classList.contains('active');
+            // We are in Resume Section
 
-            if (isSkillsOpen) {
-                if (navSkills) navSkills.classList.add('active');
+            // Check if we are in "Visual" mode
+            const isVisualMode = document.getElementById('view-visual')?.style.display !== 'none';
+
+            if (isVisualMode) {
+                // If in Visual mode, check if Skills tab is active
+                const isSkillsTabActive = document.querySelector('.tab-btn[onclick="openTab(\'skills\')"]')?.classList.contains('active');
+
+                if (isSkillsTabActive) {
+                    if (navSkills) navSkills.classList.add('active');
+                } else {
+                    // Visual mode but not Skills (e.g., Experience/Education) -> Highlight Resume
+                    if (navResume) navResume.classList.add('active');
+                }
             } else {
+                // If in Plain or Preview mode -> Highlight Resume
                 if (navResume) navResume.classList.add('active');
             }
         }
     };
 
     window.addEventListener('scroll', updateActiveNav);
+    // Initial call to set state
     updateActiveNav();
-
-    /* --- 3. TAB CLICK LISTENER --- */
-    document.addEventListener('click', (e) => {
-        if (e.target && e.target.classList.contains('tab-btn')) {
-            setTimeout(() => {
-                window.dispatchEvent(new Event('scroll'));
-            }, 50);
-        }
-    });
 }
 
 /* --- VIEW MODE SWITCHING (Visual/Plain/Preview) --- */
