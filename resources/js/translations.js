@@ -108,7 +108,7 @@ const dictionary = {
         hero_student: "20 years old B.Sc. student in Computer Science",
         hero_location: "Petah Tikva, Israel",
         btn_projects: "My Projects",
-        btn_skills: "Full Skill Set",
+        btn_skills: "Full Skill Stack",
 
         // --- Categories ---
         cat_languages: "Languages",

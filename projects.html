@@ -77,18 +77,18 @@
         }
 
         .project-desc {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--clr-text-muted);
             margin-bottom: 1.5rem;
             flex-grow: 1;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* Tech Stack Tags */
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 5px;
             margin-bottom: 1.5rem;
         }
 
@@ -121,6 +121,16 @@
             gap: 6px;
             white-space: nowrap;
         }
+
+        .btn-sm svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
     </style>
 </head>
 
@@ -131,13 +141,25 @@
 
         <div class="hero-context" style="margin-top: 60px; margin-bottom: 40px;">
             <h2 class="hero-title" data-i18n="projects_title">My Projects</h2>
-            <p class="hero-subtitle" data-i18n="projects_subtitle">A showcase of my technical journey</p>
+            <p class="hero-subtitle" data-i18n="projects_subtitle">A showcase of my selected work</p>
         </div>
 
         <div id="projects-grid" class="projects-grid">
         </div>
 
         <div id="global-footer"></div>
+    </div>
+
+    <div id="demo-modal" class="modal-overlay" onclick="handleOutsideClick(event)">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title">Project Demo</h3>
+                <button class="modal-close-btn" onclick="closeDemoModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="modal-iframe" class="modal-iframe" src="" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 
     <script src="resources/js/config.js"></script>
@@ -166,40 +188,44 @@
 
             const lang = localStorage.getItem('lang') || 'he';
 
+            // --- ICONS (SVG) ---
+            const iconExternal = `<svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`;
+            const iconGlobe = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+            const iconGithub = `<svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
+
             // Get translated GitHub button text
-            const githubText = (dictionary[lang] && dictionary[lang].btn_github) ? dictionary[lang].btn_github : "GitHub";
+            const githubText = (dictionary[lang] && dictionary[lang].btn_repo) ? dictionary[lang].btn_repo : "GitHub";
 
             const html = resumeData.projects.map(project => {
-                // 1. Image handling
+                // Image handling
                 const imgDisplay = project.image
                     ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
                     : `<div style="font-size: 3rem;">💻</div>`;
 
-                // 2. Tech Stack Tags
+                // Tech Stack Tags
                 const tagsHtml = project.stack.map(tech =>
                     `<span class="tech-tag">${tech}</span>`
                 ).join('');
 
-                // 3. Links / Buttons Logic
+                // Links / Buttons Logic
                 let buttonsHtml = '';
 
-                // Demo Button
+                // Demo Button (Diagonal Arrow)
                 if (project.links.demo && project.links.demo.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.demo}" class="btn btn-primary btn-sm" data-i18n="btn_demo">Demo</a>`;
+                    buttonsHtml += `<a href="${project.links.demo}" class="btn btn-primary btn-sm"><span data-i18n="btn_demo">Demo</span>${iconExternal}</a>`;
                 }
 
-                // Site Button
+                // Site Button (Globe)
                 if (project.links.site && project.links.site.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.site}" target="_blank" class="btn btn-outline btn-sm" data-i18n="btn_site">Website</a>`;
+                    buttonsHtml += `<a href="${project.links.site}" target="_blank" class="btn btn-outline btn-sm">${iconGlobe}<span data-i18n="btn_site">Website</span></a>`;
                 }
 
-                // GitHub Button
+                // GitHub Button (GitHub Icon)
                 if (project.links.github && project.links.github.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${githubText}</a>`;
+                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${iconGithub}<span>${githubText}</span></a>`;
                 }
 
-                // 4. Description (Localized) & Title (Static)
-                // Note: project.title is now a string, not an object.
+                // Description (Localized) & Title (Static)
                 return `
                     <div class="project-card">
                         <div class="project-image-container">

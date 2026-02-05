@@ -121,16 +121,76 @@ const resumeData = {
             id: "lobby_stream",
             title: "Lobby Stream",
             description: {
-                he: "מסכים דינמיים לבנייני מגורים וציבור עם תוכן מותאם אישית.",
-                en: "Dynamic content display for residential and public buildings with custom integrations."
+                he: "מערכת לובי המציגה מזג אוויר, חדשות, בידור ועוד בזמן אמת. ניתנת לניהול באמצעות אפליקציית מובייל.",
+                en: "A kiosk system displaying real-time weather, news, entertainment and more. Fully customizable via a mobile app."
             },
-            stack: [".NET", "C#", "Firebase"],
+            stack: ["C#", ".NET MAUI", "Firebase"],
             links: {
-                github: "hjk",
-                demo: "projects/lobby_stream.html",
+                github: "",
+                demo: "#lobby_stream",
                 site: "https://lobby-stream.web.app/"
             },
+            image: "resources/images/lobby_stream.png"
+        },
+        {
+            id: "smart_travel_agent",
+            title: "Smart Travel Agent",
+            description: {
+                he: "סוכן נסיעות חכם המופעל על ידי AI לתכנון טיולים מותאמים אישית, כולל צ'אט AI והתראות בדוא\"ל.",
+                en: "AI powered travel planning assistant of personalized trips, including AI chat and email notifications."
+            },
+            stack: ["Python", "FastAPI", "MongoDB", "Ollama"],
+            links: {
+                github: "https://github.com/asher603/Smart_Travel_Agent",
+                demo: "#smart_travel_agent",
+                site: ""
+            },
             image: "resources/images/default.png"
+        },
+        {
+            id: "lev_katan",
+            title: "Lev Katan",
+            description: {
+                he: "אתר צדקה למוצרי תינוקות להשאלה חינמית.",
+                en: "A Charity website of baby products free to borrow."
+            },
+            stack: ["HTML", "JS", "Python", "Azure", "Supabase"],
+            links: {
+                github: "https://github.com/dandanseb/LevKatan",
+                demo: "",
+                site: "https://dandanseb.github.io/LevKatan"
+            },
+            image: "resources/images/default.png"
+        },
+        {
+            id: "defence_union",
+            title: "Defence Union",
+            description: {
+                he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
+                en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
+            },
+            stack: ["C#", "WPF", "XML"],
+            links: {
+                github: "",
+                demo: "#defence_union",
+                site: ""
+            },
+            image: "resources/images/default.png"
+        },
+        {
+            id: "raycast_engine",
+            title: "Raycast Engine",
+            description: {
+                he: "",
+                en: ""
+            },
+            stack: ["Java"],
+            links: {
+                github: "",
+                demo: "#raycast_engine",
+                site: ""
+            },
+            image: "resources/images/raycast_engine.jpg"
         },
         {
             id: "queue_manager",
@@ -142,22 +202,22 @@ const resumeData = {
             stack: ["C#", "WinForms", "SQL"],
             links: {
                 github: "https://github.com/Mashiah555/Queue-Manager",
-                demo: "projects/queue_manager.html",
+                demo: "#queue_manager",
                 site: ""
             },
             image: "resources/images/default.png"
         },
         {
-            id: "defence_union",
-            title: "Defence Union",
+            id: "narrow_down",
+            title: "Narrow Down",
             description: {
-                he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
-                en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
+                he: "",
+                en: ""
             },
-            stack: ["C#", "WPF", "SQL"],
+            stack: ["Dart", "Flutter"],
             links: {
                 github: "",
-                demo: "",
+                demo: "#narrow_down",
                 site: ""
             },
             image: "resources/images/default.png"
@@ -169,7 +229,7 @@ const resumeData = {
                 he: "אפליקציית מובייל למעקב וטיפול בחיות מחמד משפחתיות.",
                 en: "Mobile application to simplify family pet care tracking."
             },
-            stack: [".NET MAUI", "C#", "Mobile"],
+            stack: ["C#", ".NET MAUI", "Firebase"],
             links: {
                 github: "https://github.com/Mashiah555/Walkie-Doggie",
                 demo: "",
