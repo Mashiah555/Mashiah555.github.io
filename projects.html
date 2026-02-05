@@ -171,7 +171,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             renderProjectsPage();
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeDemoModal();
+            });
         });
+
+        // --- RENDER LOGIC ---
 
         // Override applyLanguage to re-render projects on switch
         const originalApplyLanguageProjects = applyLanguage;
@@ -193,9 +200,6 @@
             const iconGlobe = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
             const iconGithub = `<svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
 
-            // Get translated GitHub button text
-            const githubText = (dictionary[lang] && dictionary[lang].btn_repo) ? dictionary[lang].btn_repo : "GitHub";
-
             const html = resumeData.projects.map(project => {
                 // Image handling
                 const imgDisplay = project.image
@@ -212,7 +216,9 @@
 
                 // Demo Button (Diagonal Arrow)
                 if (project.links.demo && project.links.demo.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.demo}" class="btn btn-primary btn-sm"><span data-i18n="btn_demo">Demo</span>${iconExternal}</a>`;
+                    buttonsHtml += `<button onclick="openDemoModal('${project.links.demo}', '${project.title}')" class="btn btn-primary btn-sm">
+                        <span data-i18n="btn_demo">See More</span>${iconExternal}
+                    </button>`;
                 }
 
                 // Site Button (Globe)
@@ -222,7 +228,7 @@
 
                 // GitHub Button (GitHub Icon)
                 if (project.links.github && project.links.github.trim() !== "") {
-                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${iconGithub}<span>${githubText}</span></a>`;
+                    buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${iconGithub}<span data-i18n="btn_repo">Source Code</span></a>`;
                 }
 
                 // Description (Localized) & Title (Static)
@@ -257,6 +263,51 @@
                         el.textContent = dictionary[lang][key];
                     }
                 });
+            }
+        }
+
+        // --- MODAL LOGIC ---
+
+        function openDemoModal(url, title) {
+            const modal = document.getElementById('demo-modal');
+            const iframe = document.getElementById('modal-iframe');
+            const modalTitle = document.getElementById('modal-title');
+
+            if (!modal || !iframe) return;
+
+            // 1. Set Content
+            iframe.src = url;
+            modalTitle.textContent = title;
+
+            // 2. Show Modal
+            modal.classList.add('open');
+
+            // 3. Disable Background Scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDemoModal() {
+            const modal = document.getElementById('demo-modal');
+            const iframe = document.getElementById('modal-iframe');
+
+            if (!modal) return;
+
+            // 1. Hide Modal
+            modal.classList.remove('open');
+
+            // 2. Clear Src (Stops audio/video playback if any)
+            setTimeout(() => {
+                if (iframe) iframe.src = "";
+            }, 300); // Wait for fade out animation
+
+            // 3. Enable Background Scroll
+            document.body.style.overflow = '';
+        }
+
+        function handleOutsideClick(event) {
+            // Close if clicking the dark overlay, but not the window itself
+            if (event.target.id === 'demo-modal') {
+                closeDemoModal();
             }
         }
     </script>

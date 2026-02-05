@@ -127,7 +127,7 @@ const resumeData = {
             stack: ["C#", ".NET MAUI", "Firebase"],
             links: {
                 github: "",
-                demo: "#lobby_stream",
+                demo: "projects/lobby_stream.html",
                 site: "https://lobby-stream.web.app/"
             },
             image: "resources/images/lobby_stream.png"
@@ -142,7 +142,7 @@ const resumeData = {
             stack: ["Python", "FastAPI", "MongoDB", "Ollama"],
             links: {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
-                demo: "#smart_travel_agent",
+                demo: "projects/smart_travel_agent.html",
                 site: ""
             },
             image: "resources/images/default.png"
@@ -172,7 +172,7 @@ const resumeData = {
             stack: ["C#", "WPF", "XML"],
             links: {
                 github: "",
-                demo: "#defence_union",
+                demo: "projects/defence_union.html",
                 site: ""
             },
             image: "resources/images/default.png"
@@ -187,7 +187,7 @@ const resumeData = {
             stack: ["Java"],
             links: {
                 github: "",
-                demo: "#raycast_engine",
+                demo: "projects/raycast_engine.html",
                 site: ""
             },
             image: "resources/images/raycast_engine.jpg"
@@ -202,7 +202,7 @@ const resumeData = {
             stack: ["C#", "WinForms", "SQL"],
             links: {
                 github: "https://github.com/Mashiah555/Queue-Manager",
-                demo: "#queue_manager",
+                demo: "projects/queue_manager.html",
                 site: ""
             },
             image: "resources/images/default.png"
@@ -217,7 +217,7 @@ const resumeData = {
             stack: ["Dart", "Flutter"],
             links: {
                 github: "",
-                demo: "#narrow_down",
+                demo: "projects/narrow_down.html",
                 site: ""
             },
             image: "resources/images/default.png"
