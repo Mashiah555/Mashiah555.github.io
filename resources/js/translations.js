@@ -18,7 +18,7 @@ const dictionary = {
         hero_student: "סטודנט בן 20 למדעי המחשב",
         hero_location: "פתח תקווה, ישראל",
         btn_projects: "הפרויקטים שלי",
-        btn_skills: "לכל הכישורים",
+        btn_skills: "כל הכישורים",
 
         // --- Categories ---
         cat_languages: "שפות תכנות",

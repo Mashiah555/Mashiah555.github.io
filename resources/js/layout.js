@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    renderHeader();
-    renderFooter();
+    // Check if inside an iframe (a popup modal)
+    const isIframe = window.self !== window.top;
+    // Check if the body explicitly requests no layout (Manual Override)
+    const isNoLayout = document.body.classList.contains('no-layout');
+    // *** Achieve manual override by adding: <body class="no-layout">
+
+    // Render Layout ONLY if standalone and not explicitly disabled
+    if (!isIframe && !isNoLayout) {
+        renderHeader();
+        renderFooter();
+    }
 
     if (typeof initApp === 'function') {
         initApp();
