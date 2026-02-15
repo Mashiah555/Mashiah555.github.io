@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Manager - Demo</title>
+
+    <link rel="stylesheet" href="../resources/css/styles.css">
+
+    <style>
+        /* --- DEMO PAGE SPECIFIC STYLES --- */
+        body {
+            background-color: var(--clr-bg-surface);
+            /* Match modal background */
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Video Container (16:9 Aspect Ratio) */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Content Layout */
+        .demo-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--clr-border);
+            padding-bottom: 1rem;
+        }
+
+        .demo-title {
+            font-size: 2rem;
+            color: var(--clr-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-subtitle {
+            font-size: 1.1rem;
+            color: var(--clr-text-muted);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Tech Stack Tags */
+        .tech-stack-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-pill {
+            background: var(--clr-bg-body);
+            border: 1px solid var(--clr-border);
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            color: var(--clr-text-main);
+            font-weight: 500;
+        }
+
+        /* Responsive Check */
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="no-layout">
+
+    <div class="demo-header">
+        <h1 class="demo-title">Queue Manager</h1>
+        <p class="demo-subtitle">Customer service optimization system for small businesses</p>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0" title="Project Demo Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="demo-grid">
+        <div class="demo-content">
+            <h3>About the Project</h3>
+            <p>
+                Queue Manager is a desktop application designed to streamline customer flow in service-oriented
+                businesses.
+                Built using <strong>Windows Forms</strong>, it provides a robust solution for managing waiting lists,
+                ticket issuance, and service counter assignments.
+            </p>
+            <p>
+                The system was built to solve the common problem of disorganized waiting lines, offering both a
+                managerial dashboard for staff and a display interface for customers.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>✅ <strong>Real-time Dashboard:</strong> Live updates of waiting customers.</li>
+                <li>✅ <strong>Smart Algorithm:</strong> Prioritizes customers based on service type and wait time.</li>
+                <li>✅ <strong>Ticket Printing:</strong> Integration with thermal printers for physical tickets.</li>
+                <li>✅ <strong>Reporting:</strong> Generates daily stats on service times and load.</li>
+            </ul>
+        </div>
+
+        <div class="demo-sidebar">
+            <div class="tech-section">
+                <h3>Technologies</h3>
+                <div class="tech-stack-list">
+                    <span class="tech-pill">C#</span>
+                    <span class="tech-pill">WinForms</span>
+                    <span class="tech-pill">SQL Server</span>
+                    <span class="tech-pill">Entity Framework</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3>Project Type</h3>
+                <p>Academic / Freelance</p>
+
+                <h3>Year</h3>
+                <p>2024</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

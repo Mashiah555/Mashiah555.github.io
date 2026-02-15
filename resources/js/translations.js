@@ -175,7 +175,7 @@ const dictionary = {
         projects_title: "My Projects",
         projects_subtitle: "A collection of selected works",
         btn_site: "Project Site",
-        btn_demo: "Project Demo",
+        btn_demo: "See More",
         btn_repo: "Source Code",
 
         // --- Footer ---

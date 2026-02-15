@@ -124,13 +124,26 @@ const resumeData = {
                 he: "מערכת לובי המציגה מזג אוויר, חדשות, בידור ועוד בזמן אמת. ניתנת לניהול באמצעות אפליקציית מובייל.",
                 en: "A kiosk system displaying real-time weather, news, entertainment and more. Fully customizable via a mobile app."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["C#", ".NET MAUI", "Firebase"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
                 demo: "projects/lobby_stream.html",
                 site: "https://lobby-stream.web.app/"
             },
-            image: "resources/images/lobby_stream.png"
+            image: "resources/images/lobby_stream.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "smart_travel_agent",
@@ -139,13 +152,26 @@ const resumeData = {
                 he: "סוכן נסיעות חכם המופעל על ידי AI לתכנון טיולים מותאמים אישית, כולל צ'אט AI והתראות בדוא\"ל.",
                 en: "AI powered travel planning assistant of personalized trips, including AI chat and email notifications."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["Python", "FastAPI", "MongoDB", "Ollama"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
                 demo: "projects/smart_travel_agent.html",
                 site: ""
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "lev_katan",
@@ -154,13 +180,54 @@ const resumeData = {
                 he: "אתר צדקה למוצרי תינוקות להשאלה חינמית.",
                 en: "A Charity website of baby products free to borrow."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["HTML", "JS", "Python", "Azure", "Supabase"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/dandanseb/LevKatan",
                 demo: "",
                 site: "https://dandanseb.github.io/LevKatan"
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
+        },
+        {
+            id: "bookmarks_popup",
+            title: "Bookmarks Popup Extension",
+            description: {
+                he: "הרחבה לדפדפן Chrome המאפשרת שמירת סימניות בחלון מוקפץ.",
+                en: "A Chrome browser extension that allows saving bookmarks in a popup window."
+            },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
+            stack: ["HTML", "JS", "Chrome"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
+            links: {
+                github: "https://github.com/Mashiah555/bookmarks-popup-extension",
+                demo: "projects/bookmarks_popup.html",
+                site: ""
+            },
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "defence_union",
@@ -169,13 +236,26 @@ const resumeData = {
                 he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
                 en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["C#", "WPF", "XML"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
                 demo: "projects/defence_union.html",
                 site: ""
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "raycast_engine",
@@ -184,13 +264,26 @@ const resumeData = {
                 he: "",
                 en: ""
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["Java"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
                 demo: "projects/raycast_engine.html",
                 site: ""
             },
-            image: "resources/images/raycast_engine.jpg"
+            image: "resources/images/raycast_engine.jpg",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "queue_manager",
@@ -199,13 +292,26 @@ const resumeData = {
                 he: "מערכת לשיפור שירות הלקוחות בבתי עסק, פותחה ב-Windows Forms.",
                 en: "Customer service optimization tool for businesses, built with Windows Forms."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["C#", "WinForms", "SQL"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/Mashiah555/Queue-Manager",
                 demo: "projects/queue_manager.html",
                 site: ""
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "narrow_down",
@@ -214,13 +320,26 @@ const resumeData = {
                 he: "",
                 en: ""
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["Dart", "Flutter"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
                 demo: "projects/narrow_down.html",
                 site: ""
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         },
         {
             id: "walkie_doggie",
@@ -229,13 +348,26 @@ const resumeData = {
                 he: "אפליקציית מובייל למעקב וטיפול בחיות מחמד משפחתיות.",
                 en: "Mobile application to simplify family pet care tracking."
             },
+            about: {
+                he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+                en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            },
+            features: {
+                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
             stack: ["C#", ".NET MAUI", "Firebase"],
+            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/Mashiah555/Walkie-Doggie",
                 demo: "",
                 site: ""
             },
-            image: "resources/images/default.png"
+            image: "resources/images/default.png",
+            gallery: [
+                "resources/images/default.png",
+                "resources/images/backup.png"
+            ]
         }
     ]
 };
