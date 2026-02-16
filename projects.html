@@ -143,6 +143,57 @@
         }
 
         /* --- MODAL SPECIFIC STYLES --- */
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Ensure title takes available space */
+        }
+
+        .modal-title {
+            flex-grow: 1;
+        }
+
+        /* Header Actions Container */
+        .modal-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Round Header Buttons */
+        .modal-header-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--clr-border);
+            background-color: var(--clr-bg-body);
+            color: var(--clr-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .modal-header-btn:hover {
+            background-color: var(--clr-bg-surface);
+            color: var(--clr-primary);
+            border-color: var(--clr-primary);
+            transform: scale(1.05);
+        }
+
+        .modal-header-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         .modal-body {
             padding: 2rem;
             overflow-y: auto;
@@ -168,7 +219,16 @@
             font-size: 1rem;
         }
 
-        /* --- NEW: FEATURES & ASPECTS GRID --- */
+        /* Modal Actions */
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--clr-border);
+        }
+
+        /* --- FEATURES & ASPECTS GRID --- */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -336,15 +396,6 @@
             right: auto;
             left: 30px;
         }
-
-        /* Modal Actions */
-        .modal-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--clr-border);
-        }
     </style>
 </head>
 
@@ -367,8 +418,12 @@
     <div id="demo-modal" class="modal-overlay" onclick="handleOutsideClick(event)">
         <div class="modal-window">
             <div class="modal-header">
-                <h3 id="modal-title" class="modal-title">Project Demo</h3>
-                <button class="modal-close-btn" onclick="closeDemoModal()">&times;</button>
+                <h3 id="modal-title" class="modal-title">Project Info</h3>
+                <div class="modal-header-actions">
+                    <div id="modal-header-buttons" style="display: flex; gap: 8px;"></div>
+
+                    <button class="modal-close-btn" onclick="closeDemoModal()">&times;</button>
+                </div>
             </div>
             <div class="modal-body">
                 <div id="modal-dynamic-content"></div>
@@ -435,22 +490,9 @@
             const html = resumeData.projects.map(project => {
                 const safeTitle = project.title.replace(/'/g, "\\'");
 
-                // --- 1. DETERMINE MAIN CARD ACTION ---
-                // Now uses project.id for Demo Modal
-                let cardOnClick = "";
-                let cardClass = "project-card";
-
-                if (project.links.demo) {
-                    // Logic Change: Pass ID instead of URL
-                    cardOnClick = `openDemoModal('${project.id}')`;
-                    cardClass += " clickable";
-                } else if (project.links.site) {
-                    cardOnClick = `window.open('${project.links.site}', '_blank')`;
-                    cardClass += " clickable";
-                } else if (project.links.github) {
-                    cardOnClick = `window.open('${project.links.github}', '_blank')`;
-                    cardClass += " clickable";
-                }
+                // MAIN CARD ACTION: MODAL/POPUP
+                let cardOnClick = `openDemoModal('${project.id}')`;
+                let cardClass = "project-card clickable";
 
                 // Image handling
                 const imgDisplay = project.image
@@ -465,12 +507,10 @@
                 // Links / Buttons Logic
                 let buttonsHtml = '';
 
-                // Demo Button (Opens Popup using ID)
-                if (project.links.demo) {
-                    buttonsHtml += `<button onclick="event.stopPropagation(); openDemoModal('${project.id}')" class="btn btn-primary btn-sm">
-                        ${iconExpand}<span data-i18n="btn_demo">See More</span>
-                    </button>`;
-                }
+                // Modal Button (Opens Popup using project ID)
+                buttonsHtml += `
+                    <button onclick="event.stopPropagation(); openDemoModal('${project.id}')" class="btn btn-primary btn-sm">
+                    ${iconExpand}<span data-i18n="btn_demo">See More</span></button>`;
 
                 // Site Button 
                 if (project.links.site && project.links.site.trim() !== "") {
@@ -519,9 +559,36 @@
             const modal = document.getElementById('demo-modal');
             const titleEl = document.getElementById('modal-title');
             const contentEl = document.getElementById('modal-dynamic-content');
+            const headerBtnsEl = document.getElementById('modal-header-buttons');
+
+            const iconExternal = siteConfig.assets.icon_external;
+            const iconRepo = siteConfig.assets.icon_repo;
 
             // 1. Set Header
             titleEl.textContent = project.title;
+            headerBtnsEl.innerHTML = '';
+
+            // Add Site Button (Round)
+            if (project.links.site) {
+                const btnSite = document.createElement('a');
+                btnSite.href = project.links.site;
+                btnSite.target = "_blank";
+                btnSite.className = "modal-header-btn";
+                btnSite.title = "Visit the project website";
+                btnSite.innerHTML = iconExternal;
+                headerBtnsEl.appendChild(btnSite);
+            }
+
+            // Add GitHub Button (Round)
+            if (project.links.github) {
+                const btnRepo = document.createElement('a');
+                btnRepo.href = project.links.github;
+                btnRepo.target = "_blank";
+                btnRepo.className = "modal-header-btn";
+                btnRepo.title = "View source code on GitHub";
+                btnRepo.innerHTML = iconRepo;
+                headerBtnsEl.appendChild(btnRepo);
+            }
 
             // --- BUILD CONTENT ---
 
@@ -590,11 +657,8 @@
                     </div>`;
             }
 
-            // E. Modal Action Buttons
+            // E. Bottom Modal Action Buttons
             let actionsHtml = '';
-            const iconExternal = siteConfig.assets.icon_external;
-            const iconRepo = siteConfig.assets.icon_repo;
-
             if (project.links.site || project.links.github) {
                 actionsHtml += `<div class="modal-actions">`;
 
