@@ -87,6 +87,10 @@ const dictionary = {
         btn_site: "לאתר הפרויקט",
         btn_demo: "מידע נוסף",
         btn_repo: "קוד המקור",
+        // Project Modal
+        modal_features: "תכונות מרכזיות",
+        modal_tech: "טכנולוגיות",
+        modal_gallery: "גלריה",
 
         // --- Footer ---
         footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
@@ -177,6 +181,10 @@ const dictionary = {
         btn_site: "Project Site",
         btn_demo: "See More",
         btn_repo: "Source Code",
+        // Project Modal
+        modal_features: "Key Features",
+        modal_tech: "Technologies",
+        modal_gallery: "Gallery",
 
         // --- Footer ---
         footer_rights: "© 2026 Yuval Mashiah. All rights reserved."

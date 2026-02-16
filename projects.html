@@ -37,12 +37,11 @@
             border-color: var(--clr-primary);
         }
 
-        /* Add this to the style block in projects.html */
+        /* Clickable state */
         .project-card.clickable {
             cursor: pointer;
         }
 
-        /* Optional: active state for better feedback */
         .project-card.clickable:active {
             transform: scale(0.98);
             border-color: var(--clr-primary);
@@ -142,6 +141,95 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
+
+        /* --- NEW: MODAL SPECIFIC STYLES --- */
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: calc(85vh - 70px);
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h4 {
+            color: var(--clr-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--clr-border);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .modal-text {
+            color: var(--clr-text-main);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-inline-start: 20px;
+            margin-bottom: 8px;
+            color: var(--clr-text-muted);
+        }
+
+        .features-list li::before {
+            content: "•";
+            color: var(--clr-primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        html[dir="rtl"] .features-list li::before {
+            left: auto;
+            right: 0;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--clr-border);
+            overflow: hidden;
+            height: 150px;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Modal Actions */
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--clr-border);
+        }
     </style>
 </head>
 
@@ -168,7 +256,7 @@
                 <button class="modal-close-btn" onclick="closeDemoModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe id="modal-iframe" class="modal-iframe" src="" allowfullscreen></iframe>
+                <div id="modal-dynamic-content"></div>
             </div>
         </div>
     </div>
@@ -189,15 +277,21 @@
             });
         });
 
+        // Track open project ID (for live language switching)
+        let currentOpenProjectId = null;
+
         // --- RENDER LOGIC ---
 
-        // Override applyLanguage to re-render projects on switch
         const originalApplyLanguageProjects = applyLanguage;
         applyLanguage = function (lang) {
             if (typeof originalApplyLanguageProjects === 'function') {
                 originalApplyLanguageProjects(lang);
             }
             renderProjectsPage();
+            // Re-render modal if open
+            if (currentOpenProjectId) {
+                openDemoModal(currentOpenProjectId);
+            }
         };
 
         function renderProjectsPage() {
@@ -212,20 +306,21 @@
             const iconRepo = siteConfig.assets.icon_repo;
 
             const html = resumeData.projects.map(project => {
-                const safeTitle = project.title.replace(/'/g, "\\'"); // Escape quotes for JS strings
+                const safeTitle = project.title.replace(/'/g, "\\'");
 
                 // --- 1. DETERMINE MAIN CARD ACTION ---
-                // Priority: Demo -> Site -> Github -> None
+                // Now uses project.id for Demo Modal
                 let cardOnClick = "";
                 let cardClass = "project-card";
 
-                if (project.links.demo && project.links.demo.trim() !== "") {
-                    cardOnClick = `openDemoModal('${project.links.demo}', '${safeTitle}')`;
+                if (project.links.demo) {
+                    // Logic Change: Pass ID instead of URL
+                    cardOnClick = `openDemoModal('${project.id}')`;
                     cardClass += " clickable";
-                } else if (project.links.site && project.links.site.trim() !== "") {
+                } else if (project.links.site) {
                     cardOnClick = `window.open('${project.links.site}', '_blank')`;
                     cardClass += " clickable";
-                } else if (project.links.github && project.links.github.trim() !== "") {
+                } else if (project.links.github) {
                     cardOnClick = `window.open('${project.links.github}', '_blank')`;
                     cardClass += " clickable";
                 }
@@ -243,24 +338,23 @@
                 // Links / Buttons Logic
                 let buttonsHtml = '';
 
-                // Demo Button (Diagonal Arrows)
-                if (project.links.demo && project.links.demo.trim() !== "") {
-                    buttonsHtml += `<button onclick="event.stopPropagation(); openDemoModal('${project.links.demo}', '${safeTitle}')" class="btn btn-primary btn-sm">
+                // Demo Button (Opens Popup using ID)
+                if (project.links.demo) {
+                    buttonsHtml += `<button onclick="event.stopPropagation(); openDemoModal('${project.id}')" class="btn btn-primary btn-sm">
                         ${iconExpand}<span data-i18n="btn_demo">See More</span>
                     </button>`;
                 }
 
-                // Site Button (External Arrow)
+                // Site Button 
                 if (project.links.site && project.links.site.trim() !== "") {
                     buttonsHtml += `<a href="${project.links.site}" target="_blank" class="btn btn-outline btn-sm" onclick="event.stopPropagation()">${iconExternal}<span data-i18n="btn_site">Website</span></a>`;
                 }
 
-                // GitHub Button (GitHub Icon)
+                // GitHub Button 
                 if (project.links.github && project.links.github.trim() !== "") {
                     buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm" onclick="event.stopPropagation()">${iconRepo}<span data-i18n="btn_repo">Source Code</span></a>`;
                 }
 
-                // Description (Localized) & Title (Static)
                 return `
                     <div class="${cardClass}" onclick="${cardOnClick}">
                     <div class="project-image-container">${imgDisplay}</div>
@@ -276,7 +370,7 @@
 
             container.innerHTML = html;
 
-            // Re-apply translations for static UI elements (buttons)
+            // Re-apply translations
             if (typeof dictionary !== 'undefined') {
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
@@ -287,46 +381,130 @@
             }
         }
 
-        // --- MODAL LOGIC ---
+        // --- NEW MODAL LOGIC (Data-Driven) ---
 
-        function openDemoModal(url, title) {
+        function openDemoModal(projectId) {
+            const project = resumeData.projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            currentOpenProjectId = projectId;
+            const lang = localStorage.getItem('lang') || 'he';
             const modal = document.getElementById('demo-modal');
-            const iframe = document.getElementById('modal-iframe');
-            const modalTitle = document.getElementById('modal-title');
+            const titleEl = document.getElementById('modal-title');
+            const contentEl = document.getElementById('modal-dynamic-content');
 
-            if (!modal || !iframe) return;
+            // 1. Set Header
+            titleEl.textContent = project.title;
 
-            // 1. Set Content
-            iframe.src = url;
-            modalTitle.textContent = title;
+            // --- BUILD CONTENT ---
 
-            // 2. Show Modal
+            // A. About Text
+            const aboutText = (project.about && project.about[lang]) ? project.about[lang] : project.description[lang];
+
+            // B. Features List
+            let featuresHtml = '';
+            if (project.features && project.features[lang] && project.features[lang].length > 0) {
+                featuresHtml = `
+                    <div class="modal-section">
+                        <h4><span data-i18n="modal_features">Key Features</span></h4>
+                        <ul class="features-list">
+                            ${project.features[lang].map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                    </div>`;
+            }
+
+            // C. Technologies & Services Stack
+            const techHtml = `
+                        ${project.stack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}`;
+            let servicesHtml = '';
+            if (project.services && project.services.length > 0) {
+                servicesHtml = `
+                    ${project.services.map(srv => `<span class="tech-tag">${srv}</span>`).join('')}`;
+            }
+            let stackHtml = `
+                <div class="modal-section" style="margin-bottom: 1rem;">
+                     <h4><span data-i18n="modal_tech">Technologies</span></h4>
+                     <div class="project-tags" style="margin-bottom:8px">
+                        ${techHtml}
+                     </div>
+                     <div class="project-tags" style="margin-bottom:0">
+                        ${servicesHtml}
+                     </div>
+                </div>`;
+
+            // D. Gallery
+            let galleryHtml = '';
+            if (project.gallery && project.gallery.length > 0) {
+                galleryHtml = `
+                    <div class="modal-section">
+                        <h4><span data-i18n="modal_gallery">Gallery</span></h4>
+                        <div class="gallery-grid">
+                            ${project.gallery.map(img => `
+                                <div class="gallery-item">
+                                    <img src="${img}" alt="Screenshot" loading="lazy">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>`;
+            }
+
+            // E. Modal Action Buttons
+            let actionsHtml = '';
+            const iconExternal = siteConfig.assets.icon_external;
+            const iconRepo = siteConfig.assets.icon_repo;
+
+            if (project.links.site || project.links.github) {
+                actionsHtml += `<div class="modal-actions">`;
+
+                if (project.links.site) {
+                    actionsHtml += `
+                        <a href="${project.links.site}" target="_blank" class="btn btn-primary btn-sm">
+                            ${iconExternal} <span data-i18n="btn_site">Project Site</span>
+                        </a>`;
+                }
+                if (project.links.github) {
+                    actionsHtml += `
+                        <a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">
+                            ${iconRepo} <span data-i18n="btn_repo">Source Code</span>
+                        </a>`;
+                }
+                actionsHtml += `</div>`;
+            }
+
+            // Inject Content
+            contentEl.innerHTML = `
+                <div class="modal-section">
+                    <p class="modal-text">${aboutText}</p>
+                </div>
+                ${featuresHtml}
+                ${stackHtml}
+                ${galleryHtml}
+                ${actionsHtml}
+            `;
+
+            if (typeof dictionary !== 'undefined') {
+                contentEl.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dictionary[lang] && dictionary[lang][key]) {
+                        el.textContent = dictionary[lang][key];
+                    }
+                });
+            }
+
+            // Show Modal
             modal.classList.add('open');
-
-            // 3. Disable Background Scroll
             document.body.style.overflow = 'hidden';
         }
 
         function closeDemoModal() {
             const modal = document.getElementById('demo-modal');
-            const iframe = document.getElementById('modal-iframe');
-
             if (!modal) return;
-
-            // 1. Hide Modal
             modal.classList.remove('open');
-
-            // 2. Clear Src (Stops audio/video playback if any)
-            setTimeout(() => {
-                if (iframe) iframe.src = "";
-            }, 300); // Wait for fade out animation
-
-            // 3. Enable Background Scroll
             document.body.style.overflow = '';
+            currentOpenProjectId = null;
         }
 
         function handleOutsideClick(event) {
-            // Close if clicking the dark overlay, but not the window itself
             if (event.target.id === 'demo-modal') {
                 closeDemoModal();
             }
