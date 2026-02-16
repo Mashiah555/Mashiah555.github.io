@@ -142,7 +142,7 @@
             stroke-linejoin: round;
         }
 
-        /* --- NEW: MODAL SPECIFIC STYLES --- */
+        /* --- MODAL SPECIFIC STYLES --- */
         .modal-body {
             padding: 2rem;
             overflow-y: auto;
@@ -168,7 +168,22 @@
             font-size: 1rem;
         }
 
-        /* Features List */
+        /* --- NEW: FEATURES & ASPECTS GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        /* Functional Features List (Primary) */
         .features-list {
             list-style: none;
             padding: 0;
@@ -191,6 +206,34 @@
         }
 
         html[dir="rtl"] .features-list li::before {
+            left: auto;
+            right: 0;
+        }
+
+        /* Technical Aspects List (Muted Tone) */
+        .aspects-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .aspects-list li {
+            position: relative;
+            padding-inline-start: 20px;
+            margin-bottom: 8px;
+            color: var(--clr-text-muted);
+            opacity: 0.85;
+        }
+
+        .aspects-list li::before {
+            content: "◦";
+            color: var(--clr-text-muted);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        html[dir="rtl"] .aspects-list li::before {
             left: auto;
             right: 0;
         }
@@ -485,16 +528,31 @@
             // A. About Text
             const aboutText = (project.about && project.about[lang]) ? project.about[lang] : project.description[lang];
 
-            // B. Features List
+            // B. Features & Aspects (Side-by-Side on Desktop, Stacked on Mobile)
             let featuresHtml = '';
+            let aspectsHtml = '';
             if (project.features && project.features[lang] && project.features[lang].length > 0) {
                 featuresHtml = `
-                    <div class="modal-section">
+                    <div>
                         <h4><span data-i18n="modal_features">Key Features</span></h4>
                         <ul class="features-list">
                             ${project.features[lang].map(f => `<li>${f}</li>`).join('')}
                         </ul>
                     </div>`;
+            }
+            if (project.aspects && project.aspects[lang] && project.aspects[lang].length > 0) {
+                aspectsHtml = `
+                    <div>
+                        <h4><span data-i18n="modal_aspects">System Aspects</span></h4>
+                        <ul class="aspects-list">
+                            ${project.aspects[lang].map(a => `<li>${a}</li>`).join('')}
+                        </ul>
+                    </div>`;
+            }
+            // Combine into Grid Container
+            let combinedFeaturesHtml = '';
+            if (featuresHtml || aspectsHtml) {
+                combinedFeaturesHtml = `<div class="features-grid">${featuresHtml}${aspectsHtml}</div>`;
             }
 
             // C. Technologies & Services Stack
@@ -560,7 +618,7 @@
                 <div class="modal-section">
                     <p class="modal-text">${aboutText}</p>
                 </div>
-                ${featuresHtml}
+                ${combinedFeaturesHtml}
                 ${stackHtml}
                 ${galleryHtml}
                 ${actionsHtml}

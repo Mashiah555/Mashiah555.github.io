@@ -89,6 +89,7 @@ const dictionary = {
         btn_repo: "קוד המקור",
         // Project Modal
         modal_features: "תכונות מרכזיות",
+        modal_aspects: "מאפייני מערכת",
         modal_tech: "טכנולוגיות",
         modal_gallery: "גלריה",
 
@@ -183,6 +184,7 @@ const dictionary = {
         btn_repo: "Source Code",
         // Project Modal
         modal_features: "Key Features",
+        modal_aspects: "System Aspects",
         modal_tech: "Technologies",
         modal_gallery: "Gallery",
 

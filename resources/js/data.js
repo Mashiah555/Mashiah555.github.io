@@ -132,6 +132,10 @@ const resumeData = {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
             },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            },
             stack: ["C#", ".NET MAUI", "Firebase"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
@@ -165,6 +169,10 @@ const resumeData = {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
             },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            },
             stack: ["Python", "FastAPI", "MongoDB", "Ollama"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
@@ -192,6 +200,10 @@ const resumeData = {
             features: {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
             stack: ["HTML", "JS", "Python", "Azure", "Supabase"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
@@ -221,6 +233,10 @@ const resumeData = {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
             },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            },
             stack: ["HTML", "JS", "Chrome"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
@@ -248,6 +264,10 @@ const resumeData = {
             features: {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
             stack: ["C#", "WPF", "XML"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
@@ -277,6 +297,10 @@ const resumeData = {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
             },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            },
             stack: ["Java"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
@@ -304,6 +328,10 @@ const resumeData = {
             features: {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
             stack: ["C#", "WinForms", "SQL"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
@@ -333,6 +361,10 @@ const resumeData = {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
             },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            },
             stack: ["Dart", "Flutter"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
@@ -360,6 +392,10 @@ const resumeData = {
             features: {
                 he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
                 en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            },
+            aspects: {
+                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
             stack: ["C#", ".NET MAUI", "Firebase"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
