@@ -142,7 +142,12 @@ const resumeData = {
             image: "resources/images/lobby_stream.png",
             gallery: [
                 "resources/images/default.png",
-                "resources/images/backup.png"
+                "resources/images/backup.png",
+                "resources/images/cata.png",
+                "resources/images/profile.png",
+                "resources/images/highschool.png",
+                "resources/images/lobby_stream.png",
+                "resources/images/default.png",
             ]
         },
         {
