@@ -72,8 +72,8 @@ const resumeData = {
             iconSrc: "resources/images/cata.png",
             link: "https://c-ata.com/",
             description: {
-                he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
-                en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
+                he: "הרכבת מכשירים המזהים חומרי נפץ, שנמכרו לצה\"ל על מנת לסייע ללוחמים בשדה הקרב.",
+                en: "Assembly of explosives identifier devices, sold to the IDF to assist fighters in the battlefield."
             }
         },
         {
@@ -83,8 +83,8 @@ const resumeData = {
             iconSrc: "resources/images/goldbooks.png",
             link: "https://www.goldbooks.co.il/",
             description: {
-                he: "פיתוח מערכות מבצעיות מקצה לקצה, עבודה עם צוותי מוצר ושיפור ביצועים במערכות קריטיות.",
-                en: "Developing end-to-end operational systems, collaborating with product teams, and optimizing critical system performance."
+                he: "חילקתי ספרי לימוד בבתי ספר, ארזתי ספרים וציוד למשלוחים, וסיפקתי שירות ללקוחות החנות.",
+                en: "Distributed textbooks to schools, packed books and equipment for orders, and provided customer service in the store."
             }
         }
     ],
@@ -98,8 +98,8 @@ const resumeData = {
             iconSrc: "resources/images/jct.jpg",
             link: "http://www.jct.ac.il/",
             description: {
-                he: "התמחות במערכות מידע ובינה מלאכותית. מצטיין דיקן.",
-                en: "Specialization in Information Systems and AI. Dean's List."
+                he: "סטודנט שנה ג' לתואר ראשון במדעי המחשב, תחת מסלול העתודה האקדמית של צה\"ל.",
+                en: " 3rd year Computer Science student, under the IDF Academic Atuda program."
             }
         },
         {
@@ -109,8 +109,8 @@ const resumeData = {
             iconSrc: "resources/images/highschool.png",
             link: "https://yba.org.il/institutes/%D7%99%D7%A9%D7%99%D7%91%D7%AA-%D7%91%D7%A0%D7%99-%D7%A2%D7%A7%D7%99%D7%91%D7%90-%D7%92%D7%91%D7%A2%D7%AA-%D7%A9%D7%9E%D7%95%D7%90%D7%9C/",
             description: {
-                he: "התמחות במערכות מידע ובינה מלאכותית. מצטיין דיקן.",
-                en: "Specialization in Information Systems and AI. Dean's List."
+                he: "סיימתי את לימודי התיכון עם תעודת בגרות טכנולוגית בשל הישגיי במתמטיקה (5 יח\"ל), אנגלית (5 יח\"ל), הנדסת תוכנה (10 יח\"ל), וכימיה (5 יח\ל).",
+                en: "Graduated with a technological matriculation certificate for my Math, English, Software Engineering, and Chemistry studies."
             }
         }
     ],
@@ -129,29 +129,54 @@ const resumeData = {
                 en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
             },
             features: {
-                he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
-                en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+                he: [
+                    "הודעות חברי הועד",
+                    "חדשות Ynet",
+                    "תחזיות מזג אוויר על בסיס שעתי",
+                    "שילוב לוח שנה יהודי לזמני שבתות וחגים",
+                    "דבר תורה שבועי לפרשת השבוע",
+                    "בדיחות יומיות",
+                    "שער החליפין הנוכחי של היורו והדולר",
+                    "תוכן בידורי (חידות, פתגמים, הידעת) יומי",
+                    "מוזיקת רקע ללובי הבניין"
+                ],
+                en: [
+                    "Committie members announcements",
+                    "Ynet live news feed",
+                    "Hourly weather forecasts",
+                    "Jewish calendar integration for Shabbat and holidays times",
+                    "Weekly Torah verses",
+                    "Daily jokes",
+                    "Currency exchange rates",
+                    "Entertainment content (riddles, proverbs, fun facts) updated daily",
+                    "Background lobby music"
+                ]
             },
             aspects: {
-                he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
-                en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+                he: [
+                    "ניתן להתאמה אישית באופן מלא דרך היישומון בנייד",
+                    "תמיכה במצב מואר ומוחשך",
+                    "מבנה תצוגה דינמי בהתאם לגודל המסך",
+                    "עיצוב רספונסיבי",
+                    "זמין בכל הפלטפורמות (Android, iOS, Windows)"
+                ],
+                en: [
+                    "Fully customizable via mobile app",
+                    "Light/Dark mode support",
+                    "Dynamic layout",
+                    "Responsive design",
+                    "Multi-platform application"
+                ]
             },
             stack: ["C#", ".NET MAUI", "Firebase"],
-            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
+            services: ["OpenWeatherMap API", "Ynet API", "Hebcal API", "Currency Exchange API"],
             links: {
                 github: "",
-                demo: "projects/lobby_stream.html",
                 site: "https://lobby-stream.web.app/"
             },
             image: "resources/images/lobby_stream.png",
             gallery: [
-                "resources/images/default.png",
-                "resources/images/backup.png",
-                "resources/images/cata.png",
-                "resources/images/profile.png",
-                "resources/images/highschool.png",
                 "resources/images/lobby_stream.png",
-                "resources/images/default.png",
             ]
         },
         {
@@ -177,7 +202,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
-                demo: "projects/smart_travel_agent.html",
                 site: ""
             },
             image: "resources/images/default.png",
@@ -205,11 +229,10 @@ const resumeData = {
                 he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
                 en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
-            stack: ["HTML", "JS", "Python", "Azure", "Supabase"],
+            stack: ["HTML", "JavaScript", "Python", "Azure", "Supabase"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/dandanseb/LevKatan",
-                demo: "",
                 site: "https://dandanseb.github.io/LevKatan"
             },
             image: "resources/images/default.png",
@@ -241,7 +264,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/Mashiah555/bookmarks-popup-extension",
-                demo: "projects/bookmarks_popup.html",
                 site: ""
             },
             image: "resources/images/default.png",
@@ -273,7 +295,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
-                demo: "projects/defence_union.html",
                 site: ""
             },
             image: "resources/images/default.png",
@@ -305,7 +326,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
-                demo: "projects/raycast_engine.html",
                 site: ""
             },
             image: "resources/images/raycast_engine.jpg",
@@ -336,8 +356,7 @@ const resumeData = {
             stack: ["C#", "WinForms", "SQL"],
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
-                github: "https://github.com/Mashiah555/Queue-Manager",
-                demo: "projects/queue_manager.html",
+                github: "",
                 site: ""
             },
             image: "resources/images/default.png",
@@ -369,7 +388,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "",
-                demo: "projects/narrow_down.html",
                 site: ""
             },
             image: "resources/images/default.png",
@@ -401,7 +419,6 @@ const resumeData = {
             services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
             links: {
                 github: "https://github.com/Mashiah555/Walkie-Doggie",
-                demo: "",
                 site: ""
             },
             image: "resources/images/default.png",
