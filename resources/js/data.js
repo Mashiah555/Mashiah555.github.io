@@ -232,7 +232,7 @@ const resumeData = {
                 he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
                 en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
-            stack: ["HTML", "JS", "Python", "Firebase", "Azure"],
+            stack: ["HTML", "JavaScript", "Python", "Firebase", "Azure"],
             services: [],
             links: {
                 github: "https://github.com/mashiah555/LevKatan",
