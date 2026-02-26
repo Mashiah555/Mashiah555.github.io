@@ -338,6 +338,7 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        /*
         {
             id: "queue_manager",
             title: "Queue Manager",
@@ -369,6 +370,7 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        */
         {
             id: "narrow_down",
             title: "Narrow Down",
@@ -400,6 +402,7 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        /*
         {
             id: "walkie_doggie",
             title: "Walkie Doggie",
@@ -431,5 +434,6 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         }
+        */
     ]
 };
