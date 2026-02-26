@@ -205,7 +205,7 @@ const resumeData = {
             services: ["Ollama", "Gemini API", "HuggingFace ML", "LangChain", "n8n", "Amadeus API", "Open-Meteo"],
             links: {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
-                site: ""
+                site: "projects/smart-travel-agent.html"
             },
             image: "resources/images/default.png",
             gallery: [
