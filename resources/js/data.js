@@ -195,14 +195,15 @@ const resumeData = {
                 en: ["AI Trip Planning", "Personalized Trip Refinement",
                     "Contextual AI Chat Assistant", "Trip Budget Analysis",
                     "Real-Time Flight Search", "Real-Time Weather Forecast",
-                    "AI Image Generation", "Profile Management & Trip History"]
+                    "AI Image Generation", "Trip PDF Report Export",
+                    "Profile Management & Trip History"]
             },
             aspects: {
                 he: ["יצוא דו\"ח PDF", "סיכומי אימייל אוטומטיים", "אלגוריתם LLM בעל 3 שכבות", "הגנה מפני הנחיות זדוניות", "תמיכה באירועים ביומן גוגל"],
-                en: ["PDF Report Export", "Automated Email Summaries", "3-tier LLM Fallback Algorithm", "Prompt Injection Protection", "Google Calendar Integration"]
+                en: ["Automated Email Summaries", "3-tier LLM Fallback Algorithm", "Prompt Injection Protection", "Google Calendar Integration"]
             },
             stack: ["Python", "FastAPI", "MongoDB", "Docker"],
-            services: ["Ollama", "Gemini API", "HuggingFace ML", "LangChain", "n8n", "Amadeus API", "Open-Meteo"],
+            services: ["Ollama", "Gemini API", "HuggingFace ML", "LangChain", "n8n", "Amadeus API", "Open-Meteo API"],
             links: {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
                 site: "projects/smart-travel-agent.html"

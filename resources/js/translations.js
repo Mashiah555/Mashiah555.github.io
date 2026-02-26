@@ -178,7 +178,7 @@ const dictionary = {
 
         // --- Projects Page ---
         projects_title: "My Projects",
-        projects_subtitle: "A collection of selected works",
+        projects_subtitle: "A collection of selected work cases",
         btn_site: "Project Site",
         btn_demo: "See More",
         btn_repo: "Source Code",

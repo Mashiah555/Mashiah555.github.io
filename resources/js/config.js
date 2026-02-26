@@ -17,7 +17,7 @@ const siteConfig = {
     assets: {
         // Local Images
         profile_img: "resources/images/profile.png",
-        logo_img: "resources/images/logo.png",
+        icon_img: "resources/images/icon.png",
         default_icon: "resources/images/default.png",
 
         // Inline SVG Icons
