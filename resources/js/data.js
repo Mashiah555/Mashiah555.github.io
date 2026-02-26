@@ -327,15 +327,14 @@ const resumeData = {
                 en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
             },
             stack: ["Java"],
-            services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
+            services: [],
             links: {
                 github: "",
                 site: ""
             },
             image: "resources/images/raycast_engine.jpg",
             gallery: [
-                "resources/images/default.png",
-                "resources/images/backup.png"
+                "resources/images/raycast_engine.jpg"
             ]
         },
         /*
@@ -370,7 +369,6 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         },
-        */
         {
             id: "narrow_down",
             title: "Narrow Down",
@@ -402,7 +400,6 @@ const resumeData = {
                 "resources/images/backup.png"
             ]
         },
-        /*
         {
             id: "walkie_doggie",
             title: "Walkie Doggie",
