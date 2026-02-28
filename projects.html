@@ -7,7 +7,7 @@
     <title>Yuval Mashiah | Projects</title>
 
     <link rel="stylesheet" href="resources/css/styles.css">
-    <link rel="icon" href="resources/images/icon.png" type="image/png">
+    <link rel="icon" href="resources/images/icon.png?v=2" type="image/png">
 
     <style>
         /* Projects Grid Layout */
@@ -216,13 +216,47 @@
             font-size: 1rem;
         }
 
-        /* Modal Actions */
-        .modal-actions {
-            display: flex;
-            gap: 15px;
+        /* --- MODAL BOTTOM SECTION (Instructions & Actions) --- */
+        .modal-bottom-section {
             margin-top: 2rem;
             padding-top: 1.5rem;
             border-top: 1px solid var(--clr-border);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-instructions {
+            color: var(--clr-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            background-color: var(--clr-bg-body);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--clr-primary);
+        }
+
+        html[dir="rtl"] .modal-instructions {
+            border-left: none;
+            border-right: 3px solid var(--clr-primary);
+        }
+
+        .modal-instructions a {
+            color: var(--clr-primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-inline-start: 6px;
+            white-space: nowrap;
+        }
+
+        .modal-instructions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Actions  */
+        .modal-actions {
+            display: flex;
+            gap: 15px;
         }
 
         /* --- COLLAPSIBLE SECTIONS (Details/Summary) --- */
@@ -340,44 +374,65 @@
             right: 0;
         }
 
-        /* --- GALLERY: MASONRY LAYOUT --- */
+        /* --- GALLERY: MOSAIC / BENTO GRID --- */
         .gallery-grid {
-            column-count: 3;
-            column-gap: 15px;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 900px) {
-            .gallery-grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .gallery-grid {
-                column-count: 1;
-            }
+            display: grid;
+            /* Creates flexible columns around 150px wide */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            /* Sets a fixed row height to create "square-ish" base cells */
+            grid-auto-rows: 185px;
+            /* Magically packs smaller items into empty gaps */
+            grid-auto-flow: dense;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 15px;
             border-radius: var(--radius-md);
             border: 1px solid var(--clr-border);
             overflow: hidden;
             background-color: var(--clr-bg-body);
             cursor: zoom-in;
             transition: transform 0.2s ease;
+            position: relative;
+
+            /* Default: 1x1 Square */
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Horizontal Images: 2 Columns x 1 Row */
+        .gallery-item.landscape {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Vertical Images: 1 Column x 2 Rows */
+        .gallery-item.portrait {
+            grid-column: span 1;
+            grid-row: span 2;
         }
 
         .gallery-item:hover {
             transform: scale(1.02);
+            z-index: 2;
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            /* 'cover' is crucial here! It forces the image to fill the 1x2 or 2x1 shape perfectly */
+            object-fit: cover;
             display: block;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 500px) {
+            .gallery-grid {
+                /* Force exactly 2 columns on small screens so span-2 still works */
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 140px;
+            }
         }
 
         /* --- LIGHTBOX (Maximize Image) --- */
@@ -697,31 +752,65 @@
                         <div class="gallery-grid">
                             ${project.gallery.map(img => `
                                 <div class="gallery-item" onclick="openLightbox('${img}')">
-                                    <img src="${img}" alt="Screenshot" loading="lazy">
+                                    <img src="${img}" alt="Screenshot" loading="lazy" 
+                                        onload="
+                                            const ratio = this.naturalWidth / this.naturalHeight;
+                                            if (ratio > 1.1) this.parentElement.classList.add('landscape');
+                                            else if (ratio < 0.9) this.parentElement.classList.add('portrait');
+                                        ">
                                 </div>
                             `).join('')}
                         </div>
                     </div>`;
             }
 
-            // E. Bottom Modal Action Buttons
-            let actionsHtml = '';
-            if (project.links.site || project.links.github) {
-                actionsHtml += `<div class="modal-actions">`;
+            // E. Bottom Section (Instructions + Action Buttons)
+            let bottomSectionHtml = '';
 
-                if (project.links.site) {
-                    actionsHtml += `
-                        <a href="${project.links.site}" target="_blank" class="btn btn-primary btn-sm">
-                            ${iconExternal} <span data-i18n="btn_site">Project Site</span>
-                        </a>`;
+            // Safety checks to see if parameters exist and are not empty
+            const hasInstructions = project.instructions && project.instructions[lang] && project.instructions[lang].trim() !== "";
+            const hasHyperlink = project.hyperlink && project.hyperlink.url && project.hyperlink.url.trim() !== "";
+            const hasActions = project.links.site || project.links.github;
+
+            if (hasInstructions || hasHyperlink || hasActions) {
+                bottomSectionHtml += `<div class="modal-bottom-section">`;
+
+                // 1. Instructions & Hyperlink
+                if (hasInstructions || hasHyperlink) {
+                    let textPart = hasInstructions ? project.instructions[lang] : "";
+                    let linkPart = "";
+
+                    if (hasHyperlink) {
+                        // Allows custom translated text for the link, defaults to "Documentation"
+                        const linkText = (project.hyperlink.text && project.hyperlink.text[lang]) ? project.hyperlink.text[lang] : "Documentation";
+                        linkPart = `<a href="${project.hyperlink.url}" target="_blank">${linkText}</a>`;
+                    }
+
+                    bottomSectionHtml += `
+                        <div class="modal-instructions">
+                            <span>${textPart}</span> ${linkPart}
+                        </div>`;
                 }
-                if (project.links.github) {
-                    actionsHtml += `
-                        <a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">
-                            ${iconRepo} <span data-i18n="btn_repo">Source Code</span>
-                        </a>`;
+
+                // 2. Bottom Actions
+                if (hasActions) {
+                    bottomSectionHtml += `<div class="modal-actions">`;
+                    if (project.links.site) {
+                        bottomSectionHtml += `
+                            <a href="${project.links.site}" target="_blank" class="btn btn-primary btn-sm">
+                                ${iconExternal} <span data-i18n="btn_site">Project Site</span>
+                            </a>`;
+                    }
+                    if (project.links.github) {
+                        bottomSectionHtml += `
+                            <a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">
+                                ${iconRepo} <span data-i18n="btn_repo">Source Code</span>
+                            </a>`;
+                    }
+                    bottomSectionHtml += `</div>`;
                 }
-                actionsHtml += `</div>`;
+
+                bottomSectionHtml += `</div>`;
             }
 
             // Inject Content
@@ -732,7 +821,7 @@
                 ${combinedFeaturesHtml}
                 ${stackHtml}
                 ${galleryHtml}
-                ${actionsHtml}
+                ${bottomSectionHtml}
             `;
 
             // Translate Content

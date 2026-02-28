@@ -174,9 +174,12 @@ const resumeData = {
                 github: "",
                 site: "https://lobby-stream.web.app/"
             },
-            image: "resources/images/lobby_stream.png",
+            image: "resources/images/lobby_stream/lobby_stream.png",
             gallery: [
-                "resources/images/lobby_stream.png",
+                "resources/images/lobby_stream/lobby_stream.png",
+                "resources/images/lobby_stream/lobby_stream_mobile_01.jpg",
+                "resources/images/lobby_stream/lobby_stream_mobile_02.jpg",
+                "resources/images/lobby_stream/lobby_stream_mobile_03.jpg"
             ]
         },
         {
@@ -208,10 +211,26 @@ const resumeData = {
                 github: "https://github.com/asher603/Smart_Travel_Agent",
                 site: "projects/smart-travel-agent.html"
             },
-            image: "resources/images/default.png",
+            instructions: {
+                he: "כדי להריץ את הפרויקט על המחשב המקומי, עקוב אחר ההוראות בתיעוד המלא.",
+                en: "To run the project locally, follow the instructions in the full documentation."
+            },
+            hyperlink: {
+                url: "https://github.com/asher603/Smart_Travel_Agent/blob/main/README.md",
+                text: {
+                    he: "קרא את התיעוד המלא",
+                    en: "Read full documentation"
+                }
+            },
+            image: "resources/images/smart_travel_agent/trip_view.png",
             gallery: [
-                "resources/images/default.png",
-                "resources/images/backup.png"
+                "resources/images/smart_travel_agent/auth_screen.png",
+                "resources/images/smart_travel_agent/dashboard.png",
+                "resources/images/smart_travel_agent/trip_form.png",
+                "resources/images/smart_travel_agent/trip_view.png",
+                "resources/images/smart_travel_agent/trip_chat.png",
+                "resources/images/smart_travel_agent/history_screen.png",
+                "resources/images/smart_travel_agent/logo.png"
             ]
         },
         {
@@ -237,13 +256,27 @@ const resumeData = {
             services: ["Azure DevOps"],
             links: {
                 github: "https://github.com/mashiah555/LevKatan",
-                demo: "",
                 site: "https://lev-katan.web.app/"
             },
-            image: "resources/images/default.png",
+            instructions: {
+                he: "כדי להריץ את הפרויקט על המחשב המקומי, עקוב אחר ההוראות בתיעוד המלא.",
+                en: "To run the project locally, follow the instructions in the full documentation."
+            },
+            hyperlink: {
+                url: "https://github.com/asher603/Smart_Travel_Agent/blob/main/README.md",
+                text: {
+                    he: "קרא את התיעוד המלא",
+                    en: "Read full documentation"
+                }
+            },
+            image: "resources/images/lev_katan/catalog.png",
             gallery: [
-                "resources/images/default.png",
-                "resources/images/backup.png"
+                "resources/images/lev_katan/login.png",
+                "resources/images/lev_katan/catalog.png",
+                "resources/images/lev_katan/catalog_dark.png",
+                "resources/images/lev_katan/item_popup.png",
+                "resources/images/lev_katan/employee_dashboard.png",
+                "resources/images/lev_katan/admin_dashboard.png"
             ]
         },
         {
