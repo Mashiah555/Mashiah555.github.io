@@ -48,6 +48,20 @@ function injectStaticAssets() {
         `;
     }
 
+    // Inject Download Icon
+    const btnDownloadCv = document.getElementById('btn-download-cv');
+    if (btnDownloadCv) {
+        // Keeps the text span and adds the SVG icon
+        btnDownloadCv.innerHTML = siteConfig.assets.icon_download + btnDownloadCv.innerHTML;
+
+        // Ensure the SVG is sized properly (matching your project buttons)
+        const svg = btnDownloadCv.querySelector('svg');
+        if (svg) {
+            svg.style.width = '18px';
+            svg.style.height = '18px';
+        }
+    }
+
     // Inject Placeholders
     document.querySelectorAll('.use-placeholder').forEach(img => {
         img.src = siteConfig.assets.default_icon;
@@ -79,9 +93,8 @@ function renderAllSections() {
 // ==========================================
 // VIEW & TAB LOGIC (Global Attachments)
 // ==========================================
-// Note: Attached to window because index.html still uses inline onclick="openTab(...)" attributes.
 
-window.openTab = function (tabName) {
+function switchTab(tabName) {
     // 1. Hide all tabs and remove active class from buttons
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -91,11 +104,11 @@ window.openTab = function (tabName) {
     if (content) content.classList.add('active');
 
     // 3. Highlight Button
-    const btn = document.querySelector(`button[onclick="openTab('${tabName}')"]`);
+    const btn = document.querySelector(`button[data-action="switchTab"][data-target="${tabName}"]`);
     if (btn) btn.classList.add('active');
 };
 
-window.switchView = function (mode) {
+function switchView(mode) {
     // 1. Reset Buttons
     ['visual', 'plain', 'preview'].forEach(v => {
         const btn = document.getElementById(`btn-view-${v}`);
@@ -137,7 +150,7 @@ async function loadPdf() {
 
     if (navigator.pdfViewerEnabled === false) {
         console.warn("Browser does not support built-in PDF viewing. Switching to Plain view.");
-        window.switchView('plain');
+        switchView('plain');
         return;
     }
 
@@ -149,7 +162,7 @@ async function loadPdf() {
         frame.setAttribute('data-loaded-url', pdfUrl);
     } catch (error) {
         console.error("PDF Load Failed:", error);
-        window.switchView('plain');
+        switchView('plain');
     }
 }
 
@@ -178,12 +191,41 @@ document.addEventListener('DOMContentLoaded', () => {
         btnLang.addEventListener('click', () => toggleLanguage(renderAllSections));
     }
 
-    // 5. Check URL Params for specific tab routing
+    // 5. Check URL Params for specific routing (Views & Tabs)
     const urlParams = new URLSearchParams(window.location.search);
-    const tab = urlParams.get('tab');
-    if (tab) {
-        window.openTab(tab);
+    const targetView = urlParams.get('view');
+    const targetTab = urlParams.get('tab');
+
+    // Route the View (Defaults to 'visual')
+    if (targetView) {
+        switchView(targetView);
     } else {
-        window.openTab('experience'); // Default tab
+        switchView('visual');
+    }
+
+    // Route the Tab (Defaults to 'experience')
+    if (targetTab) {
+        switchTab(targetTab);
+    } else {
+        switchTab('experience');
+    }
+});
+
+// ==========================================
+// EVENT DELEGATION ROUTER
+// ==========================================
+document.addEventListener('click', (event) => {
+    // Find the closest parent element with a data-action attribute
+    const target = event.target.closest('[data-action]');
+    if (!target) return; // If clicked element isn't an action button, do nothing
+
+    const action = target.getAttribute('data-action');
+    const targetId = target.getAttribute('data-target');
+
+    // Route the action
+    if (action === 'switchView') {
+        switchView(targetId);
+    } else if (action === 'switchTab') {
+        switchTab(targetId);
     }
 });

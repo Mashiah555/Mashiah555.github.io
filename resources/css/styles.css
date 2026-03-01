@@ -386,11 +386,23 @@ html[dir="rtl"] .nav-link::after {
     display: inline-block;
 }
 
+.download-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
 .dropdown-menu {
     display: none;
     position: absolute;
-    right: 0;
     top: 100%;
+    left: 50%;
+    right: auto;
+    margin-left: -80px;
+
     margin-top: 5px;
     background-color: var(--clr-bg-surface);
     min-width: 160px;
@@ -401,14 +413,9 @@ html[dir="rtl"] .nav-link::after {
     overflow: hidden;
 }
 
-html[dir="rtl"] .dropdown-menu {
-    right: auto;
-    left: 0;
-}
-
 .download-dropdown:hover .dropdown-menu {
     display: block;
-    animation: fadeIn 0.2s ease-in;
+    animation: fadeIn 0.2s ease-in forwards;
 }
 
 .dropdown-item {

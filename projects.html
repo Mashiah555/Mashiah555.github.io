@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuval Mashiah | Projects</title>
 
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            // Optional: Also pre-apply language direction to prevent layout shifts
+            const savedLang = localStorage.getItem('lang') || 'he';
+            document.documentElement.setAttribute('lang', savedLang);
+            document.documentElement.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+        })();
+    </script>
+
     <link rel="icon" href="resources/images/icon.png?v=2" type="image/png">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/projects.css">
@@ -27,14 +39,14 @@
         <div id="global-footer"></div>
     </div>
 
-    <div id="demo-modal" class="modal-overlay" onclick="handleOutsideClick(event)">
+    <div id="demo-modal" class="modal-overlay" data-action="handleOutsideClick" data-target="event">
         <div class="modal-window">
             <div class="modal-header">
                 <h3 id="modal-title" class="modal-title">Project Info</h3>
                 <div class="modal-header-actions">
                     <div id="modal-header-buttons" style="display: flex; gap: 8px;"></div>
 
-                    <button class="modal-close-btn" onclick="closeDemoModal()">&times;</button>
+                    <button class="modal-close-btn" data-action="closeModal">&times;</button>
                 </div>
             </div>
             <div class="modal-body">
@@ -43,7 +55,7 @@
         </div>
     </div>
 
-    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <div id="lightbox" class="lightbox-overlay" data-action="closeLightbox">
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" class="lightbox-img" src="" alt="Full View">
     </div>

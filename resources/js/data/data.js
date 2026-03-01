@@ -279,6 +279,7 @@ export const resumeData = {
                 "resources/images/lev_katan/admin_dashboard.png"
             ]
         },
+        /*
         {
             id: "bookmarks_popup",
             title: "Bookmarks Popup Extension",
@@ -310,6 +311,7 @@ export const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        */
         {
             id: "defence_union",
             title: "Defence Union",
@@ -403,6 +405,7 @@ export const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        */
         {
             id: "narrow_down",
             title: "Narrow Down",
@@ -434,6 +437,7 @@ export const resumeData = {
                 "resources/images/backup.png"
             ]
         },
+        /*
         {
             id: "walkie_doggie",
             title: "Walkie Doggie",

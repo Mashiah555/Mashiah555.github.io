@@ -8,7 +8,7 @@ let currentOpenProjectId = null;
 // MODAL LOGIC
 // ==========================================
 
-export function openDemoModal(projectId) {
+export function openModal(projectId) {
     const project = resumeData.projects.find(p => p.id === projectId);
     if (!project) return;
 
@@ -118,7 +118,7 @@ export function openDemoModal(projectId) {
                         <h4><span data-i18n="modal_gallery">Gallery</span></h4>
                         <div class="gallery-grid">
                             ${project.gallery.map(img => `
-                                <div class="gallery-item" onclick="openLightbox('${img}')">
+                                <div class="gallery-item" data-action="openLightbox" data-src="${img}">
                                     <img src="${img}" alt="Screenshot" loading="lazy" 
                                         onload="
                                             const ratio = this.naturalWidth / this.naturalHeight;
@@ -206,7 +206,7 @@ export function openDemoModal(projectId) {
     document.body.style.overflow = 'hidden';
 }
 
-export function closeDemoModal() {
+export function closeModal() {
     const modal = document.getElementById('demo-modal');
     if (!modal) return;
     modal.classList.remove('open');
@@ -216,7 +216,7 @@ export function closeDemoModal() {
 
 export function reRenderModalIfOpen() {
     if (currentOpenProjectId) {
-        openDemoModal(currentOpenProjectId);
+        openModal(currentOpenProjectId);
     }
 }
 
@@ -256,7 +256,7 @@ export function initModalListeners() {
             if (lightbox && lightbox.classList.contains('open')) {
                 closeLightbox();
             } else {
-                closeDemoModal();
+                closeModal();
             }
         }
     });
@@ -264,13 +264,7 @@ export function initModalListeners() {
     // Close modal on outside click
     window.handleOutsideClick = function (event) {
         if (event.target.id === 'demo-modal') {
-            closeDemoModal();
+            closeModal();
         }
     };
 }
-
-// Expose functions to the global window object so HTML inline onclicks still work
-window.openDemoModal = openDemoModal;
-window.closeDemoModal = closeDemoModal;
-window.openLightbox = openLightbox;
-window.closeLightbox = closeLightbox;

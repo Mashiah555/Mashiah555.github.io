@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuval Mashiah</title>
 
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            // Optional: Also pre-apply language direction to prevent layout shifts
+            const savedLang = localStorage.getItem('lang') || 'he';
+            document.documentElement.setAttribute('lang', savedLang);
+            document.documentElement.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+        })();
+    </script>
+
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="icon" href="resources/images/icon.png?v=2" type="image/png">
 </head>
@@ -44,16 +56,19 @@
         <!-- Resume Section -->
         <div id="resume-section" class="controls-bar">
             <div class="view-toggle">
-                <button id="btn-view-visual" class="chip active" onclick="switchView('visual')"
+                <button id="btn-view-visual" class="chip active" data-action="switchView" data-target="visual"
                     data-i18n="view_visual">Visual</button>
-                <button id="btn-view-plain" class="chip" onclick="switchView('plain')"
+                <button id="btn-view-plain" class="chip" data-action="switchView" data-target="plain"
                     data-i18n="view_plain">Plain</button>
-                <button id="btn-view-preview" class="chip" onclick="switchView('preview')"
+                <button id="btn-view-preview" class="chip" data-action="switchView" data-target="preview"
                     data-i18n="view_preview">Preview</button>
             </div>
 
             <div class="download-dropdown">
-                <button class="btn btn-primary" data-i18n="btn_download">Download CV ▼</button>
+                <button id="btn-download-cv" class="btn btn-primary"
+                    style="display: flex; align-items: center; gap: 8px;">
+                    <span data-i18n="btn_download">Download CV</span>
+                </button>
                 <div class="dropdown-menu">
                     <a href="#" id="dl-he" class="dropdown-item" target="_blank" data-i18n="opt_he">Hebrew</a>
                     <a href="#" id="dl-en" class="dropdown-item" target="_blank" data-i18n="opt_en">English</a>
@@ -63,9 +78,12 @@
 
         <div id="view-visual">
             <div class="tab-bar">
-                <button class="tab-btn active" onclick="openTab('experience')" data-i18n="tab_exp">Experience</button>
-                <button class="tab-btn" onclick="openTab('skills')" data-i18n="tab_skills">Skills</button>
-                <button class="tab-btn" onclick="openTab('education')" data-i18n="tab_edu">Education</button>
+                <button class="tab-btn active" data-action="switchTab" data-target="experience"
+                    data-i18n="tab_exp">Experience</button>
+                <button class="tab-btn" data-action="switchTab" data-target="skills"
+                    data-i18n="tab_skills">Skills</button>
+                <button class="tab-btn" data-action="switchTab" data-target="education"
+                    data-i18n="tab_edu">Education</button>
             </div>
 
             <div id="experience" class="tab-content active">
