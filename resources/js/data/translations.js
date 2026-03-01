@@ -1,7 +1,7 @@
 /* =========================================
    DICTIONARY (Hebrew & English)
    ========================================= */
-const dictionary = {
+export const dictionary = {
     he: {
         // --- Navigation ---
         nav_home: "בית",

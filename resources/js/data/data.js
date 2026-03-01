@@ -1,4 +1,4 @@
-const resumeData = {
+export const resumeData = {
     // --- HOME PAGE PREVIEW ---
     topSkills: [
         { id: "csharp", name: "C#", icon: "cs" },

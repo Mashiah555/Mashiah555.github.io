@@ -1,4 +1,4 @@
-const siteConfig = {
+export const siteConfig = {
     // --- LINKS & NAVIGATION ---
     links: {
         // Social Links
