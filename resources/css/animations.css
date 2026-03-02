@@ -1,0 +1,101 @@
+/* =========================================
+   PROFESSIONAL ANIMATION UTILITIES
+   ========================================= */
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Base setup for hidden elements before they enter viewport */
+    .reveal {
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Smooth, professional easing */
+        will-change: opacity, transform;
+    }
+
+    /* Directional reveals */
+    .reveal-up {
+        transform: translateY(40px);
+    }
+
+    .reveal-down {
+        transform: translateY(-40px);
+    }
+
+    .reveal-left {
+        transform: translateX(40px);
+    }
+
+    html[dir="rtl"] .reveal-left {
+        transform: translateX(-40px);
+        /* Adjust for Hebrew */
+    }
+
+    .reveal-right {
+        transform: translateX(-40px);
+    }
+
+    html[dir="rtl"] .reveal-right {
+        transform: translateX(40px);
+        /* Adjust for Hebrew */
+    }
+
+    .reveal-scale {
+        transform: scale(0.92);
+    }
+
+    /* The class added by JavaScript when the element is visible */
+    .reveal.active {
+        opacity: 1;
+        transform: translate(0) scale(1);
+    }
+
+    /* Stagger delays for items in a grid/list */
+    .delay-100 {
+        transition-delay: 100ms;
+    }
+
+    .delay-200 {
+        transition-delay: 200ms;
+    }
+
+    .delay-300 {
+        transition-delay: 300ms;
+    }
+
+    .delay-400 {
+        transition-delay: 400ms;
+    }
+
+    /* Button Hover Enhancements */
+    .btn {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translate(-50%, -50%) scale(0);
+        border-radius: 50%;
+        transition: transform 0.5s ease-out;
+    }
+
+    .btn:hover::after {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Image hover subtle zoom (apply to hero image) */
+    .img-hover-zoom {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-hover-zoom:hover {
+        transform: scale(1.05) rotate(-2deg);
+    }
+}

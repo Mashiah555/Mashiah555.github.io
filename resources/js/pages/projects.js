@@ -5,6 +5,7 @@ import { renderHeader, renderFooter } from '../components/layout.js';
 import { initNavbarBehavior } from '../components/navbar.js';
 import { initTheme } from '../core/theme.js';
 import { applyLanguage, toggleLanguage } from '../core/i18n.js';
+import { initScrollAnimations } from '../core/animations.js';
 import { renderProjectsPage } from '../renderers/projectsRenderer.js';
 import { openModal, closeModal, openLightbox, closeLightbox, initModalListeners, reRenderModalIfOpen } from '../components/modal.js';
 
@@ -19,6 +20,8 @@ import { openModal, closeModal, openLightbox, closeLightbox, initModalListeners,
 function updateProjectsView() {
     renderProjectsPage();
     reRenderModalIfOpen();
+
+    setTimeout(() => initScrollAnimations(), 50); // Re-observe after language toggle
 }
 
 // ==========================================
@@ -44,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnLang) {
         btnLang.addEventListener('click', () => toggleLanguage(updateProjectsView));
     }
+
+    // 5. Initialize Scroll Animations
+    // Set a slight timeout to ensure dynamic content has rendered first
+    setTimeout(() => {
+        initScrollAnimations();
+    }, 50);
 
     initModalListeners();
 });

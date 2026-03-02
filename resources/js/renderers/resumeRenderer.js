@@ -66,7 +66,7 @@ export function renderFullSkills() {
         const title = t(cat.id);
 
         // Generate Cards
-        const cardsHtml = cat.items.map(item => {
+        const cardsHtml = cat.items.map((item, index) => {
             // Determine Icon Source (Standard vs Custom vs None)
             let imgHtml = '';
             if (item.icon) {
@@ -78,8 +78,11 @@ export function renderFullSkills() {
             // Get Description
             const desc = t(item.descKey);
 
+            // Stagger every row
+            const delayClass = `delay-${((index - 1) % 9) * 100}`;
+
             return `
-                <div class="skill-card">
+                <div class="skill-card reveal reveal-scale ${delayClass}">
                     ${imgHtml}
                     <div class="skill-text">
                         <strong>${item.name}</strong>
@@ -106,13 +109,13 @@ export function renderExperience() {
     if (!container) return;
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.experience.map(job => {
-        // Fallback values if none provided
+    const html = resumeData.experience.map((job, index) => {
+        const delayClass = `delay-${(index % 3) * 100}`;
         const iconSrc = job.iconSrc || siteConfig.assets.default_icon;
         const link = job.link || "#";
 
         return `
-        <div class="job-item">
+        <div class="job-item reveal reveal-left ${delayClass}">
             <a href="${link}" target="_blank" class="timeline-icon">
                 <img src="${iconSrc}" alt="Logo">
             </a>
@@ -139,13 +142,13 @@ export function renderEducation() {
     if (!container) return;
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.education.map(edu => {
-        // Fallback values if none provided
+    const html = resumeData.education.map((edu, index) => {
+        const delayClass = `delay-${(index % 3) * 100}`;
         const iconSrc = edu.iconSrc || siteConfig.assets.default_icon;
         const link = edu.link || "#";
 
         return `
-        <div class="job-item">
+        <div class="job-item reveal reveal-left ${delayClass}">
             <a href="${link}" target="_blank" class="timeline-icon">
                 <img src="${iconSrc}" alt="Logo">
             </a>

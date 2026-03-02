@@ -13,7 +13,10 @@ export function renderProjectsPage() {
     const iconExpand = siteConfig.assets.icon_expand;
     const iconRepo = siteConfig.assets.icon_repo;
 
-    const html = resumeData.projects.map(project => {
+    const html = resumeData.projects.map((project, index) => {
+        // Calculate a stagger delay based on the index (0, 100, 200, etc.)
+        const delayClass = `delay-${(index % 3) * 100}`;
+
         // Image handling
         const imgDisplay = project.image
             ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
@@ -38,7 +41,7 @@ export function renderProjectsPage() {
         }
 
         return `
-            <div class="project-card" data-action="openModal" data-id="${project.id}" role="button" tabindex="0">
+            <div class="project-card reveal reveal-up ${delayClass}" data-action="openModal" data-id="${project.id}" role="button" tabindex="0">
                 <div class="project-image-container">${imgDisplay}</div>
                 <div class="project-content">
                     <h3 class="project-title">${project.title}</h3>

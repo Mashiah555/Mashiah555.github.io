@@ -19,6 +19,7 @@
     </script>
 
     <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/animations.css">
     <link rel="icon" href="resources/images/icon.png?v=2" type="image/png">
 </head>
 
@@ -28,9 +29,9 @@
         <div id="global-header"></div>
 
         <div class="hero-container">
-            <div class="hero-profile">
-                <img id="profile-img" alt="Profile" class="profile-img">
-                <div class="profile-info">
+            <div class="hero-profile reveal reveal-scale">
+                <img id="profile-img" alt="Profile" class="profile-img img-hover-zoom">
+                <div class="profile-info reveal reveal-right delay-200">
                     <h1 data-i18n="greeting">Yuval Mashiah</h1>
                     <span class="location-text" data-i18n="hero_location">Israel</span>
                 </div>
@@ -40,7 +41,7 @@
             </div>
         </div>
 
-        <div class="hero-context">
+        <div class="hero-context reveal reveal-up delay-300">
             <h2 class="hero-title" data-i18n="hero_role">Full-Stack Developer</h2>
             <p class="hero-subtitle" data-i18n="hero_student">3rd Year Student...</p>
 

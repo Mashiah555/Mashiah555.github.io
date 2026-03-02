@@ -6,6 +6,7 @@ import { renderHeader, renderFooter } from '../components/layout.js';
 import { initNavbarBehavior } from '../components/navbar.js';
 import { initTheme } from '../core/theme.js';
 import { applyLanguage, toggleLanguage } from '../core/i18n.js';
+import { initScrollAnimations } from '../core/animations.js';
 import {
     renderHomeSkills,
     renderFullSkills,
@@ -88,6 +89,9 @@ function renderAllSections() {
     if (previewView && previewView.style.display !== 'none') {
         loadPdf();
     }
+
+    // Let the DOM update, then re-observe the new elements
+    setTimeout(() => initScrollAnimations(), 50);
 }
 
 // ==========================================
@@ -106,6 +110,9 @@ function switchTab(tabName) {
     // 3. Highlight Button
     const btn = document.querySelector(`button[data-action="switchTab"][data-target="${tabName}"]`);
     if (btn) btn.classList.add('active');
+
+    // Re-trigger animations for the newly visible tab
+    setTimeout(() => initScrollAnimations(), 50);
 };
 
 function switchView(mode) {
@@ -196,6 +203,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetView = urlParams.get('view');
     const targetTab = urlParams.get('tab');
 
+    // 6. Profile Image Scroll to Resume
+    const profileImg = document.getElementById('profile-img');
+    const resumeSection = document.getElementById('resume-section');
+
+    if (profileImg && resumeSection) {
+        profileImg.addEventListener('click', () => {
+            // 80px offset to prevent the header from hiding the section title
+            const headerOffset = 80;
+            const elementPosition = resumeSection.getBoundingClientRect().top;
+
+            window.scrollTo({
+                top: elementPosition + window.scrollY - headerOffset,
+                behavior: "smooth"
+            });
+        });
+    }
+
     // Route the View (Defaults to 'visual')
     if (targetView) {
         switchView(targetView);
@@ -209,6 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         switchTab('experience');
     }
+
+    // 6. Initialize Scroll Animations
+    // Set a slight timeout to ensure dynamic content has rendered first
+    setTimeout(() => {
+        initScrollAnimations();
+    }, 100);
 });
 
 // ==========================================

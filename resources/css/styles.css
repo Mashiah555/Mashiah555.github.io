@@ -218,6 +218,7 @@ html[dir="rtl"] .nav-link::after {
     object-fit: cover;
     border: 3px solid var(--clr-bg-surface);
     box-shadow: var(--shadow-md);
+    cursor: pointer;
 }
 
 .profile-info h1 {
@@ -312,7 +313,6 @@ html[dir="rtl"] .nav-link::after {
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
-    animation: fadeUp 0.5s ease-out forwards;
     opacity: 0.85;
     justify-content: center;
     align-items: center;
@@ -524,68 +524,14 @@ html[dir="rtl"] .nav-link::after {
     display: flex;
     align-items: center;
     gap: 1rem;
-    animation: fadeUp 0.5s ease-out forwards;
     box-shadow: var(--shadow-sm);
     min-height: 58px;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 0.95;
-        transform: translateY(0);
-    }
 }
 
 .skill-card:hover {
     transform: translateY(-4px);
     border-color: var(--clr-primary);
     box-shadow: var(--shadow-md);
-}
-
-/* Stagger Animations */
-.skill-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.skill-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.skill-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.skill-card:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.skill-card:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-.skill-card:nth-child(6) {
-    animation-delay: 0.6s;
-}
-
-.skill-card:nth-child(7) {
-    animation-delay: 0.7s;
-}
-
-.skill-card:nth-child(8) {
-    animation-delay: 0.8s;
-}
-
-.skill-card:nth-child(9) {
-    animation-delay: 0.9s;
-}
-
-.skill-card:nth-child(10) {
-    animation-delay: 1.0s;
 }
 
 .skill-icon {
@@ -653,7 +599,6 @@ html[dir="rtl"] .nav-link::after {
     margin-bottom: 40px;
     display: flex;
     align-items: center;
-    animation: fadeUp 0.5s ease-out forwards;
 }
 
 /* --- The Icon --- */
@@ -1053,19 +998,6 @@ html[dir="rtl"] .plain-item-header {
     margin-left: 3rem;
 }
 
-/* Stagger animation for timeline items */
-.job-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.job-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.job-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
 
 /* =========================================
    10. GLOBAL COMPONENTS
@@ -1257,4 +1189,83 @@ html[dir="rtl"] .plain-item-header {
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--clr-primary-hover);
     /* Brand color on hover */
+}
+
+/* =========================================
+   ANIMATION REFINEMENTS (Appended Overrides)
+   ========================================= */
+
+/* --- 1. Timeline Icons Hover Tilt --- */
+.timeline-icon img {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-icon:hover img {
+    transform: scale(1.15) rotate(-4deg);
+}
+
+
+/* --- 2. Skill Cards Shine Animation --- */
+.skill-card {
+    position: relative;
+    overflow: hidden;
+    /* Contains the shine within the card's rounded borders */
+}
+
+/* The Shine Element */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    /* A translucent white gradient fading out on the edges */
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    z-index: 1;
+}
+
+/* Adjust the shine for Dark Mode so it's not blindingly bright */
+[data-theme="dark"] .skill-card::before {
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+/* Trigger the shine animation on hover */
+.skill-card:hover::before {
+    animation: shineSweep 0.75s ease-out forwards;
+}
+
+@keyframes shineSweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* Override the old hover state: remove border color change */
+.skill-card:hover {
+    transform: translateY(-4px);
+    /* Keep the float for main cards */
+    box-shadow: var(--shadow-md);
+    border-color: var(--clr-border);
+    /* Resets to default border instead of primary */
+}
+
+/* --- 3. Fix Preview Skills (Compact) --- */
+/* Prevent the preview cards on the home page from translating up */
+.skill-card.compact:hover {
+    transform: none;
+    /* Stops the upward float */
+    box-shadow: var(--shadow-sm);
+    /* Keeps the flat, resting shadow */
 }
