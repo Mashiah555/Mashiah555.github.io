@@ -99,10 +99,22 @@
 
 /* Card Footer (Buttons) */
 .project-footer {
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    /* Adjust spacing to your liking */
     margin-top: auto;
-    flex-wrap: wrap;
+    /* Pushes footer to the bottom of the card */
+}
+
+.project-footer>*:only-child {
+    grid-column: 1 / -1;
+}
+
+/* 3 Buttons Override (First button gets full row, next two split the bottom row) */
+.project-footer>*:first-child:nth-last-child(3) {
+    grid-column: 1 / -1;
+    order: 2;
 }
 
 .btn-sm {

@@ -1,5 +1,5 @@
 import { siteConfig } from '../data/config.js';
-import { resumeData } from '../data/data.js';
+import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 
 let currentOpenProjectId = null;
@@ -9,7 +9,7 @@ let currentOpenProjectId = null;
 // ==========================================
 
 export function openModal(projectId) {
-    const project = resumeData.projects.find(p => p.id === projectId);
+    const project = projectData.find(p => p.id === projectId);
     if (!project) return;
 
     currentOpenProjectId = projectId;

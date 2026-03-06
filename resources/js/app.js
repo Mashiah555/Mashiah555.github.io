@@ -16,7 +16,7 @@ function initApp() {
     if (btnLang) btnLang.addEventListener('click', toggleLanguage);
 
     // --- DYNAMIC RENDERING CALLS ---
-    if (typeof resumeData !== 'undefined') {
+    if (typeof skillData !== 'undefined' && typeof resumeData !== 'undefined') {
         // 1. Home Preview Skills
         if (document.getElementById('home-skills-container')) renderHomeSkills();
         // 2. Full Resume Tabs

@@ -1,14 +1,14 @@
 import { siteConfig } from '../data/config.js';
-import { resumeData } from '../data/data.js'
+import { skillData, resumeData } from '../data/data.js'
 import { t } from '../core/i18n.js'
 
 /* --- RENDER HOME PREVIEW SKILLS --- */
 export function renderHomeSkills() {
     const lang = localStorage.getItem('lang') || 'he';
     const container = document.getElementById('home-skills-container');
-    if (!container || typeof resumeData === 'undefined') return;
+    if (!container || typeof skillData === 'undefined' || typeof resumeData === 'undefined') return;
 
-    const skills = resumeData.topSkills;
+    const skills = skillData.topSkills;
 
     const html = skills.map(skill => `
         <div class="skill-card compact">
@@ -61,7 +61,7 @@ export function renderFullSkills() {
 
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.skillsCategories.map(cat => {
+    const html = skillData.skillsCategories.map(cat => {
         // Get category title from dictionary
         const title = t(cat.id);
 
@@ -226,7 +226,7 @@ export function renderPlain() {
         <div class="plain-section">
             <h2>${t('tab_skills').toUpperCase()}</h2>
             <div class="plain-skills-list">
-                ${resumeData.skillsCategories.map(cat => {
+                ${skillData.skillsCategories.map(cat => {
         // Get translated category name
         const catName = t(cat.id);
         // Get list of skills in this category

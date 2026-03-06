@@ -1,10 +1,10 @@
 import { siteConfig } from '../data/config.js';
-import { resumeData } from '../data/data.js';
+import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 
 export function renderProjectsPage() {
     const container = document.getElementById('projects-grid');
-    if (!container || !resumeData.projects) return;
+    if (!container || !projectData) return;
 
     const lang = localStorage.getItem('lang') || 'he';
 
@@ -13,10 +13,7 @@ export function renderProjectsPage() {
     const iconExpand = siteConfig.assets.icon_expand;
     const iconRepo = siteConfig.assets.icon_repo;
 
-    const html = resumeData.projects.map((project, index) => {
-        // Calculate a stagger delay based on the index (0, 100, 200, etc.)
-        const delayClass = `delay-${(index % 3) * 100}`;
-
+    const html = projectData.map((project, index) => {
         // Image handling
         const imgDisplay = project.image
             ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
@@ -40,8 +37,15 @@ export function renderProjectsPage() {
             buttonsHtml += `<a href="${project.links.github}" target="_blank" class="btn btn-outline btn-sm">${iconRepo}<span data-i18n="btn_repo">${t('btn_repo')}</span></a>`;
         }
 
+        // --- Animate the first 3 cards ---
+        let animationClasses = '';
+        if (index < 3) {
+            // Stagger delays: 0ms, 100ms, 200ms
+            animationClasses = `reveal reveal-up delay-${index * 100}`;
+        }
+
         return `
-            <div class="project-card reveal reveal-up ${delayClass}" data-action="openModal" data-id="${project.id}" role="button" tabindex="0">
+            <div class="project-card ${animationClasses}" data-action="openModal" data-id="${project.id}" role="button" tabindex="0">
                 <div class="project-image-container">${imgDisplay}</div>
                 <div class="project-content">
                     <h3 class="project-title">${project.title}</h3>
