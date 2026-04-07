@@ -1,0 +1,8 @@
+{
+    "name": "yuval-portfolio-backend",
+    "version": "1.0.0",
+    "description": "Vercel backend for Yuval's AI assistant",
+    "dependencies": {
+        "@google/generative-ai": "^0.21.0"
+    }
+}

@@ -54,8 +54,8 @@ export function initChatWidget() {
         const loadingId = appendMessage('...', 'ai-message loading');
 
         try {
-            // TODO: Replace with your Vercel Serverless Function URL
-            const response = await fetch('/api/chat', {
+            // Vercel Serverless Function URL
+            const response = await fetch('https://mashiah555-portfolio.vercel.app/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: text })
