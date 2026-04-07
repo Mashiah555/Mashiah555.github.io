@@ -14,6 +14,7 @@ import {
     renderEducation,
     renderPlain
 } from '../renderers/resumeRenderer.js';
+import { initChatWidget } from '../components/chatWidget.js';
 
 // ==========================================
 // PAGE-SPECIFIC INITIALIZATION
@@ -181,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Core Systems & Layout
     renderHeader();
     renderFooter();
+    initChatWidget();
     initNavbarBehavior();
     initTheme();
 

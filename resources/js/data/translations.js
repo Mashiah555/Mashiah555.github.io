@@ -14,7 +14,7 @@ export const dictionary = {
 
         // --- Hero Section ---
         greeting: "יובל משיח",
-        hero_role: "מפתח Full-Stack",
+        hero_role: "מתכנת Full-Stack",
         hero_student: "סטודנט בן 20 למדעי המחשב",
         hero_location: "פתח תקווה, ישראל",
         btn_projects: "הפרויקטים שלי",
