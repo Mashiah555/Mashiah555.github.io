@@ -9,7 +9,7 @@
                 },
                 {
                     "key": "Access-Control-Allow-Origin",
-                    "value": "https://mashiah555.github.io"
+                    "value": "https://yuval-mashiah.vercel.app"
                 },
                 {
                     "key": "Access-Control-Allow-Methods",
