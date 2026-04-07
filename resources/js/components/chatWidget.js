@@ -16,7 +16,7 @@ export function initChatWidget() {
                 </div>
                 <div id="chat-messages" class="chat-messages">
                     <div class="message ai-message">
-                        Hi! I'm Yuval's AI assistant. Ask me anything about his skills, experience, or projects!
+                        Hi! I'm Yuval's AI assistant. Ask me anything about him and his work!
                     </div>
                 </div>
                 <div class="chat-input-area">
