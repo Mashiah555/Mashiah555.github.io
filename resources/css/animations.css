@@ -80,7 +80,7 @@
         left: 50%;
         width: 150%;
         height: 150%;
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--clr-overlay-hover);
         transform: translate(-50%, -50%) scale(0);
         border-radius: 50%;
         transition: transform 0.5s ease-out;

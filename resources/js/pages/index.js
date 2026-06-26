@@ -205,20 +205,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetView = urlParams.get('view');
     const targetTab = urlParams.get('tab');
 
-    // 6. Profile Image Scroll to Resume
+    // 6. Profile Image & Button Scroll to Resume
     const profileImg = document.getElementById('profile-img');
     const resumeSection = document.getElementById('resume-section');
+    const btnHeroSkills = document.getElementById('btn-hero-skills');
 
+    // Helper function to handle the smooth scrolling
+    const scrollToResume = () => {
+        const headerOffset = 80;
+        const elementPosition = resumeSection.getBoundingClientRect().top;
+
+        window.scrollTo({
+            top: elementPosition + window.scrollY - headerOffset,
+            behavior: "smooth"
+        });
+    };
+
+    // Attach to Profile Image
     if (profileImg && resumeSection) {
-        profileImg.addEventListener('click', () => {
-            // 80px offset to prevent the header from hiding the section title
-            const headerOffset = 80;
-            const elementPosition = resumeSection.getBoundingClientRect().top;
+        profileImg.addEventListener('click', scrollToResume);
+    }
 
-            window.scrollTo({
-                top: elementPosition + window.scrollY - headerOffset,
-                behavior: "smooth"
-            });
+    // Attach to 'Full Skill Set' Button
+    if (btnHeroSkills && resumeSection) {
+        btnHeroSkills.addEventListener('click', () => {
+            switchView('visual');
+            switchTab('skills');
+            scrollToResume();
         });
     }
 
