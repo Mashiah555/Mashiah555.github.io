@@ -66,7 +66,7 @@ export function renderFullSkills() {
         const title = t(cat.id);
 
         // Generate Cards
-        const cardsHtml = cat.items.map((item, index) => {
+        const cardsHtml = cat.items.map((item) => {
             // Determine Icon Source (Standard vs Custom vs None)
             let imgHtml = '';
             if (item.icon) {
@@ -78,11 +78,8 @@ export function renderFullSkills() {
             // Get Description
             const desc = t(item.descKey);
 
-            // Stagger every row
-            const delayClass = `delay-${((index - 1) % 9) * 100}`;
-
             return `
-                <div class="skill-card reveal reveal-scale ${delayClass}">
+                <div class="skill-card reveal reveal-up">
                     ${imgHtml}
                     <div class="skill-text">
                         <strong>${item.name}</strong>

@@ -1,0 +1,52 @@
+/* 404-specific styling utilizing theme variables */
+
+.error-container {
+    max-width: 500px;
+    padding: 50px 30px;
+    background-color: var(--clr-bg-surface);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-lr);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.error-code {
+    font-size: 100px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--clr-primary);
+    line-height: 1;
+    text-shadow: 2px 2px 4px var(--shadow-glow);
+}
+
+.error-title {
+    font-size: 28px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    font-size: 16px;
+    color: var(--clr-text-muted);
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--clr-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px var(--shadow-md);
+}
+
+.btn-home:hover {
+    background-color: var(--clr-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-lr);
+}

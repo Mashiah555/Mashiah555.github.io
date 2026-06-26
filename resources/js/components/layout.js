@@ -14,7 +14,17 @@ export function renderHeader() {
                 <a href="${siteConfig.links.page_skills}" id="nav-skills" class="nav-link" data-i18n="nav_skills"></a>
             </div>
             <div class="nav-right">
-                <button id="btn-theme" class="icon-btn" title="Toggle Theme">🌙</button>
+                <div class="theme-dropdown">
+                    <button id="btn-theme" class="icon-btn" aria-label="Toggle Theme">
+                        💻
+                    </button>
+    
+                    <div class="dropdown-menu theme-menu">
+                        <button class="dropdown-item theme-option" data-theme-val="light" data-i18n="light_theme">☀️ Light</button>
+                        <button class="dropdown-item theme-option" data-theme-val="dark" data-i18n="dark_theme">🌙 Dark</button>
+                        <button class="dropdown-item theme-option" data-theme-val="system" data-i18n="auto_theme">💻 System</button>
+                    </div>
+                </div>
                 <button id="btn-lang" class="icon-btn" title="Switch Language">EN</button>
             </div>
         </nav>

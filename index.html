@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuval Mashiah</title>
+    <link rel="icon" href="resources/images/icon.png" type="image/png">
 
     <script>
         (function () {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedTheme = localStorage.getItem('theme') || 'system';
+            if (savedTheme === 'system') {
+                document.documentElement.style.colorScheme = 'light dark';
+            } else {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                document.documentElement.style.colorScheme = savedTheme;
+            }
 
-            // pre-apply language direction to prevent layout shifts
             const savedLang = localStorage.getItem('lang') || 'he';
             document.documentElement.setAttribute('lang', savedLang);
             document.documentElement.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
         })();
     </script>
 
-    <link rel="icon" href="resources/images/icon.png?v=2" type="image/png">
     <link rel="stylesheet" href="resources/css/theme.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/animations.css">

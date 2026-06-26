@@ -45,7 +45,8 @@
     }
 
     /* The class added by JavaScript when the element is visible */
-    .reveal.active {
+    .reveal.active,
+    html[dir="rtl"] .reveal.active {
         opacity: 1;
         transform: translate(0) scale(1);
     }

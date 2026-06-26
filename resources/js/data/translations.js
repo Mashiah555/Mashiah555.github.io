@@ -11,8 +11,10 @@ export const dictionary = {
         nav_projects: "פרויקטים",
         nav_skills: "כישורים",
         toggle_lang: "EN",
-        tooltip_theme: "שינוי ערכת נושא",
-        tooltip_lang: "שינוי השפה לאנגלית \n Switch language to English",
+        tooltip_lang: "Switch language to English\nשינוי השפה לאנגלית",
+        light_theme: "☀️ בהיר",
+        dark_theme: "🌙 כהה",
+        auto_theme: "💻 מערכת",
 
         // --- Hero Section ---
         greeting: "יובל משיח",
@@ -106,8 +108,10 @@ export const dictionary = {
         nav_projects: "Projects",
         nav_skills: "Skills",
         toggle_lang: "עב",
-        tooltip_theme: "Toggle Theme",
-        tooltip_lang: "Switch language to Hebrew \n שינוי השפה לעברית",
+        tooltip_lang: "Switch language to Hebrew\nשינוי השפה לעברית",
+        light_theme: "☀️ Light",
+        dark_theme: "🌙 Dark",
+        auto_theme: "💻 System",
 
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
