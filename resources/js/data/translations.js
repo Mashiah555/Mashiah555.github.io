@@ -1,3 +1,5 @@
+import { getAge, getCurrentYear } from '../core/utils.js';
+
 /* =========================================
    DICTIONARY (Hebrew & English)
    ========================================= */
@@ -15,7 +17,7 @@ export const dictionary = {
         // --- Hero Section ---
         greeting: "יובל משיח",
         hero_role: "מתכנת Full-Stack",
-        hero_student: "סטודנט בן 20 למדעי המחשב",
+        hero_student: `סטודנט בן ${getAge()} למדעי המחשב`,
         hero_location: "פתח תקווה, ישראל",
         btn_projects: "הפרויקטים שלי",
         btn_skills: "כל הכישורים",
@@ -94,7 +96,7 @@ export const dictionary = {
         modal_gallery: "גלריה",
 
         // --- Footer ---
-        footer_rights: "© 2026 יובל משיח. כל הזכויות שמורות."
+        footer_rights: `© ${getCurrentYear()} יובל משיח. כל הזכויות שמורות.`
     },
 
     en: {
@@ -110,7 +112,7 @@ export const dictionary = {
         // --- Hero Section ---
         greeting: "Yuval Mashiah",
         hero_role: "Full-Stack Developer",
-        hero_student: "20 years old B.Sc. student in Computer Science",
+        hero_student: `${getAge()} years old B.Sc. student in Computer Science`,
         hero_location: "Petah Tikva, Israel",
         btn_projects: "My Projects",
         btn_skills: "Full Skill Stack",
@@ -189,6 +191,6 @@ export const dictionary = {
         modal_gallery: "Gallery",
 
         // --- Footer ---
-        footer_rights: "© 2026 Yuval Mashiah. All rights reserved."
+        footer_rights: `© ${getCurrentYear()} Yuval Mashiah. All rights reserved.`
     }
 };

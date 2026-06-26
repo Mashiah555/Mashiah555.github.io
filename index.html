@@ -11,7 +11,7 @@
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
 
-            // Optional: Also pre-apply language direction to prevent layout shifts
+            // pre-apply language direction to prevent layout shifts
             const savedLang = localStorage.getItem('lang') || 'he';
             document.documentElement.setAttribute('lang', savedLang);
             document.documentElement.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');

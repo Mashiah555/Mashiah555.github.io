@@ -3,7 +3,7 @@ export const skillData = {
     // --- HOME PAGE PREVIEW ---
     topSkills: [
         { id: "csharp", name: "C#", icon: "cs" },
-        { id: "maui", name: ".NET", icon: "dotnet" },
+        { id: "flutter", name: "Flutter", icon: "flutter" },
         { id: "python", name: "Python", icon: "py" }
     ],
 
@@ -13,10 +13,10 @@ export const skillData = {
             id: "cat_languages", // Translation key for title
             items: [
                 { name: "Python", icon: "py", descKey: "desc_python" },
+                { name: "Dart", icon: "dart", descKey: "desc_dart" },
                 { name: "C#", icon: "cs", descKey: "desc_csharp" },
                 { name: "C++", icon: "cpp", descKey: "desc_cpp" },
                 { name: "Java", icon: "java", descKey: "desc_java" },
-                { name: "Dart", icon: "dart", descKey: "desc_dart" },
                 { name: "JavaScript", icon: "js", descKey: "desc_js" },
                 { name: "HTML", icon: "html", descKey: "desc_html" },
                 { name: "CSS", icon: "css", descKey: "desc_css" },
@@ -26,14 +26,14 @@ export const skillData = {
         {
             id: "cat_frameworks",
             items: [
-                { name: "Git", icon: "git", descKey: "desc_git" },
+                { name: "Flutter", icon: "flutter", descKey: "desc_flutter" },
                 { name: ".NET MAUI", icon: "dotnet", descKey: "desc_maui" },
                 { name: "FastAPI", icon: "fastapi", descKey: "desc_fastapi" },
-                { name: "Flutter", icon: "flutter", descKey: "desc_flutter" },
                 { name: "Hugging Face", iconSrc: "https://cdn.simpleicons.org/huggingface", descKey: "desc_huggingface" },
                 { name: "Ollama", iconSrc: "https://cdn.simpleicons.org/ollama", descKey: "desc_ollama" },
                 { name: "LangChain", iconSrc: "https://cdn.simpleicons.org/langchain", descKey: "desc_langchain" },
-                { name: "n8n", iconSrc: "https://cdn.simpleicons.org/n8n", descKey: "desc_n8n" }
+                { name: "n8n", iconSrc: "https://cdn.simpleicons.org/n8n", descKey: "desc_n8n" },
+                { name: "Git", icon: "git", descKey: "desc_git" }
             ]
         },
         {
@@ -43,8 +43,8 @@ export const skillData = {
                 { name: "Docker", icon: "docker", descKey: "desc_docker" },
                 { name: "Google Cloud", icon: "gcp", descKey: "desc_gconsole" },
                 { name: "Firebase", icon: "firebase", descKey: "desc_firebase" },
-                { name: "MongoDB", icon: "mongodb", descKey: "desc_mongo" },
-                { name: "SQLite", icon: "sqlite", descKey: "desc_sqlite" }
+                { name: "MongoDB", icon: "mongodb", descKey: "desc_mongo" }/*,
+                { name: "SQLite", icon: "sqlite", descKey: "desc_sqlite" }*/
             ]
         },
         {
@@ -133,7 +133,7 @@ export const projectData = [
         },
         features: {
             he: [
-                "הודעות חברי הועד",
+                "הודעות ותמונות חברי הועד",
                 "חדשות Ynet",
                 "תחזיות מזג אוויר על בסיס שעתי",
                 "שילוב לוח שנה יהודי לזמני שבתות וחגים",
@@ -144,7 +144,7 @@ export const projectData = [
                 "מוזיקת רקע ללובי הבניין"
             ],
             en: [
-                "Committie members announcements",
+                "Committie members announcements & images",
                 "Ynet live news feed",
                 "Hourly weather forecasts",
                 "Jewish calendar integration for Shabbat and holidays times",
@@ -172,7 +172,7 @@ export const projectData = [
             ]
         },
         stack: ["C#", ".NET MAUI", "Firebase"],
-        services: ["OpenWeatherMap API", "Ynet API", "Hebcal API", "Currency Exchange API"],
+        services: ["OpenWeatherMap API", "Ynet API", "Hebcal API", "Exchange Rate API"],
         links: {
             github: "",
             site: "https://lobby-stream.web.app/"
@@ -284,6 +284,60 @@ export const projectData = [
             "resources/images/lev_katan/admin_dashboard.png"
         ]
     },
+    {
+        id: "gather_upp",
+        title: "Gather Upp",
+        description: {
+            he: "מרכז מיני-משחקים אלגנטי שנועד לספק חוויה לא מקוונת פרימיום, חלקה ואינטראקטיבית ביותר.",
+            en: "A sleek mini-game hub designed to deliver a premium, seamless, and highly interactive offline experience."
+        },
+        about: {
+            he: "Gather Upp מכילה מגוון משחקים, המאחדים אנשים באמצעות אוסף של משחקי אסטרטגיה, זיכרון ורפלקס מהיר. חוויית המשחק חלקה ומרתקת, בזכות שילוב אסתטיקה מלוטשת במיוחד, עם ארכיטקטורת ביצועים חזקה. בסופו של דבר, מטרת Gather Upp הוא לספק מערכת אקולוגית בידורית נגישה ואינסופית, עבור שחקנים יחידים ועבור קבוצות מרובות משתתפים.",
+            en: "Gather Upp features a variety of games, bringing people together through a collection of strategy, memory, and quick reflex games. The gameplay experience is seamless and engaging, thanks to the combination of a highly polished aesthetic, with a strong performance architecture. Ultimately, Gather Upp’s goal is to provide an accessible and endless entertainment ecosystem, for single players and multiplayer teams."
+        },
+        features: {
+            he: [
+                "סופר איקס עיגול",
+                "צמצמו את זה",
+                "זמן מטרה",
+                "רולטת שיניים",
+                "המלך אמר",
+                "הדרך למנכ\"לות"
+            ],
+            en: [
+                "Ultimate Tic Tac Toe",
+                "Narrow Down",
+                "Target Time",
+                "Crocodille Roulette",
+                "Simon Says",
+                "The Road to CEO"
+            ]
+        },
+        aspects: {
+            he: [
+                "חוויה לא-מקוונת",
+                "תמיכה בשפות מרובות (RTL/LTR)",
+                "תמיכה במצב מואר/מוחשך",
+                "זמין בכל הפלטפורמות (Mobile, Desktop, Web)"
+            ],
+            en: [
+                "Fully Offline Experience",
+                "Multi-Language Support (LTR/RTL)",
+                "Light/Dark Mode Support",
+                "Cross-Platform Application (Mobile, Desktop, Web)"
+            ]
+        },
+        stack: ["Dart", "Flutter"],
+        services: [],
+        links: {
+            github: "https://github.com/Mashiah555/gather_app",
+            site: "https://gather-upp.web.app/"
+        },
+        image: "resources/images/default.png",
+        gallery: [
+            "resources/images/default.png"
+        ]
+    },
     /*
     {
         id: "bookmarks_popup",
@@ -318,37 +372,6 @@ export const projectData = [
     },
     */
     {
-        id: "defence_union",
-        title: "Defence Union",
-        description: {
-            he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
-            en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
-        },
-        about: {
-            he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
-            en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
-        },
-        features: {
-            he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
-            en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
-        },
-        aspects: {
-            he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
-            en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
-        },
-        stack: ["C#", "WPF", "XML"],
-        services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
-        links: {
-            github: "",
-            site: ""
-        },
-        image: "resources/images/default.png",
-        gallery: [
-            "resources/images/default.png",
-            "resources/images/backup.png"
-        ]
-    },
-    {
         id: "raycast_engine",
         title: "Raycast Engine",
         description: {
@@ -376,6 +399,36 @@ export const projectData = [
         image: "resources/images/raycast_engine.jpg",
         gallery: [
             "resources/images/raycast_engine.jpg"
+        ]
+    },
+    {
+        id: "defence_union",
+        title: "Defence Union",
+        description: {
+            he: "מערכת לניהול ומעקב אחר מתנדבים ושיחות, פותחה באמצעות WPF.",
+            en: "A comprehensive system for tracking volunteers and calls, built with WPF C#."
+        },
+        about: {
+            he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
+            en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+        },
+        features: {
+            he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
+            en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+        },
+        aspects: {
+            he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
+            en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+        },
+        stack: ["C#", "WPF", "XML"],
+        services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
+        links: {
+            github: "",
+            site: ""
+        },
+        image: "resources/images/default.png",
+        gallery: [
+            "resources/images/default.png"
         ]
     },
     /*
@@ -411,37 +464,6 @@ export const projectData = [
         ]
     },
     */
-    {
-        id: "narrow_down",
-        title: "Narrow Down",
-        description: {
-            he: "",
-            en: ""
-        },
-        about: {
-            he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
-            en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
-        },
-        features: {
-            he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
-            en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
-        },
-        aspects: {
-            he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
-            en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
-        },
-        stack: ["Dart", "Flutter"],
-        services: ["Google Maps API", "OpenWeatherMap API", "RSS Feeds"],
-        links: {
-            github: "",
-            site: ""
-        },
-        image: "resources/images/default.png",
-        gallery: [
-            "resources/images/default.png",
-            "resources/images/backup.png"
-        ]
-    },
     /*
     {
         id: "walkie_doggie",
