@@ -1,0 +1,38 @@
+/* =========================================
+   THEME VARIABLES
+   ========================================= */
+
+:root {
+    /* Enables the light-dark() function */
+    color-scheme: light dark;
+
+    /* --- COLORS --- */
+    /* Primary: Indigo (Professional, Tech-oriented) */
+    --clr-primary: light-dark(#4f46e5, #818cf8);
+    --clr-primary-hover: light-dark(#4338ca, #a5b4fc);
+    --clr-primary-light: light-dark(#e0e7ff, #1e293b);
+
+    /* Neutrals */
+    --clr-bg-body: light-dark(#f8fafc, #0f172a);
+    --clr-bg-surface: light-dark(#ffffff, #1e293b);
+    --clr-text-main: light-dark(#0f172a, #f1f5f9);
+    --clr-text-muted: light-dark(#64748b, #94a3b8);
+    --clr-border: light-dark(#e2e8f0, #334155);
+
+    /* --- SHADOWS --- */
+    --shadow-sm: light-dark(0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 3px 0 rgb(0 0 0 / 0.5));
+    --shadow-md: light-dark(0 4px 6px -1px rgb(0 0 0 / 0.1), 0 4px 6px -1px rgb(0 0 0 / 0.5));
+    --shadow-glow: 0 0 15px rgba(79, 70, 229, 0.3);
+
+    /* --- SHAPES & ANIMATIONS --- */
+    --radius-md: 12px;
+    --radius-pill: 50px;
+    --transition-fast: 0.2s ease-in-out;
+
+    /* --- TIMELINE VARIABLES --- */
+    --tl-icon-size: 65px;
+    --tl-line-width: 2px;
+    --tl-gap: 20px;
+    --tl-cavity-depth: 26px;
+    --tl-cavity-height: 38px;
+}

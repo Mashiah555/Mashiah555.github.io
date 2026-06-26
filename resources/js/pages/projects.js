@@ -69,6 +69,10 @@ document.addEventListener('keydown', (e) => {
 });
 
 function handleUserInteraction(event) {
+    if (event.target.closest('a[href]')) {
+        return; // Exit the function and let the browser follow the link
+    }
+
     // Find the closest element with a data-action attribute
     const target = event.target.closest('[data-action]');
     if (!target) return;

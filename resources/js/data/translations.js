@@ -26,7 +26,7 @@ export const dictionary = {
         cat_languages: "שפות תכנות",
         cat_frameworks: "מערכות עבודה וכלים",
         cat_platforms: "פלטפורמות ובסיסי נתונים",
-        cat_practices: "מתודולוגיות ופרוטוקולים",
+        cat_practices: "ארכיטקטורות ומתודולוגיות",
 
         // --- Descriptions ---
         // Languages
@@ -58,7 +58,7 @@ export const dictionary = {
         desc_mongo: "מסד נתונים NoSQL",
         desc_sqlite: "מסד נתונים מקומי",
 
-        // Practices & Protocols
+        // Architectures & Practices
         desc_agile: "פיתוח איטרטיבי",
         desc_a2a: "תקשורת בין אפליקציות",
         desc_mvvm: "ממשק משתמש מונחה נתונים",
@@ -121,7 +121,7 @@ export const dictionary = {
         cat_languages: "Languages",
         cat_frameworks: "Frameworks & Tools",
         cat_platforms: "Platforms & Databases",
-        cat_practices: "Practices & Protocols",
+        cat_practices: "Architectures & Practices",
 
         // --- Descriptions ---
         // Languages
@@ -153,7 +153,7 @@ export const dictionary = {
         desc_mongo: "NoSQL Database",
         desc_sqlite: "Serverless SQL",
 
-        // Practices & Protocols
+        // Architectures & Practices
         desc_agile: "Iterative Development",
         desc_a2a: "App-to-App Integration",
         desc_mvvm: "Data-Driven UI Pattern",
