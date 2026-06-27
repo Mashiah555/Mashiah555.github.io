@@ -8,9 +8,9 @@
 
     /* --- COLORS --- */
     /* Primary: Indigo (Professional, Tech-oriented) */
-    --clr-primary: light-dark(#4f46e5, #818cf8);
-    --clr-primary-hover: light-dark(#4338ca, #a5b4fc);
-    --clr-primary-light: light-dark(#e0e7ff, #1e293b);
+    --clr-primary: light-dark(#4f46e5, #747feb);
+    --clr-primary-hover: light-dark(#4338ca, #4554ac);
+    --clr-primary-light: light-dark(#e0e7ff, #152032);
 
     /* Neutrals */
     --clr-bg-body: light-dark(#f8fafc, #0f172a);
@@ -33,7 +33,7 @@
     --radius-md: 12px;
     --radius-pill: 50px;
     --transition-fast: 0.2s ease-in-out;
-    --clr-shine: light-dark(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    --clr-shine: light-dark(rgba(210, 210, 210, 0.2), rgba(255, 255, 255, 0.1));
 
     /* --- TIMELINE VARIABLES --- */
     --tl-icon-size: 65px;
