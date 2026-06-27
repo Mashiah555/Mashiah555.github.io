@@ -363,9 +363,15 @@ export const projectData = [
             github: "",
             site: ""
         },
-        image: "resources/images/raycast_engine.jpg",
+        image: "resources/images/raycast_engine/objects_simulation.jpg",
         gallery: [
-            "resources/images/raycast_engine.jpg"
+            "resources/images/raycast_engine/objects_simulation.jpg",
+            "resources/images/raycast_engine/spotlight_spheres.jpeg",
+            "resources/images/raycast_engine/newton_cradle.jpg",
+            "resources/images/raycast_engine/glowing_spheres.jpeg",
+            "resources/images/raycast_engine/reflective_forest.png",
+            "resources/images/raycast_engine/room_reflections.jpg",
+            "resources/images/raycast_engine/balls_room.jpg"
         ]
     },
     {
@@ -395,7 +401,6 @@ export const projectData = [
         },
         image: "resources/images/default.png",
         gallery: [
-            "resources/images/default.png"
         ]
     }
 ];

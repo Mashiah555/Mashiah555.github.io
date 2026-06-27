@@ -1,3 +1,24 @@
+/* Page Header */
+.header-context {
+    text-align: center;
+    margin-bottom: 36px;
+    padding: 0 20px;
+}
+
+.header-title {
+    font-size: 3.5rem;
+    color: var(--clr-primary);
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.header-subtitle {
+    font-size: 1.25rem;
+    color: var(--clr-text-muted);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
 /* Projects Grid Layout */
 .projects-grid {
     display: grid;
