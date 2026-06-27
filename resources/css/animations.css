@@ -40,10 +40,6 @@
         /* Adjust for Hebrew */
     }
 
-    .reveal-scale {
-        transform: scale(0.92);
-    }
-
     /* The class added by JavaScript when the element is visible */
     .reveal.active,
     html[dir="rtl"] .reveal.active {

@@ -8,7 +8,7 @@ function initApp() {
     applyTheme(savedTheme);
     applyLanguage(savedLang);
 
-    // 3. Attach Listeners (Now safe because elements exist)
+    // 3. Attach Listeners
     const btnTheme = document.getElementById('btn-theme');
     const btnLang = document.getElementById('btn-lang');
 

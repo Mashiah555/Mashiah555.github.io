@@ -128,296 +128,8 @@ html[dir="rtl"] .nav-link::after {
     align-items: center;
 }
 
-/* --- THEME DROPDOWN --- */
-.theme-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Invisible bridge to keep hover active while moving mouse down */
-.theme-dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 15px;
-}
-
-/* Specific positioning for the theme menu */
-.theme-menu {
-    right: 0;
-    /* Align to the right side of the icon */
-    left: auto;
-    /* Override the -80px margin from the download menu */
-    margin-left: 0;
-    min-width: 130px;
-    padding: 5px 0;
-}
-
-/* RTL Support for Hebrew layout */
-html[dir="rtl"] .theme-menu {
-    right: auto;
-    left: 0;
-}
-
-/* Reusing your dropdown-item class, but adapted for buttons */
-.theme-option {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-html[dir="rtl"] .theme-option {
-    text-align: right;
-}
-
-/* Highlight the currently active theme in the menu */
-.theme-option.active {
-    color: var(--clr-primary);
-    background-color: var(--clr-bg-body);
-    font-weight: 600;
-    border-left: 3px solid var(--clr-primary);
-}
-
-html[dir="rtl"] .theme-option.active {
-    border-left: none;
-    border-right: 3px solid var(--clr-primary);
-}
-
-/* Activate on hover (reusing your existing animation) */
-.theme-dropdown:hover .theme-menu {
-    display: block;
-    animation: fadeIn 0.2s ease-in forwards;
-}
-
 /* =========================================
-   HERO SECTION
-   ========================================= */
-.hero-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 45px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 5rem;
-}
-
-.hero-profile {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--clr-bg-surface);
-    box-shadow: var(--shadow-md);
-    cursor: pointer;
-}
-
-.profile-info h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.2rem;
-}
-
-.location-text {
-    font-size: 1rem;
-    color: var(--clr-text-muted);
-    font-weight: 500;
-}
-
-.hero-socials {
-    display: flex;
-    gap: 15px;
-}
-
-.social-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: transparent;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-fast);
-}
-
-.social-btn img {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-}
-
-.social-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.hero-context {
-    text-align: center;
-    margin-bottom: 36px;
-    padding: 0 20px;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    color: var(--clr-primary);
-    margin-bottom: 10px;
-    letter-spacing: -1px;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--clr-text-muted);
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-
-.hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 140px;
-}
-
-/* --- Compact Skill Card (The Preview) --- */
-.home-skills-preview {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 15px;
-    margin-top: 5px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 750px;
-}
-
-.skill-card.compact {
-    min-height: auto;
-    padding: 0.6rem 1rem;
-    gap: 10px;
-    background: var(--clr-bg-surface);
-    border: 1px solid var(--clr-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    opacity: 0.85;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 180px;
-    min-width: 150px;
-}
-
-.skill-card.compact:hover {
-    transform: none;
-    box-shadow: var(--shadow-sm);
-}
-
-.skill-card.compact .skill-icon {
-    width: 30px;
-    height: 30px;
-}
-
-.skill-card.compact .skill-text {
-    display: flex;
-    align-items: center;
-}
-
-.skill-card.compact .skill-text strong {
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-/* =========================================
-   DIRECTION HANDLING (LTR vs RTL)
-   ========================================= */
-
-/* --- LTR (English) --- */
-html[dir="ltr"] .timeline-container {
-    padding-left: calc(var(--tl-icon-size) / 2);
-}
-
-html[dir="ltr"] .timeline-container::before {
-    left: calc(var(--tl-icon-size) / 2);
-    transform: translateX(-50%);
-}
-
-html[dir="ltr"] .timeline-icon {
-    left: 0;
-    transform: translateX(-50%);
-}
-
-html[dir="ltr"] .job-card {
-    margin-left: var(--tl-gap);
-    /* Cutout on the LEFT */
-    background: radial-gradient(ellipse var(--tl-cavity-depth) var(--tl-cavity-height) at 0% 50%,
-            transparent 99%,
-            var(--clr-bg-surface) 100%);
-    padding-left: 45px;
-}
-
-html[dir="ltr"] .plain-skill-cat {
-    margin-left: 0;
-}
-
-html[dir="ltr"] .plain-item-header {
-    margin-right: 3rem;
-    margin-left: 0;
-}
-
-/* --- RTL (Hebrew) --- */
-html[dir="rtl"] .timeline-container {
-    padding-right: calc(var(--tl-icon-size) / 2);
-}
-
-html[dir="rtl"] .timeline-container::before {
-    right: calc(var(--tl-icon-size) / 2);
-    transform: translateX(50%);
-}
-
-html[dir="rtl"] .timeline-icon {
-    right: 0;
-    transform: translateX(50%);
-}
-
-html[dir="rtl"] .job-card {
-    margin-right: var(--tl-gap);
-    /* Cutout on the RIGHT */
-    background: radial-gradient(ellipse var(--tl-cavity-depth) var(--tl-cavity-height) at 100% 50%,
-            transparent 99%,
-            var(--clr-bg-surface) 100%);
-    padding-right: 45px;
-}
-
-html[dir="rtl"] .plain-skill-cat {
-    margin-right: 0;
-}
-
-html[dir="rtl"] .plain-item-header {
-    margin-right: 0;
-    margin-left: 3rem;
-}
-
-
-/* =========================================
-   GLOBAL COMPONENTS
+   GLOBAL BUTTON COMPONENTS
    ========================================= */
 .btn {
     display: inline-block;
@@ -471,6 +183,126 @@ html[dir="rtl"] .plain-item-header {
 .icon-btn:hover {
     background-color: var(--clr-border);
     transform: scale(1.1);
+}
+
+/* =========================================
+   GLOBAL DROPDOWN COMPONENT
+   ========================================= */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Invisible bridge to keep menu open while moving the mouse down */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 15px;
+}
+
+/* The hidden menu container */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Default centering, specific menus (like theme) can override this */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+    background-color: var(--clr-bg-surface);
+    min-width: 160px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--clr-border);
+    z-index: 50;
+    overflow: hidden;
+}
+
+html[dir="rtl"] .dropdown-menu {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+/* Show on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: dropdownFade 0.2s ease-in forwards;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        margin-top: 15px;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 5px;
+    }
+}
+
+/* Individual clickable items */
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    color: var(--clr-text-main);
+    font-size: 0.9rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background-color: var(--clr-bg-body);
+    color: var(--clr-primary);
+}
+
+/* --- THEME DROPDOWN --- */
+.theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Custom sizing for the theme menu, inheriting position from global .dropdown-menu */
+.theme-menu {
+    min-width: 130px;
+    padding: 5px 0;
+}
+
+/* Reusing your dropdown-item class, but adapted for buttons */
+.theme-option {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+html[dir="rtl"] .theme-option {
+    text-align: right;
+}
+
+/* Highlight the currently active theme in the menu */
+.theme-option.active {
+    color: var(--clr-primary);
+    background-color: var(--clr-bg-body);
+    font-weight: 600;
+    border-left: 3px solid var(--clr-primary);
+}
+
+html[dir="rtl"] .theme-option.active {
+    border-left: none;
+    border-right: 3px solid var(--clr-primary);
 }
 
 /* =========================================

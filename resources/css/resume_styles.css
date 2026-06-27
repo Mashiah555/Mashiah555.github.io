@@ -42,57 +42,6 @@
     font-weight: 600;
 }
 
-/* Download Dropdown */
-.download-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.download-dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 10px;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    right: auto;
-    margin-left: -80px;
-
-    margin-top: 5px;
-    background-color: var(--clr-bg-surface);
-    min-width: 160px;
-    box-shadow: var(--shadow-md);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--clr-border);
-    z-index: 50;
-    overflow: hidden;
-}
-
-.download-dropdown:hover .dropdown-menu {
-    display: block;
-    animation: fadeIn 0.2s ease-in forwards;
-}
-
-.dropdown-item {
-    display: block;
-    padding: 10px 15px;
-    color: var(--clr-text-main);
-    font-size: 0.9rem;
-    transition: background 0.2s;
-}
-
-.dropdown-item:hover {
-    background-color: var(--clr-bg-body);
-    color: var(--clr-primary);
-}
-
 /* --- Tab Bar --- */
 .tab-bar {
     display: flex;
@@ -167,7 +116,7 @@
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 15px;
     margin-bottom: 30px;
-    padding: 0, 2rem;
+    padding: 0 1.5rem;
 }
 
 .section-title {
@@ -562,4 +511,74 @@
     .pdf-container {
         height: 500px;
     }
+}
+
+/* =========================================
+   DIRECTION HANDLING (LTR vs RTL)
+   ========================================= */
+
+/* --- LTR (English) --- */
+html[dir="ltr"] .timeline-container {
+    padding-left: calc(var(--tl-icon-size) / 2);
+}
+
+html[dir="ltr"] .timeline-container::before {
+    left: calc(var(--tl-icon-size) / 2);
+    transform: translateX(-50%);
+}
+
+html[dir="ltr"] .timeline-icon {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+html[dir="ltr"] .job-card {
+    margin-left: var(--tl-gap);
+    /* Cutout on the LEFT */
+    background: radial-gradient(ellipse var(--tl-cavity-depth) var(--tl-cavity-height) at 0% 50%,
+            transparent 99%,
+            var(--clr-bg-surface) 100%);
+    padding-left: 45px;
+}
+
+html[dir="ltr"] .plain-skill-cat {
+    margin-left: 0;
+}
+
+html[dir="ltr"] .plain-item-header {
+    margin-right: 3rem;
+    margin-left: 0;
+}
+
+/* --- RTL (Hebrew) --- */
+html[dir="rtl"] .timeline-container {
+    padding-right: calc(var(--tl-icon-size) / 2);
+}
+
+html[dir="rtl"] .timeline-container::before {
+    right: calc(var(--tl-icon-size) / 2);
+    transform: translateX(50%);
+}
+
+html[dir="rtl"] .timeline-icon {
+    right: 0;
+    transform: translateX(50%);
+}
+
+html[dir="rtl"] .job-card {
+    margin-right: var(--tl-gap);
+    /* Cutout on the RIGHT */
+    background: radial-gradient(ellipse var(--tl-cavity-depth) var(--tl-cavity-height) at 100% 50%,
+            transparent 99%,
+            var(--clr-bg-surface) 100%);
+    padding-right: 45px;
+}
+
+html[dir="rtl"] .plain-skill-cat {
+    margin-right: 0;
+}
+
+html[dir="rtl"] .plain-item-header {
+    margin-right: 0;
+    margin-left: 3rem;
 }

@@ -14,7 +14,7 @@ export function renderHeader() {
                 <a href="${siteConfig.links.page_skills}" id="nav-skills" class="nav-link" data-i18n="nav_skills"></a>
             </div>
             <div class="nav-right">
-                <div class="theme-dropdown">
+                <div class="dropdown theme-dropdown">
                     <button id="btn-theme" class="icon-btn" aria-label="Toggle Theme">
                         💻
                     </button>
