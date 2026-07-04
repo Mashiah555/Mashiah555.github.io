@@ -1,4 +1,4 @@
-import { assetsConfig } from '../data/config.js';
+import { assetsConfig, svgConfig } from '../data/config.js';
 import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 
@@ -19,8 +19,8 @@ export function openModal(projectId) {
     const contentEl = document.getElementById('modal-dynamic-content');
     const headerBtnsEl = document.getElementById('modal-header-buttons');
 
-    const iconExternal = assetsConfig.icon_external;
-    const iconRepo = assetsConfig.icon_repo;
+    const iconExternal = svgConfig.icon_external;
+    const iconRepo = svgConfig.icon_repo;
 
     // 1. Set Header
     titleEl.textContent = project.title;

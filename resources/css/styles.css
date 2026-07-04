@@ -48,87 +48,6 @@ ul {
 }
 
 /* =========================================
-   NAVIGATION BAR
-   ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    margin-bottom: 0;
-    background: var(--clr-bg-surface);
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    border-bottom: 1px solid var(--clr-border);
-    box-shadow: var(--shadow-sm);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    max-width: 1200px;
-    /* Matches container max-width */
-    width: calc(100% - 40px);
-    /* Matches container padding (20px each side) */
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar--hidden {
-    transform: translateY(-100%);
-    /* Moves it up out of view */
-    box-shadow: none;
-}
-
-.nav-left {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-.nav-link {
-    font-weight: 600;
-    color: var(--clr-text-muted);
-    position: relative;
-    padding: 5px 0;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--clr-primary);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    right: auto;
-    background-color: var(--clr-primary);
-    transition: width 0.3s;
-}
-
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-html[dir="rtl"] .nav-link::after {
-    left: auto;
-    right: 0;
-}
-
-.nav-right {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-/* =========================================
    GLOBAL BUTTON COMPONENTS
    ========================================= */
 .btn {
@@ -262,47 +181,6 @@ html[dir="rtl"] .dropdown-menu {
 .dropdown-item:hover {
     background-color: var(--clr-bg-body);
     color: var(--clr-primary);
-}
-
-/* --- THEME DROPDOWN --- */
-.theme-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Custom sizing for the theme menu, inheriting position from global .dropdown-menu */
-.theme-menu {
-    min-width: 130px;
-    padding: 5px 0;
-}
-
-/* Reusing your dropdown-item class, but adapted for buttons */
-.theme-option {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-html[dir="rtl"] .theme-option {
-    text-align: right;
-}
-
-/* Highlight the currently active theme in the menu */
-.theme-option.active {
-    color: var(--clr-primary);
-    background-color: var(--clr-bg-body);
-    font-weight: 600;
-    border-left: 3px solid var(--clr-primary);
-}
-
-html[dir="rtl"] .theme-option.active {
-    border-left: none;
-    border-right: 3px solid var(--clr-primary);
 }
 
 /* =========================================
