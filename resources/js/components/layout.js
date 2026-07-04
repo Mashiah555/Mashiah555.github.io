@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/config.js';
+import { linksConfig, assetsConfig } from '../data/config.js';
 
 export function renderHeader() {
     const path = window.location.pathname;
@@ -8,10 +8,10 @@ export function renderHeader() {
     const headerHTML = `
         <nav class="navbar">
             <div class="nav-left">
-                <a href="${siteConfig.links.page_home}" id="nav-home" class="nav-link" data-i18n="nav_home"></a>
-                <a href="${siteConfig.links.page_resume}" id="nav-resume" class="nav-link" data-i18n="nav_resume"></a>
-                <a href="${siteConfig.links.page_projects}" id="nav-projects" class="nav-link ${isProjects ? 'active' : ''}" data-i18n="nav_projects"></a>
-                <a href="${siteConfig.links.page_skills}" id="nav-skills" class="nav-link" data-i18n="nav_skills"></a>
+                <a href="${linksConfig.page_home}" id="nav-home" class="nav-link" data-i18n="nav_home"></a>
+                <a href="${linksConfig.page_resume}" id="nav-resume" class="nav-link" data-i18n="nav_resume"></a>
+                <a href="${linksConfig.page_projects}" id="nav-projects" class="nav-link ${isProjects ? 'active' : ''}" data-i18n="nav_projects"></a>
+                <a href="${linksConfig.page_skills}" id="nav-skills" class="nav-link" data-i18n="nav_skills"></a>
             </div>
             <div class="nav-right">
                 <div class="dropdown theme-dropdown">
@@ -38,14 +38,14 @@ export function renderFooter() {
         <footer class="footer text-center">
             <p data-i18n="footer_rights"></p>
             <div class="footer-links">
-                <a href="${siteConfig.links.linkedin}" target="_blank" class="footer-link">
-                    <img src="${siteConfig.assets.icon_linkedin}" alt="in"> LinkedIn
+                <a href="${linksConfig.linkedin}" target="_blank" class="footer-link">
+                    <img src="${assetsConfig.icon_linkedin}" alt="in"> LinkedIn
                 </a>
-                <a href="${siteConfig.links.github}" target="_blank" class="footer-link">
-                    <img src="${siteConfig.assets.icon_github}" alt="GH"> GitHub
+                <a href="${linksConfig.github}" target="_blank" class="footer-link">
+                    <img src="${assetsConfig.icon_github}" alt="GH"> GitHub
                 </a>
-                <a href="${siteConfig.links.email}" class="footer-link">
-                    <img src="${siteConfig.assets.icon_gmail}" alt="@"> Email
+                <a href="${linksConfig.email}" class="footer-link">
+                    <img src="${assetsConfig.icon_gmail}" alt="@"> Email
                 </a>
             </div>
         </footer>

@@ -1,8 +1,9 @@
 /* 404-specific styling utilizing theme variables */
 
 .error-container {
-    max-width: 500px;
-    padding: 50px 30px;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 50px 60px;
     background-color: var(--clr-bg-surface);
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow-lr);
@@ -36,7 +37,7 @@
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--clr-primary);
-    color: white;
+    color: var(--clr-text-on-primary);
     text-decoration: none;
     border-radius: 8px;
     font-size: 16px;
@@ -49,4 +50,26 @@
     background-color: var(--clr-primary);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px var(--shadow-lr);
+}
+
+/* =========================================
+   FLOATING THEME TOGGLE
+   ========================================= */
+.floating-theme-toggle {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 999;
+    background-color: var(--clr-primary-light);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.floating-theme-toggle .theme-menu {
+    right: 0;
+    left: auto;
+    margin-right: 25px;
+    transform: none;
+    cursor: pointer;
 }

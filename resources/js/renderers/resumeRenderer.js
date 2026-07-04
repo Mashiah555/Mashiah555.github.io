@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/config.js';
+import { assetsConfig, linksConfig } from '../data/config.js';
 import { skillData, resumeData } from '../data/data.js'
 import { t } from '../core/i18n.js'
 
@@ -12,7 +12,7 @@ export function renderHomeSkills() {
 
     const html = skills.map(skill => `
         <div class="skill-card compact">
-            <img src="${siteConfig.assets.skill_icon_base}${skill.icon}" class="skill-icon" alt="${skill.name}">
+            <img src="${assetsConfig.skill_icon_base}${skill.icon}" class="skill-icon" alt="${skill.name}">
             <div class="skill-text">
                 <strong>${skill.name}</strong>
             </div>
@@ -70,7 +70,7 @@ export function renderFullSkills() {
             // Determine Icon Source (Standard vs Custom vs None)
             let imgHtml = '';
             if (item.icon) {
-                imgHtml = `<img src="${siteConfig.assets.skill_icon_base}${item.icon}" class="skill-icon" alt="${item.name}">`;
+                imgHtml = `<img src="${assetsConfig.skill_icon_base}${item.icon}" class="skill-icon" alt="${item.name}">`;
             } else if (item.iconSrc) {
                 imgHtml = `<img src="${item.iconSrc}" class="skill-icon" alt="${item.name}">`;
             }
@@ -108,7 +108,7 @@ export function renderExperience() {
 
     const html = resumeData.experience.map((job, index) => {
         const delayClass = `delay-${(index % 3) * 100}`;
-        const iconSrc = job.iconSrc || siteConfig.assets.default_icon;
+        const iconSrc = (assetsConfig.gallery + job.iconSrc) || assetsConfig.default_icon;
         const link = job.link || "#";
 
         return `
@@ -141,7 +141,7 @@ export function renderEducation() {
 
     const html = resumeData.education.map((edu, index) => {
         const delayClass = `delay-${(index % 3) * 100}`;
-        const iconSrc = edu.iconSrc || siteConfig.assets.default_icon;
+        const iconSrc = (assetsConfig.gallery + edu.iconSrc) || assetsConfig.default_icon;
         const link = edu.link || "#";
 
         return `
@@ -178,9 +178,9 @@ export function renderPlain() {
             <h1>${t('greeting')}</h1>
             <p>${t('hero_role')} • ${t('hero_location')}</p>
             <div class="plain-links">
-                <a href="${siteConfig.links.email}">${siteConfig.links.email.replace('mailto:', '')}</a> | 
-                <a href="${siteConfig.links.linkedin}" target="_blank">LinkedIn</a> | 
-                <a href="${siteConfig.links.github}" target="_blank">GitHub</a>
+                <a href="${linksConfig.email}">${linksConfig.email.replace('mailto:', '')}</a> | 
+                <a href="${linksConfig.linkedin}" target="_blank">LinkedIn</a> | 
+                <a href="${linksConfig.github}" target="_blank">GitHub</a>
             </div>
         </div>
 
@@ -249,7 +249,7 @@ async function loadPdf() {
     if (!frame) return;
 
     const lang = localStorage.getItem('lang') || 'he';
-    const pdfUrl = lang === 'he' ? siteConfig.documents.resume_he : siteConfig.documents.resume_en;
+    const pdfUrl = lang === 'he' ? assetsConfig.resume_he : assetsConfig.resume_en;
 
     // Avoid reloading if already loaded
     if (frame.getAttribute('data-loaded-url') === pdfUrl) return;

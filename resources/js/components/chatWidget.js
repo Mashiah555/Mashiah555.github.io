@@ -1,4 +1,3 @@
-import { siteConfig } from '../data/config.js';
 import { t } from '../core/i18n.js';
 
 export function initChatWidget() {

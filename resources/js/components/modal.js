@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/config.js';
+import { assetsConfig } from '../data/config.js';
 import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 
@@ -19,8 +19,8 @@ export function openModal(projectId) {
     const contentEl = document.getElementById('modal-dynamic-content');
     const headerBtnsEl = document.getElementById('modal-header-buttons');
 
-    const iconExternal = siteConfig.assets.icon_external;
-    const iconRepo = siteConfig.assets.icon_repo;
+    const iconExternal = assetsConfig.icon_external;
+    const iconRepo = assetsConfig.icon_repo;
 
     // 1. Set Header
     titleEl.textContent = project.title;
@@ -118,8 +118,8 @@ export function openModal(projectId) {
                         <h4><span data-i18n="modal_gallery">Gallery</span></h4>
                         <div class="gallery-grid">
                             ${project.gallery.map(img => `
-                                <div class="gallery-item" data-action="openLightbox" data-src="${img}">
-                                    <img src="${img}" alt="Screenshot" loading="lazy" 
+                                <div class="gallery-item" data-action="openLightbox" data-src="${assetsConfig.gallery}${img}">
+                                    <img src="${assetsConfig.gallery}${img}" alt="Screenshot" loading="lazy" 
                                         onload="
                                             const ratio = this.naturalWidth / this.naturalHeight;
                                             if (ratio > 1.1) this.parentElement.classList.add('landscape');

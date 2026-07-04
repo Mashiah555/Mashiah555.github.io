@@ -398,9 +398,9 @@ html[dir="rtl"] .theme-option.active {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--clr-border);
+    background-color: var(--clr-primary);
     /* Subtle grey by default */
-    border-radius: 20px;
+    border-radius: 6px;
     /* Roundness */
     border: 3px solid var(--clr-bg-body);
     /* Creates a "padding" effect around the thumb */

@@ -43,14 +43,13 @@ export const dictionary = {
         desc_shell: "Bash ו-PowerShell",
 
         // Frameworks & Tools
-        desc_git: "ניהול גרסאות",
         desc_maui: "אפליקציות Multi-Platform",
         desc_fastapi: "תשתית ביצועים גבוהים",
-        desc_flutter: "פיתוח ממשקים למובייל",
-        desc_huggingface: "מערכות נתונים ומודלי AI",
+        desc_flutter: "פיתוח Multi-Platform",
         desc_ollama: "הרצת LLM מקומית",
         desc_langchain: "פיתוח מבוסס LLM",
         desc_n8n: "אוטומציה של תהליכים",
+        desc_git: "ניהול גרסאות",
 
         // Platforms & Databases
         desc_azure: "פתרונות ענן",
@@ -59,6 +58,7 @@ export const dictionary = {
         desc_firebase: "Backend ענן",
         desc_mongo: "מסד נתונים NoSQL",
         desc_sqlite: "מסד נתונים מקומי",
+        desc_huggingface: "מערכות נתונים ומודלי AI",
 
         // Architectures & Practices
         desc_agile: "פיתוח איטרטיבי",
@@ -131,7 +131,7 @@ export const dictionary = {
         // Languages
         desc_python: "Data & Automation",
         desc_csharp: "Modern Backend Logic",
-        desc_cpp: "High Performance Systems",
+        desc_cpp: "High Performance",
         desc_java: "Enterprise Programs",
         desc_dart: "UI Development",
         desc_js: "Web Interactivity",
@@ -140,14 +140,13 @@ export const dictionary = {
         desc_shell: "Bash & PowerShell",
 
         // Frameworks & Tools
-        desc_git: "Version Control",
-        desc_maui: "Multi-Platform Apps",
-        desc_fastapi: "High-Performance Framework",
-        desc_flutter: "Mobile UI Development",
-        desc_huggingface: "AI Models & Datasets",
+        desc_maui: "Multi-Platform UI",
+        desc_fastapi: "High-Performance",
+        desc_flutter: "Multi-Platform Apps",
         desc_ollama: "Local LLM Runner",
         desc_langchain: "LLM App Framework",
         desc_n8n: "Workflow Automation",
+        desc_git: "Version Control",
 
         // Platforms & Databases
         desc_azure: "Cloud Solutions",
@@ -156,6 +155,7 @@ export const dictionary = {
         desc_firebase: "Cloud Backend",
         desc_mongo: "NoSQL Database",
         desc_sqlite: "Serverless SQL",
+        desc_huggingface: "AI Models & Datasets",
 
         // Architectures & Practices
         desc_agile: "Iterative Development",

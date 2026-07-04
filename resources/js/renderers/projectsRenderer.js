@@ -1,4 +1,4 @@
-import { siteConfig } from '../data/config.js';
+import { assetsConfig, svgConfig } from '../data/config.js';
 import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 
@@ -9,14 +9,14 @@ export function renderProjectsPage() {
     const lang = localStorage.getItem('lang') || 'he';
 
     // Button Icons
-    const iconExternal = siteConfig.assets.icon_external;
-    const iconExpand = siteConfig.assets.icon_expand;
-    const iconRepo = siteConfig.assets.icon_repo;
+    const iconExternal = svgConfig.icon_external;
+    const iconExpand = svgConfig.icon_expand;
+    const iconRepo = svgConfig.icon_repo;
 
     const html = projectData.map((project, index) => {
         // Image handling
         const imgDisplay = project.image
-            ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
+            ? `<img src="${assetsConfig.gallery}${project.image}" alt="${project.title}" class="project-img">`
             : `<div style="font-size: 3rem;">💻</div>`;
 
         // Tech Stack Tags

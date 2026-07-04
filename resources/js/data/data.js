@@ -19,8 +19,8 @@ export const skillData = {
                 { name: "Java", icon: "java", descKey: "desc_java" },
                 { name: "JavaScript", icon: "js", descKey: "desc_js" },
                 { name: "HTML", icon: "html", descKey: "desc_html" },
-                { name: "CSS", icon: "css", descKey: "desc_css" },
-                { name: "Shell Scripting", iconSrc: "https://cdn.simpleicons.org/gnubash", descKey: "desc_shell" } // Custom source example
+                { name: "CSS", icon: "css", descKey: "desc_css" }/*,
+                { name: "Shell Scripting", iconSrc: "https://cdn.simpleicons.org/gnubash", descKey: "desc_shell" }*/
             ]
         },
         {
@@ -29,11 +29,10 @@ export const skillData = {
                 { name: "Flutter", icon: "flutter", descKey: "desc_flutter" },
                 { name: ".NET MAUI", icon: "dotnet", descKey: "desc_maui" },
                 { name: "FastAPI", icon: "fastapi", descKey: "desc_fastapi" },
-                { name: "Hugging Face", iconSrc: "https://cdn.simpleicons.org/huggingface", descKey: "desc_huggingface" },
                 { name: "Ollama", iconSrc: "https://cdn.simpleicons.org/ollama", descKey: "desc_ollama" },
                 { name: "LangChain", iconSrc: "https://cdn.simpleicons.org/langchain", descKey: "desc_langchain" },
-                { name: "n8n", iconSrc: "https://cdn.simpleicons.org/n8n", descKey: "desc_n8n" },
-                { name: "Git", icon: "git", descKey: "desc_git" }
+                { name: "n8n", iconSrc: "https://cdn.simpleicons.org/n8n", descKey: "desc_n8n" }/*,
+                { name: "Git", icon: "git", descKey: "desc_git" }*/
             ]
         },
         {
@@ -44,7 +43,8 @@ export const skillData = {
                 { name: "Google Cloud", icon: "gcp", descKey: "desc_gconsole" },
                 { name: "Firebase", icon: "firebase", descKey: "desc_firebase" },
                 { name: "MongoDB", icon: "mongodb", descKey: "desc_mongo" }/*,
-                { name: "SQLite", icon: "sqlite", descKey: "desc_sqlite" }*/
+                { name: "SQLite", icon: "sqlite", descKey: "desc_sqlite" },
+                { name: "Hugging Face", iconSrc: "https://cdn.simpleicons.org/huggingface", descKey: "desc_huggingface" }*/
             ]
         },
         {
@@ -72,7 +72,7 @@ export const resumeData = {
             company: { he: "C-ATA (סיעתא)", en: "C-ATA" },
             role: { he: "מרכיב מוצר", en: "Product Assembler" },
             dates: { he: "2023 - 2024", en: "2023 - 2024" },
-            iconSrc: "resources/images/cata.png",
+            iconSrc: "companies/cata.png",
             link: "https://c-ata.com/",
             description: {
                 he: "הרכבת מכשירים המזהים חומרי נפץ, שנמכרו לצה\"ל על מנת לסייע ללוחמים בשדה הקרב.",
@@ -83,7 +83,7 @@ export const resumeData = {
             company: { he: "גולדבוקס", en: "Goldbooks" },
             role: { he: "אריזת וחלוקת ספרי לימוד", en: "Study Books Packaging and Distribution" },
             dates: { he: "2022", en: "2022" },
-            iconSrc: "resources/images/goldbooks.png",
+            iconSrc: "companies/goldbooks.png",
             link: "https://www.goldbooks.co.il/",
             description: {
                 he: "חילקתי ספרי לימוד בבתי ספר, ארזתי ספרים וציוד למשלוחים, וסיפקתי שירות ללקוחות החנות.",
@@ -98,7 +98,7 @@ export const resumeData = {
             degree: { he: "תואר ראשון במדעי המחשב", en: "B.Sc. Computer Science" },
             school: { he: "המרכז האקדמי לב (JCT)", en: "Jerusalem College of Technology (JCT)" },
             dates: { he: "2023 - היום", en: "2023 - Today" },
-            iconSrc: "resources/images/jct.jpg",
+            iconSrc: "companies/jct.jpg",
             link: "http://www.jct.ac.il/",
             description: {
                 he: "סטודנט שנה ג' לתואר ראשון במדעי המחשב, תחת מסלול העתודה האקדמית של צה\"ל.",
@@ -109,7 +109,7 @@ export const resumeData = {
             degree: { he: "לימודי חטיבת ביניים ותיכון", en: "Middle & High School Studies" },
             school: { he: "ישיבת בני עקיבא גבעת שמואל", en: "Bnei Akiva Givat Shmuel High School Yeshiva" },
             dates: { he: "2017 - 2023", en: "2017 - 2023" },
-            iconSrc: "resources/images/highschool.png",
+            iconSrc: "companies/bna_gvs_yeshiva.png",
             link: "https://yba.org.il/institutes/%D7%99%D7%A9%D7%99%D7%91%D7%AA-%D7%91%D7%A0%D7%99-%D7%A2%D7%A7%D7%99%D7%91%D7%90-%D7%92%D7%91%D7%A2%D7%AA-%D7%A9%D7%9E%D7%95%D7%90%D7%9C/",
             description: {
                 he: "סיימתי את לימודי התיכון עם תעודת בגרות טכנולוגית בשל הישגיי במתמטיקה (5 יח\"ל), אנגלית (5 יח\"ל), הנדסת תוכנה (10 יח\"ל), וכימיה (5 יח\ל).",
@@ -177,14 +177,14 @@ export const projectData = [
             github: "",
             site: "https://lobby-stream.web.app/"
         },
-        image: "resources/images/lobby_stream/lobby_stream.png",
+        image: "lobby_stream/lobby_stream.png",
         gallery: [
-            "resources/images/lobby_stream/lobby_stream.png",
-            "resources/images/lobby_stream/lobby_stream_mobile_01.jpg",
-            "resources/images/lobby_stream/lobby_stream_mobile_02.jpg",
-            "resources/images/lobby_stream/lobby_stream_mobile_03.jpg",
-            "resources/images/lobby_stream/display_light.png",
-            "resources/images/lobby_stream/display_dark.png",
+            "lobby_stream/lobby_stream.png",
+            "lobby_stream/lobby_stream_mobile_01.jpg",
+            "lobby_stream/lobby_stream_mobile_02.jpg",
+            "lobby_stream/lobby_stream_mobile_03.jpg",
+            "lobby_stream/display_light.png",
+            "lobby_stream/display_dark.png",
         ]
     },
     {
@@ -227,15 +227,15 @@ export const projectData = [
                 en: "Read full documentation"
             }
         },
-        image: "resources/images/smart_travel_agent/trip_view.png",
+        image: "smart_travel_agent/trip_view.png",
         gallery: [
-            "resources/images/smart_travel_agent/auth_screen.png",
-            "resources/images/smart_travel_agent/dashboard.png",
-            "resources/images/smart_travel_agent/trip_form.png",
-            "resources/images/smart_travel_agent/trip_view.png",
-            "resources/images/smart_travel_agent/trip_chat.png",
-            "resources/images/smart_travel_agent/history_screen.png",
-            "resources/images/smart_travel_agent/logo.png"
+            "smart_travel_agent/auth_screen.png",
+            "smart_travel_agent/dashboard.png",
+            "smart_travel_agent/trip_form.png",
+            "smart_travel_agent/trip_view.png",
+            "smart_travel_agent/trip_chat.png",
+            "smart_travel_agent/history_screen.png",
+            "smart_travel_agent/logo.png"
         ]
     },
     {
@@ -274,14 +274,14 @@ export const projectData = [
                 en: "Read full documentation"
             }
         },
-        image: "resources/images/lev_katan/catalog.png",
+        image: "lev_katan/catalog.png",
         gallery: [
-            "resources/images/lev_katan/login.png",
-            "resources/images/lev_katan/catalog.png",
-            "resources/images/lev_katan/catalog_dark.png",
-            "resources/images/lev_katan/item_popup.png",
-            "resources/images/lev_katan/employee_dashboard.png",
-            "resources/images/lev_katan/admin_dashboard.png"
+            "lev_katan/login.png",
+            "lev_katan/catalog.png",
+            "lev_katan/catalog_dark.png",
+            "lev_katan/item_popup.png",
+            "lev_katan/employee_dashboard.png",
+            "lev_katan/admin_dashboard.png"
         ]
     },
     {
@@ -333,9 +333,8 @@ export const projectData = [
             github: "https://github.com/Mashiah555/gather_app",
             site: "https://gather-upp.web.app/"
         },
-        image: "resources/images/default.png",
+        image: "default.png",
         gallery: [
-            "resources/images/default.png"
         ]
     },
     {
@@ -346,16 +345,16 @@ export const projectData = [
             en: ""
         },
         about: {
-            he: "מערכת ניהול תוכן חכמה למסכים בלובי של בניינים משותפים. המערכת מאפשרת לוועד הבית להציג הודעות, עדכוני חדשות, מזג אוויר ופרסומות מקומיות בזמן אמת. המערכת תומכה בסנכרון אוטומטי מול שירותי צד שלישי.",
-            en: "A smart content management system for lobby screens in shared buildings. It allows the house committee to display messages, news updates, weather, and local ads in real-time. The system supports automatic synchronization with third-party services."
+            he: "",
+            en: ""
         },
         features: {
-            he: ["ממשק ניהול וובי", "עדכוני RSS בזמן אמת", "תמיכה במסכים אנכיים ואופקיים"],
-            en: ["Web-based Admin Panel", "Real-time RSS Updates", "Supports Portrait & Landscape"]
+            he: [],
+            en: []
         },
         aspects: {
-            he: ["תמיכה בריבוי שפות (RTL/LTR)", "מצב כהה (Dark Mode)", "עיצוב רספונסיבי", "תמיכה ב-Accessibility"],
-            en: ["Multi-language Support (RTL/LTR)", "Dark Mode Theme", "Responsive Design", "Accessibility Support"]
+            he: [],
+            en: []
         },
         stack: ["Java"],
         services: [],
@@ -363,15 +362,15 @@ export const projectData = [
             github: "",
             site: ""
         },
-        image: "resources/images/raycast_engine/objects_simulation.jpg",
+        image: "raycast_engine/objects_simulation.jpg",
         gallery: [
-            "resources/images/raycast_engine/objects_simulation.jpg",
-            "resources/images/raycast_engine/spotlight_spheres.jpeg",
-            "resources/images/raycast_engine/newton_cradle.jpg",
-            "resources/images/raycast_engine/glowing_spheres.jpeg",
-            "resources/images/raycast_engine/reflective_forest.png",
-            "resources/images/raycast_engine/room_reflections.jpg",
-            "resources/images/raycast_engine/balls_room.jpg"
+            "raycast_engine/objects_simulation.jpg",
+            "raycast_engine/spotlight_spheres.jpeg",
+            "raycast_engine/newton_cradle.jpg",
+            "raycast_engine/glowing_spheres.jpeg",
+            "raycast_engine/reflective_forest.png",
+            "raycast_engine/room_reflections.jpg",
+            "raycast_engine/balls_room.jpg"
         ]
     },
     {
@@ -399,7 +398,7 @@ export const projectData = [
             github: "",
             site: ""
         },
-        image: "resources/images/default.png",
+        image: "default.png",
         gallery: [
         ]
     }

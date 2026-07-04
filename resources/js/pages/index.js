@@ -1,7 +1,7 @@
 // ==========================================
 // IMPORTS
 // ==========================================
-import { siteConfig } from '../data/config.js';
+import { assetsConfig, linksConfig, svgConfig } from '../data/config.js';
 import { renderHeader, renderFooter } from '../components/layout.js';
 import { initNavbarBehavior } from '../components/navbar.js';
 import { initTheme } from '../core/theme.js';
@@ -30,22 +30,22 @@ function injectStaticAssets() {
     const dlHe = document.getElementById('dl-he');
     const dlEn = document.getElementById('dl-en');
 
-    if (profileImg) profileImg.src = siteConfig.assets.profile_img;
-    if (dlHe) dlHe.href = siteConfig.documents.resume_he;
-    if (dlEn) dlEn.href = siteConfig.documents.resume_en;
+    if (profileImg) profileImg.src = assetsConfig.profile_img;
+    if (dlHe) dlHe.href = assetsConfig.resume_he;
+    if (dlEn) dlEn.href = assetsConfig.resume_en;
 
     // Inject Socials
     const socialsContainer = document.getElementById('socials');
     if (socialsContainer) {
         socialsContainer.innerHTML = `
-            <a href="${siteConfig.links.linkedin}" target="_blank" class="social-btn">
-                <img src="${siteConfig.assets.icon_linkedin}" alt="LinkedIn">
+            <a href="${linksConfig.linkedin}" target="_blank" class="social-btn">
+                <img src="${assetsConfig.icon_linkedin}" alt="LinkedIn">
             </a>
-            <a href="${siteConfig.links.github}" target="_blank" class="social-btn">
-                <img src="${siteConfig.assets.icon_github}" alt="GitHub">
+            <a href="${linksConfig.github}" target="_blank" class="social-btn">
+                <img src="${assetsConfig.icon_github}" alt="GitHub">
             </a>
-            <a href="${siteConfig.links.email}" class="social-btn">
-                <img src="${siteConfig.assets.icon_gmail}" alt="Email">
+            <a href="${linksConfig.email}" class="social-btn">
+                <img src="${assetsConfig.icon_gmail}" alt="Email">
             </a>
         `;
     }
@@ -54,7 +54,7 @@ function injectStaticAssets() {
     const btnDownloadCv = document.getElementById('btn-download-cv');
     if (btnDownloadCv) {
         // Keeps the text span and adds the SVG icon
-        btnDownloadCv.innerHTML = siteConfig.assets.icon_download + btnDownloadCv.innerHTML;
+        btnDownloadCv.innerHTML = svgConfig.icon_download + btnDownloadCv.innerHTML;
 
         // Ensure the SVG is sized properly (matching your project buttons)
         const svg = btnDownloadCv.querySelector('svg');
@@ -66,7 +66,7 @@ function injectStaticAssets() {
 
     // Inject Placeholders
     document.querySelectorAll('.use-placeholder').forEach(img => {
-        img.src = siteConfig.assets.default_icon;
+        img.src = assetsConfig.default_icon;
     });
 }
 
@@ -152,7 +152,7 @@ async function loadPdf() {
     if (!frame) return;
 
     const lang = localStorage.getItem('lang') || 'he';
-    const pdfUrl = lang === 'he' ? siteConfig.documents.resume_he : siteConfig.documents.resume_en;
+    const pdfUrl = lang === 'he' ? assetsConfig.resume_he : assetsConfig.resume_en;
 
     if (frame.getAttribute('data-loaded-url') === pdfUrl) return;
 

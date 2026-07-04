@@ -5,27 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - Yuval Mashiah</title>
-    <link rel="icon" href="resources/images/icon.png" type="image/png">
+    <link rel="icon" href="resources/assets/images/icon.png" type="image/png">
 
     <link rel="stylesheet" href="resources/css/theme.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/404_styles.css">
 
-    <!-- <script src="js/utilities/theme.js" defer></script> -->
+    <script src="resources/js/core/theme.js" defer></script>
 </head>
 
 <body>
-    <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme" title="Theme: Auto">
-        🌗
-    </button>
+    <div class="floating-theme-toggle dropdown theme-dropdown">
+        <button id="btn-theme" class="icon-btn" aria-label="Theme Toggle">
+            💻
+        </button>
+
+        <div class="dropdown-menu theme-menu">
+            <button class="dropdown-item theme-option" data-theme-val="light">☀️ בהיר</button>
+            <button class="dropdown-item theme-option" data-theme-val="dark">🌙 כהה</button>
+            <button class="dropdown-item theme-option" data-theme-val="system">💻 אוטומטי</button>
+        </div>
+    </div>
 
     <div class="error-container">
         <h1 class="error-code">404</h1>
         <h2 class="error-title">אופס! נראה שהלכת לאיבוד...</h2>
-        <p class="error-message">הדף שחיפשת לא נמצא.<br>אולי מישהו כבר עקף אותך בדרך למנכ"לות, או שהכתובת שגויה.</p>
+        <p class="error-message">הדף שחיפשת לא נמצא.<br></p>
 
-        <a href="/" class="btn-home">חזרה לעמוד המשחק</a>
+        <a href="/" class="btn-home">חזרה לדף הבית</a>
     </div>
+
+    <script type="module" src="resources/js/pages/404.js"></script>
 </body>
 
 </html>
