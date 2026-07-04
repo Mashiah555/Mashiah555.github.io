@@ -1,5 +1,5 @@
 import { assetsConfig, linksConfig } from '../data/config.js';
-import { skillData, resumeData } from '../data/data.js'
+import { skillData, resumeData, projectData } from '../data/data.js'
 import { t } from '../core/i18n.js'
 
 /* --- RENDER HOME PREVIEW SKILLS --- */
@@ -191,15 +191,15 @@ export function renderPlain() {
             ${resumeData.experience.map(job => {
         const link = job.link || "#";
         return `
-                <div class="plain-item">
-                    <div class="plain-item-header">
-                        <strong>${job.role[lang]}</strong>
-                        <span>${job.dates[lang]}</span>
+                    <div class="plain-item">
+                        <div class="plain-item-header">
+                            <strong>${job.role[lang]}</strong>
+                            <span>${job.dates[lang]}</span>
+                        </div>
+                        <a href="${link}" target="_blank" class="plain-company">${job.company[lang]}</a>
+                        <p>${job.description[lang]}</p>
                     </div>
-                    <a href="${link}" target="_blank" class="plain-company">${job.company[lang]}</a>
-                    <p>${job.description[lang]}</p>
-                </div>
-            `;
+                `;
     }).join('')}
         </div>
 
@@ -208,15 +208,43 @@ export function renderPlain() {
             ${resumeData.education.map(edu => {
         const link = edu.link || "#";
         return `
-                <div class="plain-item">
-                    <div class="plain-item-header">
-                        <strong>${edu.degree[lang]}</strong>
-                        <span>${edu.dates[lang]}</span>
+                    <div class="plain-item">
+                        <div class="plain-item-header">
+                            <strong>${edu.degree[lang]}</strong>
+                            <span>${edu.dates[lang]}</span>
+                        </div>
+                        <a href="${link}" target="_blank" class="plain-company">${edu.school[lang]}</a>
+                        <p>${edu.description[lang]}</p>
                     </div>
-                    <a href="${link}" target="_blank" class="plain-company">${edu.school[lang]}</a>
-                    <p>${edu.description[lang]}</p>
-                </div>
-            `;
+                `;
+    }).join('')}
+        </div>
+
+        <div class="plain-section">
+            <h2>${(t('projects_title') || 'Projects').toUpperCase()}</h2>
+            ${projectData.map(project => {
+        const siteLink = project.links && project.links.site ? project.links.site.trim() : null;
+
+        // If a site link exists, render as an underlined link inheriting the strong tag's color
+        const titleHtml = siteLink
+            ? `<a href="${siteLink}" target="_blank" class="plain-project-link">${project.title}</a>`
+            : project.title;
+
+        // Fallback to description[lang] if project.about is missing on older entries
+        const description = project.about[lang] || (project.description && project.description[lang]) || '';
+
+        // Join the stack array with a clean bullet point separator
+        const stackList = project.stack ? project.stack.join(' • ') : '';
+
+        return `
+                    <div class="plain-item">
+                        <div class="plain-item-header">
+                            <strong>${titleHtml}</strong>
+                            <span>${stackList}</span>
+                        </div>
+                        <p>${description}</p>
+                    </div>
+                `;
     }).join('')}
         </div>
 

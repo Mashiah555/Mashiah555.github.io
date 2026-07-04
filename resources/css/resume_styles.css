@@ -377,8 +377,8 @@
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-md);
     padding: 3rem;
-    max-width: 900px;
-    margin: 0 auto 50px auto;
+    max-width: 85%;
+    margin: 0 auto;
     box-shadow: var(--shadow-sm);
     font-family: 'Segoe UI', sans-serif;
     color: var(--clr-text-main);
@@ -447,12 +447,24 @@
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
-    /* No underline by default */
     cursor: pointer;
 }
 
 .plain-company:hover {
     text-decoration: underline;
+    opacity: 0.8;
+}
+
+.plain-project-link {
+    color: var(--clr-text-main);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.plain-project-link:hover {
+    text-decoration: underline;
+    color: var(--clr-primary);
     opacity: 0.8;
 }
 
