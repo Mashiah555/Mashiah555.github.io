@@ -106,8 +106,31 @@ export function renderExperience() {
     if (!container) return;
     const lang = localStorage.getItem('lang') || 'he';
 
-    const html = resumeData.experience.map((job, index) => {
-        const delayClass = `delay-${(index % 3) * 100}`;
+    const projectsLink = linksConfig.page_projects || "#";
+
+    const languageStack = skillData.skillsCategories.find(cat => cat.id === 'cat_languages')?.items.map(item => item.name) || [];
+    const allTechs = new Set(projectData.map(project => project.stack).flat());
+    const verifiedLanguages = languageStack.filter(lang => allTechs.has(lang));
+
+    const html = `
+        <div class="job-item reveal reveal-left delay-100">
+            <a href="${projectsLink}" target="_blank" class="timeline-icon" style="padding: 5px;">
+                <img src="${assetsConfig.icon_img || assetsConfig.default_icon}" alt="Logo">
+            </a>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3 class="job-role">${t('projects_title')}</h3>
+                        <a href="${projectsLink}" target="_blank" class="job-company">${t('project_hyperlink')}</a>
+                    </div>
+                    <span class="timeline-date">${verifiedLanguages.join(' • ')}</span>
+                </div>
+                <p>${t('projects_subtitle')}</p>
+            </div>
+        </div>
+    ` + resumeData.experience.map((job, index) => {
+        const delayClass = `delay-${((index + 1) % 3) * 100}`;
         const iconSrc = (assetsConfig.gallery + job.iconSrc) || assetsConfig.default_icon;
         const link = job.link || "#";
 

@@ -79,6 +79,7 @@ export const dictionary = {
         btn_download: "הורדת קו\"ח",
         opt_he: "עברית (PDF)",
         opt_en: "אנגלית (PDF)",
+        project_hyperlink: "לחצו כאן לצפייה בפרויקטים שלי",
 
         // Tabs
         tab_exp: "ניסיון",
@@ -176,6 +177,7 @@ export const dictionary = {
         btn_download: "Download CV",
         opt_he: "Hebrew (PDF)",
         opt_en: "English (PDF)",
+        project_hyperlink: "Click here to view my projects",
 
         // Tabs
         tab_exp: "Experience",
