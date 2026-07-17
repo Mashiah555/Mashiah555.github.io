@@ -141,7 +141,7 @@ export const dictionary = {
         desc_shell: "Bash & PowerShell",
 
         // Frameworks & Tools
-        desc_maui: "Multi-Platform UI",
+        desc_maui: "Multi-Platform App UI",
         desc_fastapi: "High-Performance",
         desc_flutter: "Multi-Platform Apps",
         desc_ollama: "Local LLM Runner",

@@ -1,7 +1,17 @@
 import { t } from '../core/i18n.js';
+import { Agent } from '../ai/agent.js';
 
 export function initChatWidget() {
-    // 1. Inject HTML into the body
+    // Initialize Zing and feed it conversational data
+    const zing = new Agent("Zing");
+    const conversationalData = `
+        hello how are you doing today I am doing great 
+        tell me more about your work and what you do 
+        it is nice to meet you I am a helpful assistant
+    `;
+    zing.learn(conversationalData);
+
+    // Inject HTML into the body
     const chatHTML = `
         <div id="ai-chat-widget" class="chat-widget">
             <button id="chat-toggle-btn" class="chat-toggle-btn" title="Chat with AI">
@@ -27,7 +37,7 @@ export function initChatWidget() {
     `;
     document.body.insertAdjacentHTML('beforeend', chatHTML);
 
-    // 2. Attach Event Listeners
+    // Attach Event Listeners
     const toggleBtn = document.getElementById('chat-toggle-btn');
     const closeBtn = document.getElementById('chat-close-btn');
     const chatWindow = document.getElementById('chat-window');
@@ -40,8 +50,8 @@ export function initChatWidget() {
     toggleBtn.addEventListener('click', toggleChat);
     closeBtn.addEventListener('click', toggleChat);
 
-    // 3. Handle Messaging Logic
-    const sendMessage = async () => {
+    // Handle Messaging Logic
+    const sendMessage = () => {
         const text = chatInput.value.trim();
         if (!text) return;
 
@@ -52,23 +62,14 @@ export function initChatWidget() {
         // Show Loading state
         const loadingId = appendMessage('...', 'ai-message loading');
 
-        try {
-            // Vercel Serverless Function URL
-            const response = await fetch('https://mashiah555-portfolio.vercel.app/api/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: text })
-            });
-            const data = await response.json();
-
-            // Remove loading and append real response
+        // Local Engine Response (Simulating a slight delay for UI feel)
+        setTimeout(() => {
             document.getElementById(loadingId).remove();
-            appendMessage(data.reply, 'ai-message');
 
-        } catch (error) {
-            document.getElementById(loadingId).remove();
-            appendMessage("Sorry, I'm having trouble connecting right now.", 'ai-message error');
-        }
+            // Call the local Zing engine instead of a network fetch
+            const reply = zing.respond(text);
+            appendMessage(reply, 'ai-message');
+        }, 400);
     };
 
     sendBtn.addEventListener('click', sendMessage);

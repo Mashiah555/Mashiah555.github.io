@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Core Systems & Layout
     renderHeader();
     renderFooter();
-    //initChatWidget();
+    initChatWidget();
     initNavbarBehavior();
     initTheme();
 
