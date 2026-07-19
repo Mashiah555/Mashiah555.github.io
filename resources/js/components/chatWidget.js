@@ -3,9 +3,8 @@ import { Agent } from '../ai/agent.js';
 import { welcomeMessages, suggestionsConfig, trainingData } from '../data/ai_data.js';
 
 export function initChatWidget() {
-    // Initialize Zing and feed it training data
-    const zing = new Agent("Zing");
-    zing.learn(trainingData);
+    // Declare Zing without initializing it, to enable lazy loading of the agent
+    let zing = null;
 
     // Inject HTML into the body
     const typePlaceholder = t('type_message');
@@ -123,10 +122,19 @@ export function initChatWidget() {
     const toggleChat = () => {
         chatWindow.classList.toggle('hidden');
 
-        // Inject a welcome message only the first time the chat is opened
-        if (!chatWindow.classList.contains('hidden') && !hasGreeted) {
-            injectWelcomeMessage();
-            hasGreeted = true;
+        // Lazy Load: Only instantiate and train the bot if the window is open
+        if (!chatWindow.classList.contains('hidden')) {
+            if (!zing) {
+                // This heavy processing only happens once, exactly when the user requests it
+                zing = new Agent("Zing");
+                zing.learn(trainingData);
+            }
+
+            // Inject a welcome message only the first time the chat is opened
+            if (!hasGreeted) {
+                injectWelcomeMessage();
+                hasGreeted = true;
+            }
         }
     };
 
@@ -140,6 +148,9 @@ export function initChatWidget() {
         // Validation check utilizing the requested positive naming convention
         const isValid = text.length > 0;
         if (!isValid) return;
+
+        // Safety check to ensure Zing is ready
+        if (!zing) return;
 
         // Add User Message
         appendMessage(text, 'user-message');
