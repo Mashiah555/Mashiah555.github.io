@@ -1,18 +1,10 @@
 import { Trigram } from './ngram.js';
+import { promptIntents } from '../data/ai_data.js';
 
 export class Agent {
     constructor(name) {
         this.name = name;
         this.brain = new Trigram();
-
-        // Hardcoded answers for portfolio comprehension
-        this.knowledgeBase = {
-            "lobby stream": "Lobby Stream is a .NET MAUI application I developed. It features a Hebrew calendar display and dynamic news feed components.",
-            "lev katan": "Lev Katan is a charity web application I built using Flask and Supabase. It manages operations for a baby products lending association.",
-            "quick bookmarks": "Quick Bookmarks is a custom Google Chrome extension I engineered, featuring an enhanced grid view and right-click folder customization.",
-            "narrow down": "Narrow Down is a Flutter board game application clone I developed, utilizing the Riverpod state management framework.",
-            "skills": "I actively develop applications using C#, .NET MAUI, Flutter, and Python. I often use GitHub Pages, Supabase, and GitHub Actions for deployment."
-        };
     }
 
     learn(text) {
@@ -20,29 +12,40 @@ export class Agent {
     }
 
     _understandIntent(query) {
-        const queryLower = query.toLowerCase();
-        for (const [key, answer] of Object.entries(this.knowledgeBase)) {
-            if (queryLower.includes(key)) {
-                return answer;
+        // Test the user's query against all regex patterns
+        for (const intent of promptIntents) {
+            for (const pattern of intent.patterns) {
+                if (pattern.test(query)) {
+                    return intent;
+                }
             }
         }
-        return null;
+        return null; // Return null if no patterns match
     }
 
     respond(query) {
         // Try to understand the question and give a factual answer
-        const factualResponse = this._understandIntent(query);
-        if (factualResponse) {
-            return factualResponse;
+        const intentMatch = this._understandIntent(query);
+        if (intentMatch) {
+            return {
+                text: intentMatch.response,
+                navigateTo: intentMatch.navigateTo
+            };
         }
 
         // Fallback to generating text using the Trigram model
         const words = this.brain._preprocess(query);
-        if (words.length >= 2) {
-            const startContext = words.slice(-2); // Grab the last two words
-            return this.brain.generate(startContext);
+        if (words.length >= this.brain.n - 1) {
+            const startContext = words.slice(-this.brain.n + 1); // Grab the last two words
+            return {
+                text: this.brain.generate(startContext),
+                navigateTo: null
+            };
         } else {
-            return "Could you tell me more about that?";
+            return {
+                text: "Could you rephrase that? I want to make sure I give you the right info about Yuval's work.",
+                navigateTo: null
+            };
         }
     }
 

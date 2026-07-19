@@ -138,6 +138,46 @@ html[dir="rtl"] .ai-message {
     border-bottom-right-radius: 4px;
 }
 
+/* --- Suggestions Area --- */
+.chat-suggestions {
+    display: flex;
+    gap: 8px;
+    padding: 10px 15px 5px 15px;
+    overflow-x: auto;
+    background-color: var(--clr-bg-surface);
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.chat-suggestions::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.suggestion-chip {
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    background-color: var(--clr-bg-body);
+    color: var(--clr-text-main);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.suggestion-chip:hover {
+    background-color: var(--clr-primary);
+    color: var(--clr-text-on-primary);
+    border-color: var(--clr-primary);
+}
+
+/* --- Inline Action Buttons --- */
+.message .action-btn {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+}
+
 /* Input Area */
 .chat-input-area {
     display: flex;
