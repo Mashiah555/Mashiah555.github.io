@@ -90,6 +90,23 @@ html[dir="rtl"] .chat-window {
 
 .chat-header .icon-btn {
     color: var(--clr-text-on-primary);
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* Forces the hover background into a circle */
+    transition: background-color var(--transition-fast);
+}
+
+.chat-header .icon-btn:hover {
+    background-color: var(--clr-overlay-hover);
+    color: var(--clr-danger);
 }
 
 /* Messages Area */

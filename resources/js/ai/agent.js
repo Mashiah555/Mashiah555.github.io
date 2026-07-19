@@ -1,5 +1,5 @@
 import { Trigram } from './ngram.js';
-import { promptIntents } from '../data/ai_data.js';
+import { promptIntents, fallbackResponses } from '../data/ai_data.js';
 
 export class Agent {
     constructor(name) {
@@ -23,12 +23,12 @@ export class Agent {
         return null; // Return null if no patterns match
     }
 
-    respond(query) {
+    respond(query, lang = 'en') {
         // Try to understand the question and give a factual answer
         const intentMatch = this._understandIntent(query);
         if (intentMatch) {
             return {
-                text: intentMatch.response,
+                text: intentMatch.responses[lang],
                 navigateTo: intentMatch.navigateTo
             };
         }
@@ -43,7 +43,7 @@ export class Agent {
             };
         } else {
             return {
-                text: "Could you rephrase that? I want to make sure I give you the right info about Yuval's work.",
+                text: fallbackResponses[lang],
                 navigateTo: null
             };
         }

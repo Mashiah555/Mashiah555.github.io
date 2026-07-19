@@ -30,6 +30,6 @@ export function toggleLanguage(reRenderCallback) {
     const newLang = current === 'he' ? 'en' : 'he';
     applyLanguage(newLang);
 
-    // Call the page-specific re-render function (KISS - Dependency Injection)
+    // Call the page-specific re-render function (Dependency Injection)
     if (reRenderCallback) reRenderCallback();
 }

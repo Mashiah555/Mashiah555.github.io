@@ -11,6 +11,7 @@
     --clr-primary: light-dark(#4f46e5, #747feb);
     --clr-primary-hover: light-dark(#4338ca, #4554ac);
     --clr-primary-light: light-dark(#e0e7ff, #152032);
+    --clr-danger: light-dark(#ff3030, #dd1818);
 
     /* Neutrals */
     --clr-bg-body: light-dark(#f8fafc, #0f172a);
@@ -19,7 +20,7 @@
     --clr-text-muted: light-dark(#64748b, #94a3b8);
     --clr-text-on-primary: #ffffff;
     --clr-border: light-dark(#e2e8f0, #334155);
-    --clr-overlay-hover: rgba(255, 255, 255, 0.1);
+    --clr-overlay-hover: rgba(255, 255, 255, 0.15);
     --clr-backdrop-dim: rgba(0, 0, 0, 0.7);
     --clr-backdrop-dark: rgba(0, 0, 0, 0.9);
 

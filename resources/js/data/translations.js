@@ -5,6 +5,8 @@ import { getAge, getCurrentYear } from '../core/utils.js';
    ========================================= */
 export const dictionary = {
     he: {
+        lang: "he",
+
         // --- Navigation ---
         nav_home: "בית",
         nav_resume: "קורות חיים",
@@ -98,11 +100,19 @@ export const dictionary = {
         modal_tech: "טכנולוגיות",
         modal_gallery: "גלריה",
 
+        // --- Chatbot Widget ---
+        view_on_page: "לצפייה בדף",
+        chat_header: "עוזר ה-AI של יובל",
+        send_button: "שלח",
+        type_message: "הקלד הודעה...",
+
         // --- Footer ---
         footer_rights: `© ${getCurrentYear()} יובל משיח. כל הזכויות שמורות.`
     },
 
     en: {
+        lang: "en",
+
         // --- Navigation ---
         nav_home: "Home",
         nav_resume: "Resume",
@@ -195,6 +205,12 @@ export const dictionary = {
         modal_aspects: "System Aspects",
         modal_tech: "Technologies",
         modal_gallery: "Gallery",
+
+        // --- Chatbot Widget ---
+        view_on_page: "View on Page",
+        chat_header: "Yuval's AI Assistant",
+        send_button: "Send",
+        type_message: "Type a message...",
 
         // --- Footer ---
         footer_rights: `© ${getCurrentYear()} Yuval Mashiah. All rights reserved.`
