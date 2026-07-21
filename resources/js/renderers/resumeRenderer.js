@@ -1,26 +1,6 @@
-import { assetsConfig, linksConfig } from '../data/config.js';
+import { assetsConfig, linksConfig } from '../data/configs.js';
 import { skillData, resumeData, projectData } from '../data/data.js'
 import { t } from '../core/i18n.js'
-
-/* --- RENDER HOME PREVIEW SKILLS --- */
-export function renderHomeSkills() {
-    const lang = localStorage.getItem('lang') || 'he';
-    const container = document.getElementById('home-skills-container');
-    if (!container || typeof skillData === 'undefined' || typeof resumeData === 'undefined') return;
-
-    const skills = skillData.topSkills;
-
-    const html = skills.map(skill => `
-        <div class="skill-card compact">
-            <img src="${assetsConfig.skill_icon_base}${skill.icon}" class="skill-icon" alt="${skill.name}">
-            <div class="skill-text">
-                <strong>${skill.name}</strong>
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = html;
-}
 
 /* --- VIEW MODE SWITCHING (Visual/Plain/Preview) --- */
 export function switchView(mode) {
@@ -54,8 +34,8 @@ export function switchView(mode) {
     }
 }
 
-/* --- RENDER FULL SKILLS TAB --- */
-export function renderFullSkills() {
+/* --- RENDER SKILLS TAB --- */
+export function renderSkillStack() {
     const container = document.getElementById('skills-content');
     if (!container) return;
 

@@ -1,19 +1,19 @@
 // ==========================================
 // IMPORTS
 // ==========================================
-import { assetsConfig, linksConfig, svgConfig } from '../data/config.js';
+import { assetsConfig, linksConfig, svgConfig } from '../data/configs.js';
 import { renderHeader, renderFooter } from '../components/layout.js';
 import { initNavbarBehavior } from '../components/navbar.js';
 import { initTheme } from '../core/theme.js';
 import { applyLanguage, toggleLanguage } from '../core/i18n.js';
 import { initScrollAnimations } from '../core/animations.js';
 import {
-    renderHomeSkills,
-    renderFullSkills,
+    renderSkillStack,
     renderExperience,
     renderEducation,
     renderPlain
 } from '../renderers/resumeRenderer.js';
+import { renderHeroSkills } from '../renderers/heroRenderer.js';
 import { initChatWidget } from '../components/chatWidget.js';
 
 // ==========================================
@@ -79,8 +79,8 @@ function injectStaticAssets() {
  * Passed as a callback to the language toggler so it re-renders on switch.
  */
 function renderAllSections() {
-    if (document.getElementById('home-skills-container')) renderHomeSkills();
-    if (document.getElementById('skills-content')) renderFullSkills();
+    if (document.getElementById('hero-skills-container')) renderHeroSkills();
+    if (document.getElementById('skills-content')) renderSkillStack();
     if (document.getElementById('experience-content')) renderExperience();
     if (document.getElementById('education-content')) renderEducation();
     if (document.getElementById('plain-content')) renderPlain();

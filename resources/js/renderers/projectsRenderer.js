@@ -1,4 +1,4 @@
-import { assetsConfig, svgConfig } from '../data/config.js';
+import { assetsConfig, svgConfig } from '../data/configs.js';
 import { projectData } from '../data/data.js';
 import { t } from '../core/i18n.js';
 

@@ -1,4 +1,3 @@
-// This function is now called by layout.js
 function initApp() {
     // 1. Load saved settings
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -17,10 +16,10 @@ function initApp() {
 
     // --- DYNAMIC RENDERING CALLS ---
     if (typeof skillData !== 'undefined' && typeof resumeData !== 'undefined') {
-        // 1. Home Preview Skills
-        if (document.getElementById('home-skills-container')) renderHomeSkills();
-        // 2. Full Resume Tabs
-        if (document.getElementById('skills-content')) renderFullSkills();
+        // Hero Preview Skills
+        if (document.getElementById('hero-skills-container')) renderHeroSkills();
+        // Full Resume Tabs
+        if (document.getElementById('skills-content')) renderSkillStack();
         if (document.getElementById('experience-content')) renderExperience();
         if (document.getElementById('education-content')) renderEducation();
         if (document.getElementById('plain-content')) renderPlain();
