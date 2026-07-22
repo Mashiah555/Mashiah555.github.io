@@ -22,7 +22,7 @@
 /* Projects Grid Layout */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
     margin-bottom: 80px;
     padding: 0 10px;
@@ -337,19 +337,7 @@ details[open] summary::after {
 .details-content {
     padding: 1rem;
     border-top: 1px solid var(--clr-border);
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    animation: fadeInDown 0.3s ease;
 }
 
 /* --- FEATURES & ASPECTS GRID --- */

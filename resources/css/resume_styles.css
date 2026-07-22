@@ -7,9 +7,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 30px;
     padding: 10px 0;
     border-bottom: 1px solid var(--clr-border);
+}
+
+@media (max-width: 600px) {
+    .controls-bar {
+        justify-content: center;
+    }
 }
 
 .view-toggle {
@@ -89,23 +97,11 @@
     max-width: 800px;
     width: calc(100% - 40px);
     margin: 0 auto;
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeInUp 0.3s ease-in;
 }
 
 .tab-content.active {
     display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* =========================================
@@ -164,16 +160,6 @@
 /* Trigger the shine animation on hover */
 .skill-card:hover::before {
     animation: shineSweep 0.75s ease-out forwards;
-}
-
-@keyframes shineSweep {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 200%;
-    }
 }
 
 .skill-icon {

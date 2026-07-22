@@ -152,18 +152,6 @@ html[dir="rtl"] .dropdown-menu {
     animation: dropdownFade 0.2s ease-in forwards;
 }
 
-@keyframes dropdownFade {
-    from {
-        opacity: 0;
-        margin-top: 15px;
-    }
-
-    to {
-        opacity: 1;
-        margin-top: 5px;
-    }
-}
-
 /* Individual clickable items */
 .dropdown-item {
     display: block;
@@ -231,9 +219,14 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 160px;
+    }
+
     .navbar {
         flex-direction: column;
         gap: 15px;
+        padding: 1rem;
     }
 
     .nav-left {
