@@ -38,13 +38,13 @@ export function renderFooter() {
         <footer class="footer text-center">
             <p data-i18n="footer_rights"></p>
             <div class="footer-links">
-                <a href="${linksConfig.linkedin}" target="_blank" class="footer-link">
+                <a href="${linksConfig.linkedin}" target="_blank" class="footer-link text-link">
                     <img src="${assetsConfig.icon_linkedin}" alt="in"> LinkedIn
                 </a>
-                <a href="${linksConfig.github}" target="_blank" class="footer-link">
+                <a href="${linksConfig.github}" target="_blank" class="footer-link text-link">
                     <img src="${assetsConfig.icon_github}" alt="GH"> GitHub
                 </a>
-                <a href="${linksConfig.email}" class="footer-link">
+                <a href="${linksConfig.email}" class="footer-link text-link">
                     <img src="${assetsConfig.icon_gmail}" alt="@"> Email
                 </a>
             </div>

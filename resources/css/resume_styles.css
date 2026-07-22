@@ -299,17 +299,8 @@
 .job-company {
     display: block;
     font-size: 1rem;
-    color: var(--clr-primary);
-    /* Primary color indicates link */
     font-weight: 600;
     margin-top: 4px;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.job-company:hover {
-    opacity: 0.8;
-    text-decoration: underline;
 }
 
 .timeline-date {
@@ -383,13 +374,7 @@
 }
 
 .plain-links a {
-    color: var(--clr-primary);
-    text-decoration: none;
     font-weight: 500;
-}
-
-.plain-links a:hover {
-    text-decoration: underline;
 }
 
 .plain-divider {
@@ -432,26 +417,18 @@
     font-weight: 600;
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .plain-company:hover {
-    text-decoration: underline;
     opacity: 0.8;
 }
 
 .plain-project-link {
     color: var(--clr-text-main);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-    cursor: pointer;
 }
 
 .plain-project-link:hover {
-    text-decoration: underline;
     color: var(--clr-primary);
-    opacity: 0.8;
 }
 
 .plain-item p {

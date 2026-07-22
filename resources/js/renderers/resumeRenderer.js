@@ -102,7 +102,7 @@ export function renderExperience() {
                 <div class="job-header">
                     <div class="job-info">
                         <h3 class="job-role">${t('projects_title')}</h3>
-                        <a href="${projectsLink}" target="_blank" class="job-company">${t('project_hyperlink')}</a>
+                        <a href="${projectsLink}" target="_blank" class="job-company text-link">${t('project_hyperlink')}</a>
                     </div>
                     <span class="timeline-date">${verifiedLanguages.join(' • ')}</span>
                 </div>
@@ -124,7 +124,7 @@ export function renderExperience() {
                 <div class="job-header">
                     <div class="job-info">
                         <h3 class="job-role">${job.role[lang]}</h3>
-                        <a href="${link}" target="_blank" class="job-company">${job.company[lang]}</a>
+                        <a href="${link}" target="_blank" class="job-company text-link">${job.company[lang]}</a>
                     </div>
                     <span class="timeline-date">${job.dates[lang]}</span>
                 </div>
@@ -157,7 +157,7 @@ export function renderEducation() {
                 <div class="job-header">
                     <div class="job-info">
                         <h3 class="job-role">${edu.degree[lang]}</h3>
-                        <a href="${link}" target="_blank" class="job-company">${edu.school[lang]}</a>
+                        <a href="${link}" target="_blank" class="job-company text-link">${edu.school[lang]}</a>
                     </div>
                     <span class="timeline-date">${edu.dates[lang]}</span>
                 </div>
@@ -180,7 +180,7 @@ export function renderPlain() {
         <div class="plain-header">
             <h1>${t('greeting')}</h1>
             <p>${t('hero_role')} • ${t('hero_location')}</p>
-            <div class="plain-links">
+            <div class="plain-links text-link">
                 <a href="${linksConfig.email}">${linksConfig.email.replace('mailto:', '')}</a> | 
                 <a href="${linksConfig.linkedin}" target="_blank">LinkedIn</a> | 
                 <a href="${linksConfig.github}" target="_blank">GitHub</a>
@@ -199,7 +199,7 @@ export function renderPlain() {
                             <strong>${job.role[lang]}</strong>
                             <span>${job.dates[lang]}</span>
                         </div>
-                        <a href="${link}" target="_blank" class="plain-company">${job.company[lang]}</a>
+                        <a href="${link}" target="_blank" class="plain-company text-link">${job.company[lang]}</a>
                         <p>${job.description[lang]}</p>
                     </div>
                 `;
@@ -216,7 +216,7 @@ export function renderPlain() {
                             <strong>${edu.degree[lang]}</strong>
                             <span>${edu.dates[lang]}</span>
                         </div>
-                        <a href="${link}" target="_blank" class="plain-company">${edu.school[lang]}</a>
+                        <a href="${link}" target="_blank" class="plain-company text-link">${edu.school[lang]}</a>
                         <p>${edu.description[lang]}</p>
                     </div>
                 `;
@@ -230,7 +230,7 @@ export function renderPlain() {
 
         // If a site link exists, render as an underlined link inheriting the strong tag's color
         const titleHtml = siteLink
-            ? `<a href="${siteLink}" target="_blank" class="plain-project-link">${project.title}</a>`
+            ? `<a href="${siteLink}" target="_blank" class="plain-project-link text-link">${project.title}</a>`
             : project.title;
 
         // Fallback to description[lang] if project.about is missing on older entries

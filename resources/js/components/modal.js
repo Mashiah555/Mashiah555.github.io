@@ -154,7 +154,7 @@ export function openModal(projectId) {
             }
 
             bottomSectionHtml += `
-                        <div class="modal-instructions">
+                        <div class="modal-instructions text-link">
                             <span>${textPart}</span> ${linkPart}
                         </div>`;
         }

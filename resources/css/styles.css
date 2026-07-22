@@ -188,13 +188,8 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 .footer-links a {
-    color: var(--clr-primary);
     font-weight: 600;
     margin: 0 5px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
 }
 
 .footer-link {
@@ -216,6 +211,17 @@ html[dir="rtl"] .dropdown-menu {
    ========================================= */
 .text-center {
     text-align: center;
+}
+
+.text-link {
+    color: var(--clr-primary);
+    text-decoration: underline;
+    transition: opacity var(--transition-fast);
+    cursor: pointer;
+}
+
+.text-link:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 768px) {
