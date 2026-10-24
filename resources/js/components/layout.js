@@ -1,4 +1,4 @@
-import { linksConfig, assetsConfig } from '../data/configs.js';
+import { linksConfig, assetsConfig } from '/resources/js/data/configs.js';
 
 export function renderHeader() {
     const path = window.location.pathname;

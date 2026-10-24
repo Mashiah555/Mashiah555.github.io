@@ -2,8 +2,8 @@
 export const skillData = {
     // --- HOME PAGE PREVIEW ---
     topSkills: [
-        { id: "csharp", name: "C#", icon: "cs" },
         { id: "flutter", name: "Flutter", icon: "flutter" },
+        { id: "csharp", name: "C#", icon: "cs" },
         { id: "python", name: "Python", icon: "py" }
     ],
 
@@ -171,7 +171,7 @@ export const projectData = [
                 "Multi-platform application"
             ]
         },
-        stack: ["C#", ".NET MAUI", "Firebase"],
+        stack: ["Dart", "Flutter", "Firebase"],
         services: ["OpenWeatherMap API", "Ynet API", "Hebcal API", "Exchange Rate API"],
         links: {
             github: "",
@@ -341,20 +341,44 @@ export const projectData = [
         id: "raycast_engine",
         title: "Raycast Engine",
         description: {
-            he: "",
-            en: ""
+            he: "מנוע רינדור תלת-ממדי (Ray Tracing) ב-Java, המפיק תמונות ריאליסטיות עם תמיכה בריבוי תהליכונים והאצת BVH.",
+            en: "A 3D Ray Tracing engine built in Java, rendering realistic images with multi-threading and BVH acceleration."
         },
         about: {
-            he: "",
-            en: ""
+            he: "מנוע הרינדור מיישם את אלגוריתם ה-Ray Tracing מאפס. הוא תומך בגיאומטריות, מודלי תאורה, ואפקטים אופטיים ריאליסטיים כגון השתקפויות מראה, שבירת אור, צללים רכים ועומק שדה, ומואץ באמצעות ריבוי תהליכונים ועץ BVH.",
+            en: "This fully functional rendering engine implements Ray Tracing from scratch. It supports complex geometries, advanced lighting, and highly realistic optical effects like reflections, recursive refraction, soft shadows, anti-aliasing, and depth of field, optimized via multi-threading and BVH trees."
         },
         features: {
-            he: [],
-            en: []
+            he: [
+                "צורות תלת-ממדיות כולל מצולעים, כדורים, וגלילים",
+                "תאורה גלובלית עם השתקפויות ושבירות אור רקורסיביות עבור מראות וזכוכיות",
+                "צללים רכים והשתקפויות מטושטשות (Glossy Reflections) מבוססי קרניים אקראיות",
+                "אפקט עומק שדה (Depth of Field) והחלקת קצוות (Anti-Aliasing / Super-sampling)",
+                "מודל תאורת פונג (Phong) עם מקורות תאורה כיווניים, נקודתיים וזרקורים",
+                "האצת ביצועים באמצעות עץ מבנה (Bounding Volume Hierarchy (BVH"
+            ],
+            en: [
+                "Complex geometric primitives including polygons, spheres, cylinders, and tubes",
+                "Global illumination with recursive reflection and refraction for mirrors and glass",
+                "Distributed ray tracing for Soft Shadows and Glossy/Blurry Reflections",
+                "Camera Depth of Field (DoF) and Anti-Aliasing (Super-sampling)",
+                "Phong reflection model supporting directional, point, and spot lights",
+                "Performance acceleration using Bounding Volume Hierarchy (BVH) trees"
+            ]
         },
         aspects: {
-            he: [],
-            en: []
+            he: [
+                "רינדור מקבילי המבוסס על ריבוי תהליכונים (Multi-threading)",
+                "אלגברה ליניארית וגיאומטריה תלת-ממדית",
+                "תבניות עיצוב (Builder Pattern, Composite Pattern)",
+                "אופטימיזציית אלגוריתמים ומבני נתונים מרחביים"
+            ],
+            en: [
+                "Multi-threaded rendering for optimized image generation",
+                "Linear Algebra & 3D Geometry",
+                "Software Design Patterns (Builder, Composite)",
+                "Algorithm Optimization and Spatial Data Structures"
+            ]
         },
         stack: ["Java"],
         services: [],

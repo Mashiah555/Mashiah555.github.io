@@ -1,5 +1,5 @@
-import { Trigram } from './ngram.js';
-import { promptIntents, fallbackResponses } from '../data/ai_data.js';
+import { Trigram } from '/resources/js/ai/ngram.js';
+import { promptIntents, fallbackResponses } from '/resources/js/data/ai_data.js';
 
 export class Agent {
     constructor(name) {

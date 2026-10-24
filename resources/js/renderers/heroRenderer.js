@@ -1,5 +1,5 @@
-import { assetsConfig } from '../data/configs.js';
-import { skillData, resumeData } from '../data/data.js'
+import { assetsConfig } from '/resources/js/data/configs.js';
+import { skillData, resumeData } from '/resources/js/data/data.js'
 
 /* --- RENDER HERO PREVIEW SKILLS --- */
 export function renderHeroSkills() {

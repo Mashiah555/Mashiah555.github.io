@@ -1,20 +1,20 @@
 // ==========================================
 // IMPORTS
 // ==========================================
-import { assetsConfig, linksConfig, svgConfig } from '../data/configs.js';
-import { renderHeader, renderFooter } from '../components/layout.js';
-import { initNavbarBehavior } from '../components/navbar.js';
-import { initTheme } from '../core/theme.js';
-import { applyLanguage, toggleLanguage } from '../core/i18n.js';
-import { initScrollAnimations } from '../core/animations.js';
+import { assetsConfig, linksConfig, svgConfig } from '/resources/js/data/configs.js';
+import { renderHeader, renderFooter } from '/resources/js/components/layout.js';
+import { initNavbarBehavior } from '/resources/js/components/navbar.js';
+import { initTheme } from '/resources/js/core/theme.js';
+import { applyLanguage, toggleLanguage } from '/resources/js/core/i18n.js';
+import { initScrollAnimations } from '/resources/js/core/animations.js';
 import {
     renderSkillStack,
     renderExperience,
     renderEducation,
     renderPlain
-} from '../renderers/resumeRenderer.js';
-import { renderHeroSkills } from '../renderers/heroRenderer.js';
-import { initChatWidget } from '../components/chatWidget.js';
+} from '/resources/js/renderers/resumeRenderer.js';
+import { renderHeroSkills } from '/resources/js/renderers/heroRenderer.js';
+import { initChatWidget } from '/resources/js/components/chatWidget.js';
 
 // ==========================================
 // PAGE-SPECIFIC INITIALIZATION

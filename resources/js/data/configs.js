@@ -6,23 +6,23 @@ export const linksConfig = {
     email: "mailto:myyuval555@gmail.com",
 
     // Navigation Paths
-    page_home: "./",
-    page_resume: "./?tab=experience#resume-section",
-    page_projects: "projects.html",
-    page_skills: "./?tab=skills#resume-section"
+    page_home: "/",
+    page_resume: "/?tab=experience#resume-section",
+    page_projects: "/projects.html",
+    page_skills: "/?tab=skills#resume-section"
 };
 
 // --- ASSET PATHS --- 
 export const assetsConfig = {
     // Local Images
-    profile_img: "resources/assets/images/profile.png",
-    icon_img: "resources/assets/images/icon.png",
-    default_icon: "resources/assets/images/default.png",
-    gallery: "resources/assets/images/",
+    profile_img: "/resources/assets/images/profile.png",
+    icon_img: "/resources/assets/images/icon.png",
+    default_icon: "/resources/assets/images/default.png",
+    gallery: "/resources/assets/images/",
 
     // Documents
-    resume_he: "resources/assets/documents/יובל משיח - קורות חיים.pdf",
-    resume_en: "resources/assets/documents/Yuval Mashiah - Resume.pdf",
+    resume_he: "/resources/assets/documents/יובל משיח - קורות חיים.pdf",
+    resume_en: "/resources/assets/documents/Yuval Mashiah - Resume.pdf",
 
     // External Icons
     skill_icon_base: "https://skillicons.dev/icons?i=",

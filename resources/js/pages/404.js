@@ -1,4 +1,4 @@
-import { initTheme } from '../core/theme.js';
+import { initTheme } from '/resources/js/core/theme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();

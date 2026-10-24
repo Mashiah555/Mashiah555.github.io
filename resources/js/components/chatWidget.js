@@ -1,5 +1,5 @@
-import { t } from '../core/i18n.js';
-import { Agent } from '../ai/agent.js';
+import { t } from '/resources/js/core/i18n.js';
+import { Agent } from '/resources/js/ai/agent.js';
 import { welcomeMessages, suggestionsConfig, trainingData } from '../data/ai_data.js';
 
 export function initChatWidget() {

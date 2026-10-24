@@ -1,4 +1,4 @@
-import { getAge, getCurrentYear } from '../core/utils.js';
+import { getAge, getCurrentYear } from '/resources/js/core/utils.js';
 
 /* =========================================
    DICTIONARY (Hebrew & English)

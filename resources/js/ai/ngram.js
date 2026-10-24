@@ -1,4 +1,4 @@
-import BaseLanguageModel from "./baseLanguageModel.js";
+import BaseLanguageModel from "/resources/js/ai/baseLanguageModel.js";
 
 class NGramModel extends BaseLanguageModel {
     constructor(n) {

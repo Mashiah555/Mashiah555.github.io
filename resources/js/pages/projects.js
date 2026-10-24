@@ -1,13 +1,13 @@
 // ==========================================
 // IMPORTS
 // ==========================================
-import { renderHeader, renderFooter } from '../components/layout.js';
-import { initNavbarBehavior } from '../components/navbar.js';
-import { initTheme } from '../core/theme.js';
-import { applyLanguage, toggleLanguage } from '../core/i18n.js';
-import { initScrollAnimations } from '../core/animations.js';
-import { renderProjectsPage } from '../renderers/projectsRenderer.js';
-import { openModal, closeModal, openLightbox, closeLightbox, initModalListeners, reRenderModalIfOpen } from '../components/modal.js';
+import { renderHeader, renderFooter } from '/resources/js/components/layout.js';
+import { initNavbarBehavior } from '/resources/js/components/navbar.js';
+import { initTheme } from '/resources/js/core/theme.js';
+import { applyLanguage, toggleLanguage } from '/resources/js/core/i18n.js';
+import { initScrollAnimations } from '/resources/js/core/animations.js';
+import { renderProjectsPage } from '/resources/js/renderers/projectsRenderer.js';
+import { openModal, closeModal, openLightbox, closeLightbox, initModalListeners, reRenderModalIfOpen } from '/resources/js/components/modal.js';
 
 // ==========================================
 // RENDER CONTROLLER

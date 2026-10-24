@@ -1,4 +1,4 @@
-import { dictionary } from '../data/translations.js';
+import { dictionary } from '/resources/js/data/translations.js';
 
 // Helper for getting translated text
 export function t(key) {

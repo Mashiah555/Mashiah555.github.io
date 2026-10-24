@@ -1,6 +1,6 @@
-import { assetsConfig, linksConfig } from '../data/configs.js';
-import { skillData, resumeData, projectData } from '../data/data.js'
-import { t } from '../core/i18n.js'
+import { assetsConfig, linksConfig } from '/resources/js/data/configs.js';
+import { skillData, resumeData, projectData } from '/resources/js/data/data.js'
+import { t } from '/resources/js/core/i18n.js'
 
 /* --- VIEW MODE SWITCHING (Visual/Plain/Preview) --- */
 export function switchView(mode) {

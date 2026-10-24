@@ -1,6 +1,6 @@
-import { assetsConfig, svgConfig } from '../data/configs.js';
-import { projectData } from '../data/data.js';
-import { t } from '../core/i18n.js';
+import { assetsConfig, svgConfig } from '/resources/js/data/configs.js';
+import { projectData } from '/resources/js/data/data.js';
+import { t } from '/resources/js/core/i18n.js';
 
 export function renderProjectsPage() {
     const container = document.getElementById('projects-grid');
