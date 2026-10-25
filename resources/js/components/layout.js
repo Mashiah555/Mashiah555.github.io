@@ -1,4 +1,5 @@
 import { linksConfig, assetsConfig } from '/resources/js/data/configs.js';
+import { initAccessibility } from '/resources/js/components/accessibility.js';
 
 export function renderHeader() {
     const path = window.location.pathname;
@@ -14,6 +15,11 @@ export function renderHeader() {
                 <a href="${linksConfig.page_skills}" id="nav-skills" class="nav-link" data-i18n="nav_skills"></a>
             </div>
             <div class="nav-right">
+                <button id="btn-a11y" class="icon-btn" aria-label="Accessibility Menu" aria-expanded="false" title="Accessibility\nנגישות">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                        <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+                    </svg>
+                </button>
                 <div class="dropdown theme-dropdown">
                     <button id="btn-theme" class="icon-btn" aria-label="Toggle Theme">
                         💻
@@ -31,6 +37,8 @@ export function renderHeader() {
     `;
     const headerContainer = document.getElementById('global-header');
     if (headerContainer) headerContainer.innerHTML = headerHTML;
+
+    initAccessibility();
 }
 
 export function renderFooter() {

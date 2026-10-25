@@ -20,7 +20,7 @@
     --clr-text-muted: light-dark(#64748b, #94a3b8);
     --clr-text-on-primary: #ffffff;
     --clr-border: light-dark(#e2e8f0, #334155);
-    --clr-overlay-hover: rgba(255, 255, 255, 0.15);
+    --clr-overlay-hover: light-dark(rgba(100, 100, 100, 0.1), rgba(200, 200, 200, 0.1));
     --clr-backdrop-dim: rgba(0, 0, 0, 0.7);
     --clr-backdrop-dark: rgba(0, 0, 0, 0.9);
 

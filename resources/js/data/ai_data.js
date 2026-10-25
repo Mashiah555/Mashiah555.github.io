@@ -9,7 +9,7 @@ export const promptIntents = [
         navigateTo: null
     },
     {
-        patterns: [/\b(skills|tech|stack|languages?|c#|\.net|python|flutter|js|javascript|html)\b/i, /(כישורים|יכולות|טכנולוגיות|שפות|פיתוח|שפה)/],
+        patterns: [/\b(skills|tech|stack|languages?|c#|\.net|python|flutter|js|javascript|dart|html)\b/i, /(כישורים|יכולות|טכנולוגיות|שפות|פיתוח|שפה)/],
         responses: {
             en: "Yuval's core stack includes C#, .NET MAUI, Flutter, and Python. He frequently utilizes GitHub Actions for CI workflows, and Supabase or Google Firestore for database management.",
             he: "הטכנולוגיות המרכזיות של יובל כוללות C#, .NET MAUI, Flutter ו-Python. הוא משתמש ב-GitHub Actions ל-CI/CD, וב-Supabase או Firestore לניהול מסדי נתונים."
@@ -17,7 +17,7 @@ export const promptIntents = [
         navigateTo: "resume-section"
     },
     {
-        patterns: [/\b(mobile|flutter|flame|apps?|narrow down|parking|game|board game)\b/i, /(מובייל|אפליקציה|אפליקציות|פלאטר|משחק|משחקים)/],
+        patterns: [/\b(mobile|flutter|flame|apps?|gather app| gather upp|parking|game|board game)\b/i, /(מובייל|אפליקציה|אפליקציות|פלאטר|משחק|משחקים)/],
         responses: {
             en: "Yuval has built several mobile applications using Flutter! These include 'Narrow Down' (a board game clone using Riverpod), a mini-games hub featuring a 'Parking Jam' clone built with Flame, and a local English-learning app for children integrated with the Gemma 4 model.",
             he: "יובל בנה מספר אפליקציות מובייל באמצעות Flutter! אלו כוללות את 'Narrow Down' (משחק לוח), אוסף מיני-משחקים הכולל את 'Parking Jam', ואפליקציה מקומית ללימוד אנגלית לילדים המשולבת עם מודל Gemma 4."
@@ -25,7 +25,7 @@ export const promptIntents = [
         navigateTo: "resume-section"
     },
     {
-        patterns: [/\b(web|flask|lev katan|charity|ceo|firebase)\b/i, /(ווב|אתר|לב קטן|תרומות|רשת)/],
+        patterns: [/\b(web|flask|lev katan|charity|firebase)\b/i, /(ווב|אתר|לב קטן|תרומות|רשת)/],
         responses: {
             en: "In the web domain, Yuval developed 'Lev Katan', a charity management web app built with Flask and Supabase. He also engineered a web game called 'The Road to CEO', deployed via Firebase CLI.",
             he: "בתחום הווב, יובל פיתח את 'לב קטן', אפליקציית רשת לניהול תרומות שנבנתה עם Flask ו-Supabase. הוא גם תכנת משחק רשת בשם 'The Road to CEO' שהועלה דרך Firebase CLI."
@@ -33,7 +33,7 @@ export const promptIntents = [
         navigateTo: null
     },
     {
-        patterns: [/\b(lobby|stream|maui|\.net|calendar|news)\b/i, /(לובי|סטרים|לוח שנה|חדשות)/],
+        patterns: [/\b(lobby|stream|display|admin|calendar|news)\b/i, /(לובי|סטרים|לוח שנה|חדשות)/],
         responses: {
             en: "Yuval developed 'Lobby Stream', a .NET MAUI application that features a dynamic news feed and a custom Hebrew calendar implementation.",
             he: "יובל פיתח את 'Lobby Stream', אפליקציית .NET MAUI הכוללת רכיב חדשות דינמי ולוח שנה עברי מותאם אישית."
